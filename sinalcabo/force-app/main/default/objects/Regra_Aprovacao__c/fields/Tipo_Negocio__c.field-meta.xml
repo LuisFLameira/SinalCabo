@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Negocio__c</fullName>
+    <description>SinalCabo - tipo de negocio (mesmo GVS da cascata). Dependente da Area, com os mesmos pares da Opportunity: impede gravar uma regra com um par impossivel, que carregaria e nunca corresponderia a nenhuma oportunidade.</description>
+    <inlineHelpText>Tipo de negócio dentro da Área escolhida. Junto com o Colaborador e a Área, determina a que oportunidades a regra se aplica.</inlineHelpText>
+    <label>Tipo de Negócio</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Area__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>SC_Tipo_Negocio</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Telecomunicações Móveis</controllingFieldValue>
+            <valueName>Infraestrutura Mobile</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Telecomunicações Móveis</controllingFieldValue>
+            <valueName>Manutenção &amp; Operação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inovação de Produto</controllingFieldValue>
+            <valueName>Inovação de Produto</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pré-Venda &amp; Desenvolvimento de Negócio</controllingFieldValue>
+            <valueName>Pré-Venda &amp; Desenvolvimento de Negócio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desenvolvimento de Negócio &amp; Inovação de Negócio 360º</controllingFieldValue>
+            <valueName>Tecnologia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desenvolvimento de Negócio &amp; Inovação de Negócio 360º</controllingFieldValue>
+            <valueName>Indústrias</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportes</controllingFieldValue>
+            <valueName>Backoffice Processos, qualidade &amp; Faturação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportes</controllingFieldValue>
+            <valueName>Operação Telecomunicações Fibra Óptica</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportes</controllingFieldValue>
+            <valueName>Projetos Integrados</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transportes</controllingFieldValue>
+            <valueName>Infraestruturas &amp; Transportes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Home Solutions</controllingFieldValue>
+            <valueName>Home Solutions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Instalações Técnicas Especiais</controllingFieldValue>
+            <valueName>Instalações Técnicas Especiais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Box Moving</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>NOS Sob Orçamentação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Outsourcing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>NOS Managed Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Networking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Cibersegurança</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Seguranças &amp; Proteção Eletrónica</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Hybrid IT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gestão Comercial</controllingFieldValue>
+            <valueName>Workplace</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ICT</controllingFieldValue>
+            <valueName>Suporte Grupo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ICT</controllingFieldValue>
+            <valueName>Serviços IT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energias Renováveis</controllingFieldValue>
+            <controllingFieldValue>Solarus</controllingFieldValue>
+            <valueName>Solar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mobilidade Elétrica</controllingFieldValue>
+            <valueName>Mobilidade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Facilities Management</controllingFieldValue>
+            <valueName>Facilities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Redes</controllingFieldValue>
+            <valueName>Redes</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

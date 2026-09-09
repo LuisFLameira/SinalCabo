@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Backup_N2__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SinalCabo - delegado/backup do aprovador N2.</description>
+    <label>Backup N2</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Regras (Backup N2)</relationshipLabel>
+    <relationshipName>Regras_Backup_N2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

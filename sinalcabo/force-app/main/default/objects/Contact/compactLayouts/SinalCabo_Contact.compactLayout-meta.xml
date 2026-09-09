@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SinalCabo_Contact</fullName>
+    <fields>Name</fields>
+    <fields>Title</fields>
+    <fields>Influencia__c</fields>
+    <fields>KAM_Responsavel__c</fields>
+    <fields>AccountId</fields>
+    <label>SinalCabo Contact</label>
+</CompactLayout>

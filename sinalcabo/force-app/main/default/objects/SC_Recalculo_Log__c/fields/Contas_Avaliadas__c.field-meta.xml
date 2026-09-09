@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contas_Avaliadas__c</fullName>
+    <description>Quantas contas o recálculo leu e recalculou. Comparar com o total da org: se este número cair sem razão de negócio, a lógica de fronteira deixou de apanhar casos.</description>
+    <externalId>false</externalId>
+    <label>Contas Avaliadas</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Autoriza o recalculo do segmento de TODAS as contas (botao Recalcular Segmentos da lista, flow SC_Recalcular_Segmento_Todas). Os listViewButtons nao tem visibilidade por perfil, por isso o controlo de acesso e&apos; esta permissao. So&apos; no SC_Admin_Custom_FLS.</description>
+    <isLicensed>false</isLicensed>
+    <label>SC Recalcular Segmentos de Todas as Contas</label>
+</CustomPermission>

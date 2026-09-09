@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId"        type="String" role="inputOnly" label="Opportunity ID" />
+            <property name="scoresJson"      type="String"                  label="Scores JSON (output)" />
+            <property name="scoreCalculated" type="String"                  label="Score Calculado (output)" />
+            <property name="q01" type="String" label="Q1 (legado)" default="0" />
+            <property name="q02" type="String" label="Q2 (legado)" default="0" />
+            <property name="q03" type="String" label="Q3 (legado)" default="0" />
+            <property name="q04" type="String" label="Q4 (legado)" default="0" />
+            <property name="q05" type="String" label="Q5 (legado)" default="0" />
+            <property name="q06" type="String" label="Q6 (legado)" default="0" />
+            <property name="q07" type="String" label="Q7 (legado)" default="0" />
+            <property name="q08" type="String" label="Q8 (legado)" default="0" />
+            <property name="q09" type="String" label="Q9 (legado)" default="0" />
+            <property name="q10" type="String" label="Q10 (legado)" default="0" />
+            <property name="q11" type="String" label="Q11 (legado)" default="0" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

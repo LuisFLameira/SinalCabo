@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Notificacao</name>
+        <label>Enviar notificacao in-app ao N1</label>
+        <locationX>176</locationX>
+        <locationY>528</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Get_CNT.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Proposta para aprovar</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <elementReference>formulaBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>varRecipientIds</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_Recipient</name>
+        <label>Adicionar N1 aos destinatarios</label>
+        <locationX>176</locationX>
+        <locationY>408</locationY>
+        <assignmentItems>
+            <assignToReference>varRecipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Aprovador_Alvo_N1__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Notificacao</targetReference>
+        </connector>
+    </assignments>
+    <description>ADITIVO e independente dos thresholds. Notificacao in-app (sino + push movel) do 1o nivel de aprovacao: quando Approval_Status__c muda para &quot;Aguarda L1&quot;, avisa o aprovador N1 resolvido pela matriz (Aprovador_Alvo_N1__c), com nome e valor da oportunidade e link para o registo. O destinatario e&apos; o aprovador resolvido pela matriz, como no L2 e no L3, e nao a hierarquia do dono. O gatilho e&apos; o estado de aprovacao e nao a mudanca de fase, porque e&apos; o instante em que o work item nasce na fila do N1 (initialSubmissionAction SC_AP_Set_Aguarda_L1) e ja&apos; depois de o motor decidir se ha aprovacao. Guarda no start: so&apos; dispara com o alvo preenchido. Id do Custom Notification Type por DeveloperName (Aprovacao_Pendente), sem hardcode. Nao toca em CMT, email nem thresholds.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaBody</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Name} &amp; &quot; — &quot; &amp; TEXT({!$Record.Amount}) &amp; &quot; EUR&quot;</expression>
+    </formulas>
+    <interviewLabel>SC Notif Aprovacao InApp {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC - Notif Aprovacao InApp</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_CNT</name>
+        <label>Get Custom Notification Type</label>
+        <locationX>176</locationX>
+        <locationY>288</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_Recipient</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Aprovacao_Pendente</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>DeveloperName</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_CNT</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>ISPICKVAL({!$Record.Approval_Status__c}, &quot;Aguarda L1&quot;) &amp;&amp; NOT(ISBLANK({!$Record.Aprovador_Alvo_N1__c}))</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varRecipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

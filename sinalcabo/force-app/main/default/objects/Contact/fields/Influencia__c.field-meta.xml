@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Influencia__c</fullName>
+    <description>SinalCabo: Papel do contacto no processo de compra/decisão.</description>
+    <label>Influência</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Decisor</fullName>
+                <default>false</default>
+                <label>Decisor</label>
+            </value>
+            <value>
+                <fullName>Influenciador</fullName>
+                <default>false</default>
+                <label>Influenciador</label>
+            </value>
+            <value>
+                <fullName>Utilizador</fullName>
+                <default>false</default>
+                <label>Utilizador</label>
+            </value>
+            <value>
+                <fullName>Champion</fullName>
+                <default>false</default>
+                <label>Champion</label>
+            </value>
+            <value>
+                <fullName>Bloqueador</fullName>
+                <default>false</default>
+                <label>Bloqueador</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

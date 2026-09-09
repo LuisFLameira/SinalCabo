@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Colaborador__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SinalCabo - dono comercial a que esta regra se aplica.</description>
+    <inlineHelpText>O comercial dono da oportunidade a quem esta regra se aplica. O motor procura a regra pela combinação Colaborador, Tipo de Negócio e Área.</inlineHelpText>
+    <label>Colaborador</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Regras (Colaborador)</relationshipLabel>
+    <relationshipName>Regras_Colaborador</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

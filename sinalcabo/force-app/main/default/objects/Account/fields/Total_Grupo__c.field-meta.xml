@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Grupo__c</fullName>
+    <description>SinalCabo (DT.2) - Populado pelo rollup hierarquico (SC_Account_Group_Rollup). Soma do Total Closed Won proprio mais o das contas filhas. Numa conta-mae sem negocio proprio iguala a soma das filhas. Nao destroi o numero individual (Total_Closed_Won__c). Read-only no layout.</description>
+    <inlineHelpText>Total de negocio ganho do GRUPO (esta conta mais as filhas). Diferente do Total Closed Won, que e so desta conta. Actualizado automaticamente.</inlineHelpText>
+    <label>Total do Grupo</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Currency</type>
+</CustomField>

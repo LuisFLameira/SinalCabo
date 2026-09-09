@@ -1,0 +1,256 @@
+/* ═══════════════════════════════════════════════════════════════
+   scG1Scorer — Gate G1 Qualification Scorer
+   World-class UI para Screen Flow SinalCabo
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Card container ───────────────────────────────────────────── */
+.scorer-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.scorer-header {
+    background: linear-gradient(135deg, #005f5f 0%, #008080 100%);
+    color: #ffffff;
+    padding: 18px 24px 16px;
+}
+
+.scorer-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.2px;
+}
+
+.scorer-header p {
+    font-size: 12px;
+    opacity: 0.88;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Secções de categoria ─────────────────────────────────────── */
+.category-section {
+    margin: 10px 14px;
+    border-radius: 8px;
+    padding: 10px 14px;
+    /* border-left definido inline via style binding */
+}
+
+.category-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    /* color definido inline via style binding */
+}
+
+/* ── Linha de critério ────────────────────────────────────────── */
+.criterion-row {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.criterion-row:last-child {
+    border-bottom: none;
+}
+
+.criterion-left {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex: 1;
+    min-width: 0;
+}
+
+.criterion-icon {
+    flex-shrink: 0;
+    opacity: 0.75;
+}
+
+.criterion-label {
+    font-size: 13px;
+    color: #1a1a1a;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.criterion-weight {
+    font-size: 10px;
+    color: #666666;
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    padding: 1px 7px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+/* ── Botões de score ──────────────────────────────────────────── */
+.criterion-buttons {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.score-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1.5px solid #d0d5dd;
+    background: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #4a5568;
+    transition: border-color 0.12s ease, background 0.12s ease, color 0.12s ease, transform 0.08s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+
+.score-btn:hover {
+    border-color: #008080;
+    color: #008080;
+    transform: translateY(-1px);
+}
+
+.score-btn:active {
+    transform: translateY(0);
+}
+
+/* Estado activo — cor dinâmica via inline style activeStyle (vem da CMT) */
+.score-btn--active {
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
+}
+
+/* ── Secção Pré-venda ─────────────────────────────────────────── */
+.prevenda-section {
+    margin: 4px 14px 12px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e2e6ea;
+}
+
+/* ── Gauge section ────────────────────────────────────────────── */
+.gauge-section {
+    padding: 16px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #eeeeee;
+    background: #fafafa;
+}
+
+.gauge-wrapper {
+    position: relative;
+    width: 160px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Transição suave no arco preenchido */
+.gauge-arc {
+    transition: stroke-dasharray 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                stroke 0.35s ease;
+}
+
+/* ── Badges GO / NO GO ────────────────────────────────────────── */
+.gauge-badge {
+    margin-top: 6px;
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+.gauge-badge--go {
+    background: #e8f5e9;
+    color: #2E7D32;
+    border: 1.5px solid #4CAF50;
+}
+
+.gauge-badge--nogo {
+    background: #ffebee;
+    color: #C62828;
+    border: 1.5px solid #EF5350;
+}
+
+.gauge-subtitle {
+    font-size: 11px;
+    color: #9e9e9e;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* ── Responsividade ───────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .criterion-label {
+        font-size: 11px;
+    }
+
+    .score-btn {
+        width: 27px;
+        height: 27px;
+        font-size: 11px;
+    }
+
+    .criterion-buttons {
+        gap: 2px;
+    }
+}
+
+/* Loading / Empty states */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+    gap: 12px;
+}
+
+.loading-text {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+.empty-state {
+    padding: 24px 16px;
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+}
+
+.weight-warning {
+    margin: 8px 16px;
+    padding: 10px 14px;
+    background: #fff3e0;
+    border-left: 4px solid #E65100;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #BF360C;
+}

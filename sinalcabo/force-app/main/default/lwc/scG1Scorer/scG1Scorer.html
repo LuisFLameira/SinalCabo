@@ -1,0 +1,97 @@
+<template>
+    <div class="scorer-card">
+
+        <!-- Header -->
+        <div class="scorer-header">
+            <h2>Gate G1 &mdash; Qualificação</h2>
+            <p>Avalie os critérios (0 = Sem informação &nbsp;·&nbsp; 5 = Excelente) &nbsp;·&nbsp; Score mínimo: 3.0 / 5.0</p>
+        </div>
+
+        <!-- Loading -->
+        <template if:true={isLoading}>
+            <div class="loading-state">
+                <lightning-spinner alternative-text="A carregar..." size="medium"></lightning-spinner>
+                <p class="loading-text">A carregar critérios de qualificação...</p>
+            </div>
+        </template>
+
+        <!-- Sem critérios -->
+        <template if:true={isEmpty}>
+            <div class="empty-state">
+                <p>Não existem critérios de qualificação configurados. Contacte o administrador Salesforce.</p>
+            </div>
+        </template>
+
+        <!-- Conteúdo principal -->
+        <template if:false={isLoading}>
+            <template if:false={isEmpty}>
+
+                <!-- Aviso de pesos -->
+                <template if:true={weightWarning}>
+                    <div class="weight-warning">
+                        &#x26A0;&#xFE0F; A soma dos pesos dos critérios não é 100%. Contacte o administrador.
+                    </div>
+                </template>
+
+                <!-- Categorias e critérios -->
+                <template for:each={criteria} for:item="cat">
+                    <div key={cat.key} class="category-section" style={cat.style}>
+                        <div class="category-title" style={cat.headerStyle}>{cat.label}</div>
+                        <template for:each={cat.items} for:item="item">
+                            <div key={item.prop} class="criterion-row">
+                                <div class="criterion-left">
+                                    <lightning-icon icon-name={item.icon} size="x-small" class="criterion-icon"></lightning-icon>
+                                    <span class="criterion-label" title={item.label}>{item.label}</span>
+                                    <span class="criterion-weight">{item.weight}</span>
+                                </div>
+                                <div class="criterion-buttons">
+                                    <template for:each={item.buttons} for:item="btn">
+                                        <button
+                                            key={btn.value}
+                                            class={btn.btnClass}
+                                            style={btn.activeStyle}
+                                            data-criterion={item.prop}
+                                            data-value={btn.value}
+                                            onclick={handleScore}
+                                            aria-pressed={btn.isActive}
+                                            title={btn.value}
+                                        >{btn.label}</button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- Score Gauge -->
+                <div class="gauge-section">
+                    <div class="gauge-wrapper">
+                        <svg viewBox="0 0 160 90" width="160" height="90" aria-hidden="true">
+                            <path d="M 10 80 A 70 70 0 0 1 150 80"
+                                  fill="none" stroke="#e0e0e0" stroke-width="12" stroke-linecap="round"/>
+                            <path d="M 10 80 A 70 70 0 0 1 150 80"
+                                  fill="none"
+                                  stroke={gaugeColor}
+                                  stroke-width="12"
+                                  stroke-linecap="round"
+                                  stroke-dasharray={gaugeDashArray}
+                                  class="gauge-arc"/>
+                            <text x="80" y="70" text-anchor="middle" font-size="24" font-weight="700"
+                                  fill="#1a1a1a" font-family="Salesforce Sans, Arial, sans-serif">{scoreFormatted}</text>
+                            <text x="80" y="84" text-anchor="middle" font-size="10"
+                                  fill="#888" font-family="Salesforce Sans, Arial, sans-serif">/ 5.0</text>
+                        </svg>
+                    </div>
+                    <template if:true={isGo}>
+                        <span class="gauge-badge gauge-badge--go">GO &#10003;</span>
+                    </template>
+                    <template if:true={isNoGo}>
+                        <span class="gauge-badge gauge-badge--nogo">NO GO &#10007;</span>
+                    </template>
+                    <span class="gauge-subtitle">Score mínimo para avançar: 3.0</span>
+                </div>
+
+            </template>
+        </template>
+    </div>
+</template>

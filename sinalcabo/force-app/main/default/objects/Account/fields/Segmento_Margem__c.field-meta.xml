@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segmento_Margem__c</fullName>
+    <description>SinalCabo: Populado por rollup (SC_Account_Rollup_Segmento). Segmento do cliente por margem ganha acumulada. Read-only no layout.</description>
+    <label>Segmento (Margem)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+                <label>Bronze</label>
+            </value>
+            <value>
+                <fullName>Prata</fullName>
+                <default>false</default>
+                <label>Prata</label>
+            </value>
+            <value>
+                <fullName>Gold</fullName>
+                <default>false</default>
+                <label>Gold</label>
+            </value>
+            <value>
+                <fullName>Platina</fullName>
+                <default>false</default>
+                <label>Platina</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

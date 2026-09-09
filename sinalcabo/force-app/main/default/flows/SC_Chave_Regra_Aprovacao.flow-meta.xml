@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Compor_Chave</name>
+        <label>Compor a Chave</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Chave__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaChave</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Decision_Pode_Compor</name>
+        <label>Tem colaborador, tipo e área?</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>Falta algum, não mexe na Chave</defaultConnectorLabel>
+        <rules>
+            <name>Tem_Os_Tres</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Colaborador.Name</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Tipo_Negocio__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Area__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Compor_Chave</targetReference>
+            </connector>
+            <label>Tem os três</label>
+        </rules>
+    </decisions>
+    <description>Before Save flow. Compõe a Chave__c (External Id unique) como Colaborador|Tipo de Negócio|Área, no formato exacto que o loader das cargas produz, para o admin nunca ter de a manter à mão. Recompõe em cada gravação, criação ou alteração, desde que os três estejam preenchidos; se faltar algum, deixa a Chave como veio. O nome do colaborador vem de um Get Records e não de Colaborador__r.Name porque um before-save não resolve lookups (a travessia devolve null e a chave não se compõe). Consequência assumida: dois registos com o mesmo Colaborador, Tipo e Área colidem na unicidade da Chave, que é o duplicado que o External Id existe para impedir.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaChave</name>
+        <dataType>String</dataType>
+        <expression>{!Get_Colaborador.Name} &amp; &apos;|&apos; &amp; TEXT({!$Record.Tipo_Negocio__c}) &amp; &apos;|&apos; &amp; TEXT({!$Record.Area__c})</expression>
+    </formulas>
+    <interviewLabel>SC Chave Regra Aprovacao {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC - Chave da Regra de Aprovação</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Colaborador</name>
+        <label>Obter o nome do colaborador</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Decision_Pode_Compor</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Colaborador__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Colaborador</targetReference>
+        </connector>
+        <object>Regra_Aprovacao__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

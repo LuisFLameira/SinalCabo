@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NIF__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Identificador fiscal do cliente e chave única da conta, usada como external ID no upsert da migração e das integrações. A natureza do identificador é declarada no Tipo de Identificador Fiscal: em NIF (Portugal) ou em branco, as VR06, VR07 e VR08 impõem os 9 dígitos, o dígito de controlo e o prefixo; em Identificador estrangeiro nenhuma das três valida. O comprimento é 20 para caber identificadores estrangeiros (CIF, VAT); os 9 dígitos dos NIF nacionais continuam impostos pela VR06, não pelo comprimento do campo.</description>
+    <externalId>true</externalId>
+    <label>NIF</label>
+    <length>20</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valor_N2__c</fullName>
+    <description>SinalCabo - tecto do nivel 2 (acima deste valor exige N3). Rotulo corrigido de &quot;Nivel 2 a partir de&quot; a 26/08/2026 para bater com o Apex.</description>
+    <inlineHelpText>Tecto do Nível 2: até este valor, inclusive, a cadeia fica pelo Nível 2. Acima, exige também o Nível 3, se a regra tiver Aprovador N3; sem N3, a cadeia pára no último aprovador preenchido.</inlineHelpText>
+    <label>Nível 2 até</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

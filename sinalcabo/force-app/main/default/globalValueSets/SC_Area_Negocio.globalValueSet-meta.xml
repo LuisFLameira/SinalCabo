@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Gestão Comercial</fullName>
+        <default>false</default>
+        <label>Gestão Comercial</label>
+    </customValue>
+    <customValue>
+        <fullName>ICT</fullName>
+        <default>false</default>
+        <label>ICT</label>
+    </customValue>
+    <customValue>
+        <fullName>Energias Renováveis</fullName>
+        <default>false</default>
+        <label>Energias Renováveis</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobilidade Elétrica</fullName>
+        <default>false</default>
+        <label>Mobilidade Elétrica</label>
+    </customValue>
+    <customValue>
+        <fullName>Facilities Management</fullName>
+        <default>false</default>
+        <label>Facilities Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Solarus</fullName>
+        <default>false</default>
+        <label>Solarus</label>
+    </customValue>
+    <customValue>
+        <fullName>Redes</fullName>
+        <default>false</default>
+        <label>Redes</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecomunicações Móveis</fullName>
+        <default>false</default>
+        <label>Telecomunicações Móveis</label>
+    </customValue>
+    <customValue>
+        <fullName>Inovação de Produto</fullName>
+        <default>false</default>
+        <label>Inovação de Produto</label>
+    </customValue>
+    <customValue>
+        <fullName>Pré-Venda &amp; Desenvolvimento de Negócio</fullName>
+        <default>false</default>
+        <label>Pré-Venda &amp; Desenvolvimento de Negócio</label>
+    </customValue>
+    <customValue>
+        <fullName>Desenvolvimento de Negócio &amp; Inovação de Negócio 360º</fullName>
+        <default>false</default>
+        <label>Desenvolvimento de Negócio &amp; Inovação de Negócio 360º</label>
+    </customValue>
+    <customValue>
+        <fullName>Transportes</fullName>
+        <default>false</default>
+        <label>Transportes</label>
+    </customValue>
+    <customValue>
+        <fullName>Home Solutions</fullName>
+        <default>false</default>
+        <label>Home Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Instalações Técnicas Especiais</fullName>
+        <default>false</default>
+        <label>Instalações Técnicas Especiais</label>
+    </customValue>
+    <customValue>
+        <fullName>Instalações Técnicas e Facilities Management</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Instalações Técnicas e Facilities Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Energias Algarve</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Energias Algarve</label>
+    </customValue>
+    <customValue>
+        <fullName>Comercial</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Comercial</label>
+    </customValue>
+    <description>SinalCabo - Area de negocio (cascata). Partilhado entre Opportunity e Regra_Aprovacao.</description>
+    <masterLabel>Area de Negocio</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

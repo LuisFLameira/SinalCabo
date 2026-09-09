@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Abrir_Registo__c</fullName>
+    <description>Atalho para o registo afectado, para o log ser accionável e não apenas legível. Fica vazio quando a falha não tem registo associado.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Registo_Afectado__c), &quot;&quot;, HYPERLINK(&quot;/&quot; &amp; Registo_Afectado__c, &quot;Abrir registo&quot;))</formula>
+    <label>Abrir Registo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

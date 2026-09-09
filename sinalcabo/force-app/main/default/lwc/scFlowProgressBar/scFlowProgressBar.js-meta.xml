@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="stageName" type="String" role="inputOnly" label="Stage Name" />
+            <property name="allowRevisit" type="Boolean" role="inputOnly" label="Permitir Revisit (clique em fases anteriores)" default="false" />
+            <property name="selectedStageName" type="String" label="Stage Escolhido (output)" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

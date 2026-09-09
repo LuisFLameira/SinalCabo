@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duracao_Segundos__c</fullName>
+    <description>Tempo de parede da fase. Serve para perceber se o recálculo completo ainda cabe na janela de manutenção quando a base de contas crescer.</description>
+    <externalId>false</externalId>
+    <label>Duração (s)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Rollup_Grupo__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Com isto ligado, o flow SC_Account_Group_Rollup nao corre. Serve para o recalculo em massa do segmento: sem o bypass, tocar em 112 contas filhas faria o flow recalcular cada mae uma vez por cada filha, com duas queries e um update por passagem, e o resultado final seria o mesmo com muito mais trabalho e risco de limites. O batch liga o bypass, recalcula as filhas, recalcula as maes ele proprio numa segunda passagem, e desliga. Custom Setting hierarquico, logo pode viver so&apos; no utilizador que corre o batch. Reutiliza o SC_Aprovacao_Config em vez de criar um segundo custom setting para um checkbox, como se fez com o Bypass_Numeracao__c.</description>
+    <label>Bypass do Rollup de Grupo</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Condicao__c</fullName>
+    <description>SinalCabo - como combinar valor e margem.</description>
+    <inlineHelpText>Define como o valor e a margem determinam o nível de aprovação. Com Valor OU Margem (a opção por omissão se ficar vazio), basta um dos dois eixos ultrapassar os limiares para subir de nível. Com Valor E Margem, só sobe quando ambos ultrapassam. Só Valor e Só Margem ignoram o outro eixo.</inlineHelpText>
+    <label>Critério</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Valor OU Margem</fullName>
+                <default>false</default>
+                <label>Valor OU Margem</label>
+            </value>
+            <value>
+                <fullName>Valor E Margem</fullName>
+                <default>false</default>
+                <label>Valor E Margem</label>
+            </value>
+            <value>
+                <fullName>Só Valor</fullName>
+                <default>false</default>
+                <label>Só Valor</label>
+            </value>
+            <value>
+                <fullName>Só Margem</fullName>
+                <default>false</default>
+                <label>Só Margem</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

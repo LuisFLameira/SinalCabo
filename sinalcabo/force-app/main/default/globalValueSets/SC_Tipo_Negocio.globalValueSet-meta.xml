@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Box Moving</fullName>
+        <default>false</default>
+        <label>Box Moving</label>
+    </customValue>
+    <customValue>
+        <fullName>NOS Sob Orçamentação</fullName>
+        <default>false</default>
+        <label>NOS Sob Orçamentação</label>
+    </customValue>
+    <customValue>
+        <fullName>Outsourcing</fullName>
+        <default>false</default>
+        <label>Outsourcing</label>
+    </customValue>
+    <customValue>
+        <fullName>NOS Managed Services</fullName>
+        <default>false</default>
+        <label>NOS Managed Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Networking</fullName>
+        <default>false</default>
+        <label>Networking</label>
+    </customValue>
+    <customValue>
+        <fullName>Cibersegurança</fullName>
+        <default>false</default>
+        <label>Cibersegurança</label>
+    </customValue>
+    <customValue>
+        <fullName>Seguranças &amp; Proteção Eletrónica</fullName>
+        <default>false</default>
+        <label>Seguranças &amp; Proteção Eletrónica</label>
+    </customValue>
+    <customValue>
+        <fullName>Hybrid IT</fullName>
+        <default>false</default>
+        <label>Hybrid IT</label>
+    </customValue>
+    <customValue>
+        <fullName>Workplace</fullName>
+        <default>false</default>
+        <label>Workplace</label>
+    </customValue>
+    <customValue>
+        <fullName>Suporte Grupo</fullName>
+        <default>false</default>
+        <label>Suporte Grupo</label>
+    </customValue>
+    <customValue>
+        <fullName>Serviços IT</fullName>
+        <default>false</default>
+        <label>Serviços IT</label>
+    </customValue>
+    <customValue>
+        <fullName>Redes</fullName>
+        <default>false</default>
+        <label>Redes</label>
+    </customValue>
+    <customValue>
+        <fullName>Facilities</fullName>
+        <default>false</default>
+        <label>Facilities</label>
+    </customValue>
+    <customValue>
+        <fullName>Solar</fullName>
+        <default>false</default>
+        <label>Solar</label>
+    </customValue>
+    <customValue>
+        <fullName>Infraestrutura Mobile</fullName>
+        <default>false</default>
+        <label>Infraestrutura Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Manutenção &amp; Operação</fullName>
+        <default>false</default>
+        <label>Manutenção &amp; Operação</label>
+    </customValue>
+    <customValue>
+        <fullName>Inovação de Produto</fullName>
+        <default>false</default>
+        <label>Inovação de Produto</label>
+    </customValue>
+    <customValue>
+        <fullName>Pré-Venda &amp; Desenvolvimento de Negócio</fullName>
+        <default>false</default>
+        <label>Pré-Venda &amp; Desenvolvimento de Negócio</label>
+    </customValue>
+    <customValue>
+        <fullName>Tecnologia</fullName>
+        <default>false</default>
+        <label>Tecnologia</label>
+    </customValue>
+    <customValue>
+        <fullName>Indústrias</fullName>
+        <default>false</default>
+        <label>Indústrias</label>
+    </customValue>
+    <customValue>
+        <fullName>Backoffice Processos, qualidade &amp; Faturação</fullName>
+        <default>false</default>
+        <label>Backoffice Processos, qualidade &amp; Faturação</label>
+    </customValue>
+    <customValue>
+        <fullName>Operação Telecomunicações Fibra Óptica</fullName>
+        <default>false</default>
+        <label>Operação Telecomunicações Fibra Óptica</label>
+    </customValue>
+    <customValue>
+        <fullName>Projetos Integrados</fullName>
+        <default>false</default>
+        <label>Projetos Integrados</label>
+    </customValue>
+    <customValue>
+        <fullName>Infraestruturas &amp; Transportes</fullName>
+        <default>false</default>
+        <label>Infraestruturas &amp; Transportes</label>
+    </customValue>
+    <customValue>
+        <fullName>Home Solutions</fullName>
+        <default>false</default>
+        <label>Home Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobilidade</fullName>
+        <default>false</default>
+        <label>Mobilidade</label>
+    </customValue>
+    <customValue>
+        <fullName>Instalações Técnicas Especiais</fullName>
+        <default>false</default>
+        <label>Instalações Técnicas Especiais</label>
+    </customValue>
+    <customValue>
+        <fullName>Redes Metropolitana Norte</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Redes Metropolitana Norte</label>
+    </customValue>
+    <customValue>
+        <fullName>Redes Metropolitana Sul</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Redes Metropolitana Sul</label>
+    </customValue>
+    <customValue>
+        <fullName>Redes Lisboa</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Redes Lisboa</label>
+    </customValue>
+    <customValue>
+        <fullName>Construção Mobilidade B2B</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Construção Mobilidade B2B</label>
+    </customValue>
+    <customValue>
+        <fullName>Construção Mobilidade</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Construção Mobilidade</label>
+    </customValue>
+    <customValue>
+        <fullName>Solar B2B</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Solar B2B</label>
+    </customValue>
+    <customValue>
+        <fullName>Solar B2C</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Solar B2C</label>
+    </customValue>
+    <customValue>
+        <fullName>Tudo</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Tudo</label>
+    </customValue>
+    <description>SinalCabo - Tipo de negocio (cascata). Partilhado entre Opportunity e Regra_Aprovacao.</description>
+    <masterLabel>Tipo de Negocio</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

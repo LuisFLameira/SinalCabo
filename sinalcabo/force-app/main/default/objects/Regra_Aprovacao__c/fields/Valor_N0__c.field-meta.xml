@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valor_N0__c</fullName>
+    <description>SinalCabo - limite de autonomia do colaborador (sem aprovacao).</description>
+    <inlineHelpText>Tecto de autonomia: até este valor, inclusive, o comercial decide sozinho. Acima, a proposta exige pelo menos o Nível 1.</inlineHelpText>
+    <label>Autonomia (N0) até</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

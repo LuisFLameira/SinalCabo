@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>SinalCabo - Opcao C do fix de ressubmissao G2. Quando Approval_Status__c passa a Recusado ou a Recolhido (recall do submissor), normaliza a opp para que a reapresentacao siga o mesmo caminho da 1a submissao: repoe Requer_Aprovacao__c=false (desarma o auto-submit ate o motor o repor com o aprovador fresco), limpa os carimbos G2_L1/L2/L3_Aprovador__c (que o SC_AprovacaoStampService volta a escrever na decisao do ciclo novo) e limpa as datas G2_L1/L2/L3_Data_Aprovacao__c do ciclo encerrado (senao um ciclo novo herdava a data de aprovacao de um nivel do ciclo anterior). Nao toca nos campos de rejeicao (G2_Rejeitado_Por, G2_Motivo_Rejeicao, G2_Data_Rejeicao) nem nos Aprovador_Alvo_N1/N2/N3, que o motor recalcula. Feito por flow porque workflow field updates nao conseguem limpar campos lookup. Cobre qualquer via que ponha Recusado ou Recolhido (AP nativo, recall nativo e quick action).</description>
+    <environments>Default</environments>
+    <interviewLabel>SC Reset Aprovacao Rejeicao {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC - Reset Aprovacao (Recusa ou Recall)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Repor_Estado_Aprovacao</name>
+        <label>Repor estado de aprovacao</label>
+        <locationX>176</locationX>
+        <locationY>276</locationY>
+        <inputAssignments>
+            <field>G2_L1_Aprovador__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>G2_L1_Data_Aprovacao__c</field>
+            <value>
+                <elementReference>varDataVazia</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>G2_L2_Aprovador__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>G2_L2_Data_Aprovacao__c</field>
+            <value>
+                <elementReference>varDataVazia</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>G2_L3_Aprovador__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>G2_L3_Data_Aprovacao__c</field>
+            <value>
+                <elementReference>varDataVazia</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requer_Aprovacao__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Repor_Estado_Aprovacao</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>ISPICKVAL({!$Record.Approval_Status__c}, &quot;Recusado&quot;) || ISPICKVAL({!$Record.Approval_Status__c}, &quot;Recolhido&quot;)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varDataVazia</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

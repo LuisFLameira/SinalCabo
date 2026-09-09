@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Margem_Min_N2__c</fullName>
+    <description>SinalCabo - margem minima nivel 2.</description>
+    <inlineHelpText>Piso de margem do Nível 2, em pontos percentuais. Margem abaixo deste piso exige também o Nível 3, se a regra tiver Aprovador N3.</inlineHelpText>
+    <label>Margem mín. N2 (%)</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

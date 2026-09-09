@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registo_Afectado__c</fullName>
+    <description>Id do registo em que a falha ocorreu, quando a automação o conhece. Fica vazio nas falhas que não são de um registo específico, por exemplo uma gravação em massa no fim de um ciclo. É texto e não lookup de propósito: as automações que escrevem aqui tocam objectos diferentes (Opportunity, Account, Task).</description>
+    <externalId>false</externalId>
+    <label>Registo Afectado</label>
+    <length>18</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

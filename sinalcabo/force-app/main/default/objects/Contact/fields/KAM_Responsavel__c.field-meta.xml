@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KAM_Responsavel__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Key Account Manager responsável por este contacto. Campo apenas de apresentação na página de registo e no compact layout, sem automação associada.</description>
+    <label>KAM Responsável</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Contacts (KAM Responsável)</relationshipLabel>
+    <relationshipName>Contacts_KAM</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

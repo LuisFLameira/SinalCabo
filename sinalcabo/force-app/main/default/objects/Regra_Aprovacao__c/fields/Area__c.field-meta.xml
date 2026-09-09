@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Area__c</fullName>
+    <description>SinalCabo - area (mesmo GVS da cascata).</description>
+    <inlineHelpText>Área de negócio dentro da Direção escolhida. Entra na chave da regra: distingue regras do mesmo Tipo em áreas diferentes. Filtra os Tipos de Negócio disponíveis.</inlineHelpText>
+    <label>Área</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Direccao__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>SC_Area_Negocio</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>IT</controllingFieldValue>
+            <valueName>Gestão Comercial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IT</controllingFieldValue>
+            <valueName>ICT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IT</controllingFieldValue>
+            <valueName>Pré-Venda &amp; Desenvolvimento de Negócio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energia</controllingFieldValue>
+            <valueName>Energias Renováveis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energia</controllingFieldValue>
+            <valueName>Mobilidade Elétrica</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energia</controllingFieldValue>
+            <valueName>Facilities Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energia</controllingFieldValue>
+            <valueName>Solarus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energia</controllingFieldValue>
+            <valueName>Redes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energia</controllingFieldValue>
+            <valueName>Instalações Técnicas Especiais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>TTC</controllingFieldValue>
+            <valueName>Telecomunicações Móveis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DN</controllingFieldValue>
+            <valueName>Inovação de Produto</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DN</controllingFieldValue>
+            <valueName>Desenvolvimento de Negócio &amp; Inovação de Negócio 360º</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DN</controllingFieldValue>
+            <valueName>Transportes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DN</controllingFieldValue>
+            <valueName>Home Solutions</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

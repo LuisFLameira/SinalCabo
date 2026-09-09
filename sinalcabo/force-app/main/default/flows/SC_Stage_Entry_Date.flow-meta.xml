@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_StageEntryDate</name>
+        <label>Set Stage Entry Date</label>
+        <locationX>176</locationX>
+        <locationY>160</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage_Entry_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaToday</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Decision_StageChanged</name>
+        <label>Stage mudou?</label>
+        <locationX>176</locationX>
+        <locationY>80</locationY>
+        <defaultConnectorLabel>Nao mudou</defaultConnectorLabel>
+        <rules>
+            <name>Stage_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formulaStageChanged</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_StageEntryDate</targetReference>
+            </connector>
+            <label>Stage mudou</label>
+        </rules>
+    </decisions>
+    <description>Before Save flow. Actualiza Stage_Entry_Date__c com TODAY() sempre que o Stage muda ou na criacao da oportunidade.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaStageChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>ISBLANK(TEXT({!$Record__Prior.StageName})) || TEXT({!$Record.StageName}) != TEXT({!$Record__Prior.StageName})</expression>
+    </formulas>
+    <formulas>
+        <name>formulaToday</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>SC Stage Entry Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC — Stage Entry Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_StageChanged</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

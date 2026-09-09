@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Isenta o utilizador do Gate G2: as oportunidades de que ele é owner nunca requerem aprovação, por regra ou por fallback. Atribuir ao PVD e a mais ninguém sem decisão explícita. Não concede permissões: é um marcador lido pelo SC_AvaliacaoAprovacao.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SC Autonomia Total (G2)</label>
+</PermissionSet>

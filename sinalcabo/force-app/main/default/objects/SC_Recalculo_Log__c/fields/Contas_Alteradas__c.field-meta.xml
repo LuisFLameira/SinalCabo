@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contas_Alteradas__c</fullName>
+    <description>Das avaliadas, quantas tinham pelo menos um valor diferente e foram gravadas. Zero aqui com avaliadas acima de zero é normal e saudável: significa que os valores já estavam certos.</description>
+    <externalId>false</externalId>
+    <label>Contas Alteradas</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

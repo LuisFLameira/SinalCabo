@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Concede a edicao de Account.Cliente_Estrategico__c. Atribuir a Admin e Executive Sponsor. Unico veiculo da edicao; a leitura chega a todas as personas via SC_Comercial_Base/SC_Admin_Custom_FLS. Paridade source vs build 2026-07-24.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Cliente_Estrategico__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SC Editar Cliente Estratégico</label>
+</PermissionSet>

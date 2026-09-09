@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valor_N1__c</fullName>
+    <description>SinalCabo - limite ate ao qual basta aprovacao N1.</description>
+    <inlineHelpText>Até este valor, inclusive, basta a aprovação do Nível 1. Acima, exige também o Nível 2.</inlineHelpText>
+    <label>Nível 1 até</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

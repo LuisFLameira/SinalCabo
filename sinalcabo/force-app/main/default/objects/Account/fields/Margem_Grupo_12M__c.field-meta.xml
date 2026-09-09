@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Margem_Grupo_12M__c</fullName>
+    <description>SinalCabo: Populado por rollup de grupo (SC_Account_Group_Rollup). Read-only no layout. Base de calculo do Segmento (Margem) do Grupo desde 08/2026.</description>
+    <inlineHelpText>Soma da margem ganha por esta conta e por todas as filhas em os ultimos 12 meses COMPLETOS, excluindo o mes corrente: a janela fecha na viragem do mes, logo um negocio ganho hoje so&apos; conta a partir do dia 1 do mes seguinte.</inlineHelpText>
+    <label>Margem do Grupo 12 Meses</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Currency</type>
+</CustomField>

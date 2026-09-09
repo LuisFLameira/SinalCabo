@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recalcular_Segmentos</fullName>
+    <availability>online</availability>
+    <description>Botão da lista de contas que abre o Screen Flow do recálculo completo do segmento. É um WebLink e não uma Quick Action porque os listViewButtons só aceitam WebLinks; a Quick Action equivalente serve a ficha da conta, não a lista. Não pede selecção de registos de propósito: o âmbito é todas as contas, não as que estiverem marcadas, e o próprio flow pede confirmação antes de arrancar.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Recalcular Segmentos</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/flow/SC_Recalcular_Segmento_Todas</url>
+</WebLink>

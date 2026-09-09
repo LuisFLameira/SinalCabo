@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Identificador_Fiscal__c</fullName>
+    <description>Declara a natureza do identificador guardado no NIF: NIF portugues ou identificador fiscal estrangeiro. As VR06, VR07 e VR08 so&apos; deixam de validar quando este campo esta explicitamente em &quot;Identificador estrangeiro&quot;; em branco ou no valor por omissao o NIF e&apos; validado como portugues. Nao se infere do pais da morada de facturacao, que e&apos; o pais do endereco e nao o pais do identificador fiscal.</description>
+    <inlineHelpText>Deixa em NIF (Portugal) para clientes nacionais. Muda para Identificador estrangeiro quando o cliente tem CIF, VAT ou outro identificador que nao segue a regra dos 9 digitos.</inlineHelpText>
+    <label>Tipo de Identificador Fiscal</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NIF (Portugal)</fullName>
+                <default>true</default>
+                <label>NIF (Portugal)</label>
+            </value>
+            <value>
+                <fullName>Identificador estrangeiro</fullName>
+                <default>false</default>
+                <label>Identificador estrangeiro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

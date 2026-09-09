@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR06_NIF_Formato</fullName>
+    <active>true</active>
+    <description>NIF com exactamente 9 dígitos. Não valida quando o Tipo de Identificador Fiscal em Identificador estrangeiro; em branco valida. Dispara na criação e quando o NIF ou o tipo mudam; updates que não lhes tocam passam, para não bloquear rollups.</description>
+    <errorConditionFormula>AND(
+  OR(ISNEW(), ISCHANGED(NIF__c), ISCHANGED(Tipo_Identificador_Fiscal__c)),
+  NOT(ISPICKVAL(Tipo_Identificador_Fiscal__c, &quot;Identificador estrangeiro&quot;)),
+  NOT(ISBLANK(NIF__c)),
+  NOT(REGEX(NIF__c, &quot;[0-9]{9}&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>NIF__c</errorDisplayField>
+    <errorMessage>O NIF deve ter exactamente 9 dígitos. Remove espaços, pontos ou hífens (ex: 123456789). Se o cliente for estrangeiro, muda o Tipo de Identificador Fiscal para Identificador estrangeiro.</errorMessage>
+</ValidationRule>

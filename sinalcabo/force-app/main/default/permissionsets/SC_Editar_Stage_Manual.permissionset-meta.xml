@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>SC_Editar_Stage_Manual</name>
+    </customPermissions>
+    <description>Isenta o utilizador da VR_Stage_Via_Flow_Obrigatorio, permitindo editar o Stage da Opportunity manualmente (correccao de erros). Atribuir apenas a admins/correctores. Personas de demo (Comercial/Diretor/Executive Sponsor) NAO o tem.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SC Editar Stage Manual</label>
+</PermissionSet>

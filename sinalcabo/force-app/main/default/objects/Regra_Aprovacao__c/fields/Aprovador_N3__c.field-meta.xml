@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aprovador_N3__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SinalCabo - utilizador que aprova no nivel 3 (topo da cadeia, tipicamente o PVD).</description>
+    <inlineHelpText>Quem aprova no Nível 3, o topo da cadeia (tipicamente o PVD). Se ficar vazio, a cadeia pára no N2.</inlineHelpText>
+    <label>Aprovador N3</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Regras (Aprovador N3)</relationshipLabel>
+    <relationshipName>Regras_Aprovador_N3</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

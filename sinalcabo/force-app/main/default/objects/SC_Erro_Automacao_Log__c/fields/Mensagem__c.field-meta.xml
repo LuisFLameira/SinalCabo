@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mensagem__c</fullName>
+    <description>Texto integral da falha, tal como a plataforma o devolveu ($Flow.FaultMessage nos flows, a mensagem da excepção no Apex). Guardado sem interpretação, porque é normalmente aqui que está o nome da validation rule ou do campo em causa. Escrito automaticamente pela classe SC_FlowFaultLogger.</description>
+    <label>Mensagem</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

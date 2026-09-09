@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Os três desfechos que não são Ganha, em qualquer fase do pipeline: fechar como Perdida, suspender com data de lembrete, ou cancelar. Ganhar é pelo Avançar no Pipeline.</description>
+    <flowDefinition>SC_Acao_Rapida</flowDefinition>
+    <label>Perdida / Suspensa / Cancelada</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

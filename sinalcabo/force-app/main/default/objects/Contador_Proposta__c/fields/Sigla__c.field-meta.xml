@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sigla__c</fullName>
+    <description>Sigla da unidade de negocio, como o cliente a definiu no organograma (ex. UN SOLAR, DN FM). Vem do Custom Metadata SC_Area_Sigla, que faz a correspondencia entre a area de negocio do CRM e a sigla.</description>
+    <externalId>false</externalId>
+    <label>Sigla da Unidade</label>
+    <length>20</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

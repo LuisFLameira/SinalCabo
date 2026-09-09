@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Q03 — Acesso aos Decisores</label>
+    <protected>false</protected>
+    <values>
+        <field>API_Name__c</field>
+        <value xsi:type="xsd:string">G1_Q03_Acesso_Decisores__c</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Bg_Color__c</field>
+        <value xsi:type="xsd:string">#f3e5f5</value>
+    </values>
+    <values>
+        <field>Border_Color__c</field>
+        <value xsi:type="xsd:string">#7B1FA2</value>
+    </values>
+    <values>
+        <field>Category__c</field>
+        <value xsi:type="xsd:string">Relacionamento</value>
+    </values>
+    <values>
+        <field>Header_Color__c</field>
+        <value xsi:type="xsd:string">#4A148C</value>
+    </values>
+    <values>
+        <field>Icon__c</field>
+        <value xsi:type="xsd:string">utility:people</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Weight__c</field>
+        <value xsi:type="xsd:double">0.15</value>
+    </values>
+</CustomMetadata>

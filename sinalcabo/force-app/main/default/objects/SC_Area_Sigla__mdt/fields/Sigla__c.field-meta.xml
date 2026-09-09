@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sigla__c</fullName>
+    <description>Sigla que entra no numero da proposta, como o cliente a definiu no organograma (ex. UN SOLAR, DN FM, DC ST). Duas areas podem partilhar a mesma sigla de proposito: nesse caso partilham tambem a serie de numeros, porque o contador e&apos; chaveado pela sigla e nao pela area.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Sigla da Unidade</label>
+    <length>20</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

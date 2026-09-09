@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Numeracao__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Com isto ligado, as oportunidades criadas por este utilizador NAO recebem numero de proposta. Serve so&apos; para a migracao de dados: liga-se no utilizador que faz a carga, para o historico entrar sem consumir a serie de numeros, e desliga-se no fim. Custom Setting hierarquico, logo pode viver so&apos; num utilizador sem afectar a org. Reutiliza o SC_Aprovacao_Config em vez de criar um segundo custom setting para um checkbox.</description>
+    <label>Bypass da Numeração de Propostas</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

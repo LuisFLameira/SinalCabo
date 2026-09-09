@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resolvido__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Marcado à mão pelo administrador depois de tratar a falha. É o que separa a lista de trabalho do histórico: a list view &quot;Por resolver&quot; filtra por este campo. Sem ele, cada erro antigo volta a ser investigado de cada vez que alguém abre a lista.</description>
+    <label>Resolvido</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

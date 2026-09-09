@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contas_Segmento_Platina</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Segmento__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Segmento__c</field>
+        <operation>equals</operation>
+        <value>Platina</value>
+    </filters>
+    <label>Contas Segmento Platina</label>
+</ListView>

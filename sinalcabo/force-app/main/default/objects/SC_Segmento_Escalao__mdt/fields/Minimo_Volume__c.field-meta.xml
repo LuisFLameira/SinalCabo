@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minimo_Volume__c</fullName>
+    <description>Valor de negocio ganho, em euros, a partir do qual a conta entra neste segmento no eixo do VOLUME. Definido pelo PVD a 06/07/2026 e aprovado pela Daniela a 31/07.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Mínimo de Volume (EUR)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

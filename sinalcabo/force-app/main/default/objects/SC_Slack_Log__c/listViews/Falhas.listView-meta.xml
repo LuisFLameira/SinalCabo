@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Falhas</fullName>
+    <columns>NAME</columns>
+    <columns>Evento__c</columns>
+    <columns>Canal__c</columns>
+    <columns>Status_Code__c</columns>
+    <columns>Erro__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sucesso__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Falhas</label>
+</ListView>

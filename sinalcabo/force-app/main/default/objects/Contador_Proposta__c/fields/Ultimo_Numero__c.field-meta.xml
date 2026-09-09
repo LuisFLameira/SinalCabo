@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ultimo_Numero__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Ultimo numero emitido nesta sigla e ano. Comeca em 0 e o proximo numero e&apos; este mais um. Editavel de proposito, para se poder continuar uma serie que vinha de fora do CRM: depois de uma migracao com numeros historicos, por aqui o maior numero importado. ATENCAO: por um valor ABAIXO do ja&apos; emitido gera colisao, e a unicidade do Numero_Proposta__c na oportunidade e&apos; que travaria o erro.</description>
+    <externalId>false</externalId>
+    <label>Último Número Emitido</label>
+    <precision>9</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

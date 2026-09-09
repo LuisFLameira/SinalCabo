@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aprovador_Default_Id__c</fullName>
+    <description>SinalCabo (M.2) - Id do utilizador admin/Daniela que aprova quando nao ha regra nem director (SemGovernacao). O motor preenche Aprovador_Alvo_N1 com este Id para a proposta nunca ficar presa.</description>
+    <externalId>false</externalId>
+    <label>Aprovador por Defeito (User Id)</label>
+    <length>18</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

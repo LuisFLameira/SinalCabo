@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Fase 4: permite gerir as quotas de forecast (metas) na UI de Forecasts Quotas e por Data Loader. Atribuir a quem carrega/edita as metas (admin, directores).</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SC Gerir Quotas</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageQuotas</name>
+    </userPermissions>
+</PermissionSet>

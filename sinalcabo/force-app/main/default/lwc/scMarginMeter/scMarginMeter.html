@@ -1,0 +1,12 @@
+<template>
+    <div class="margin-meter">
+        <template if:true={isEmpty}>
+            <div class="meter-empty">Preencha os valores financeiros acima</div>
+        </template>
+
+        <template if:false={isEmpty}>
+            <div class="meter-value" style={valueStyle}>{marginLabel}</div>
+            <div class="meter-status" style={statusStyle}>{statusLabel}</div>
+        </template>
+    </div>
+</template>

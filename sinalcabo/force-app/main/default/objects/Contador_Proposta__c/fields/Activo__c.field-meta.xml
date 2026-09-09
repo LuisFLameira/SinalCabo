@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activo__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Permite travar a emissao de numeros nesta unidade e ano sem apagar o contador. Com isto a false, as oportunidades dessa area passam a nascer sem numero, e fica registado o motivo.</description>
+    <label>Activo</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

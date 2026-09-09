@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Direccao__c</fullName>
+    <description>SinalCabo - direccao (mesmo GVS da cascata, cruzamento por valor).</description>
+    <inlineHelpText>Direção de negócio do colaborador (IT, DN, Energia ou TTC). Escolha primeiro: filtra as Áreas disponíveis. Serve de referência e das listas por direção; o motor decide pela Área e pelo Tipo.</inlineHelpText>
+    <label>Direção</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SC_Direccao_Negocio</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR08_NIF_Prefixo</fullName>
+    <active>true</active>
+    <description>Primeiro dígito do NIF como tipo de contribuinte válido em Portugal. Não valida quando o Tipo de Identificador Fiscal em Identificador estrangeiro; em branco valida. Dispara na criação e quando o NIF ou o tipo mudam; updates que não lhes tocam passam.</description>
+    <errorConditionFormula>AND(
+  OR(ISNEW(), ISCHANGED(NIF__c), ISCHANGED(Tipo_Identificador_Fiscal__c)),
+  NOT(ISPICKVAL(Tipo_Identificador_Fiscal__c, &quot;Identificador estrangeiro&quot;)),
+  NOT(ISBLANK(NIF__c)),
+  REGEX(NIF__c, &quot;[0-9]{9}&quot;),
+  OR(
+    VALUE(MID(NIF__c, 1, 1)) = 0,
+    AND(
+      VALUE(MID(NIF__c, 1, 1)) = 4,
+      LEFT(NIF__c, 2) != &quot;45&quot;
+    )
+  )
+)</errorConditionFormula>
+    <errorDisplayField>NIF__c</errorDisplayField>
+    <errorMessage>O primeiro dígito do NIF não é válido. NIFs de empresa começam por 5-9; de pessoa singular por 1-3; não residente por 45. Se o cliente for estrangeiro, muda o Tipo de Identificador Fiscal para Identificador estrangeiro.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activa__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Permite desligar uma correspondencia sem a apagar. Com isto a false, as oportunidades dessa area passam a nascer sem numero de proposta.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Activa</label>
+    <type>Checkbox</type>
+</CustomField>

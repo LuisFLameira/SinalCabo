@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SinalCabo_Account</fullName>
+    <fields>Name</fields>
+    <fields>Segmento_Visual__c</fields>
+    <fields>OwnerId</fields>
+    <fields>Phone</fields>
+    <fields>Total_Closed_Won__c</fields>
+    <label>SinalCabo Account</label>
+</CompactLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Departamento__c</fullName>
+    <description>SinalCabo (B.9) - Departamento do contacto, picklist ligada ao Global Value Set SC_Departamento. Substitui o campo standard Department (texto).</description>
+    <label>Departamento</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SC_Departamento</valueSetName>
+    </valueSet>
+</CustomField>

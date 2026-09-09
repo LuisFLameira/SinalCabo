@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cliente_Estrategico__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SinalCabo: Conta é cliente estratégico. Editável por executivos; read-only para comerciais.</description>
+    <label>Cliente Estratégico</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

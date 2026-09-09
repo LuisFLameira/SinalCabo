@@ -1,0 +1,49 @@
+<template>
+    <div class="progress-container">
+        <div class="steps-row">
+            <template for:each={stepsWithLines} for:item="item">
+                <!-- Linha de ligação entre steps -->
+                <template if:true={item.isLine}>
+                    <div key={item.key} class={item.lineClass}></div>
+                </template>
+                <!-- Step wrapper -->
+                <template if:false={item.isLine}>
+                    <div key={item.key} class="step-wrapper">
+                        <!-- Step clicável (revisit de fase passada) -->
+                        <template if:true={item.isClickable}>
+                            <div class={item.circleClass}
+                                 role="button"
+                                 tabindex={item.tabindex}
+                                 data-index={item.index}
+                                 title={item.ariaLabel}
+                                 aria-label={item.ariaLabel}
+                                 onclick={handleStepClick}
+                                 onkeydown={handleStepKeydown}>
+                                &#10003;
+                            </div>
+                        </template>
+                        <!-- Step não clicável (actual / futuro / especial) -->
+                        <template if:false={item.isClickable}>
+                            <div class={item.circleClass}>
+                                <template if:true={item.isDone}>&#10003;</template>
+                                <template if:false={item.isDone}>{item.number}</template>
+                            </div>
+                        </template>
+                        <template if:true={item.isActive}>
+                            <div class="step-label">{item.short}</div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="phase-footer">
+            <template if:true={isSpecialStage}>
+                <span class="special-badge">{specialBadgeLabel}</span>
+            </template>
+            <span class="phase-label">{phaseLabel}</span>
+        </div>
+        <template if:true={revisitHint}>
+            <div class="revisit-hint">Clique num número anterior para rever e editar essa fase.</div>
+        </template>
+    </div>
+</template>

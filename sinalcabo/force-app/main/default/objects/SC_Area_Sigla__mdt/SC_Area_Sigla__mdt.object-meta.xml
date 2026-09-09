@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>SC Área e Sigla</label>
+    <pluralLabel>SC Áreas e Siglas</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

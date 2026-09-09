@@ -1,0 +1,26 @@
+.margin-meter {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 14px 16px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.meter-value {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.meter-status {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.meter-empty {
+    color: #aaa;
+    font-size: 13px;
+    padding: 16px 0;
+}

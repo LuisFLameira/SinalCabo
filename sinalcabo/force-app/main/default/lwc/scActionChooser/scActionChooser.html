@@ -1,0 +1,33 @@
+<template>
+    <div class="action-chooser">
+        <p class="chooser-label">O que pretende fazer?</p>
+        <template for:each={actions} for:item="action">
+            <div
+                key={action.value}
+                class="action-card"
+                style={action.cardStyle}
+                data-value={action.value}
+                onclick={handleSelect}
+                role="button"
+                tabindex="0"
+            >
+                <div class="action-icon-container" style={action.iconContainerStyle}>
+                    <lightning-icon
+                        icon-name={action.icon}
+                        size="medium"
+                    ></lightning-icon>
+                </div>
+                <div class="action-content">
+                    <span class="action-title">{action.label}</span>
+                    <template if:true={action.description}>
+                        <span class="action-description">{action.description}</span>
+                    </template>
+                </div>
+                <div class="action-chevron">
+                    <template if:true={action.isSelected}>&#10003;</template>
+                    <template if:false={action.isSelected}>&#8250;</template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
