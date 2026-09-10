@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Com_Rejeitados</fullName>
+    <columns>NAME</columns>
+    <columns>Tipo_Corrida__c</columns>
+    <columns>Estado__c</columns>
+    <columns>Rejeitados__c</columns>
+    <columns>Registos_Lidos__c</columns>
+    <columns>Janela_Inicio__c</columns>
+    <columns>Janela_Fim__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Rejeitados__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>Com rejeitados</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

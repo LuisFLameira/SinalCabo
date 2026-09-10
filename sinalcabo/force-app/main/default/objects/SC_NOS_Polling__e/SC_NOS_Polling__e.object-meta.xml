@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Pedido de corrida da entrada de ordens da NOS. Quem publica é o agendador ou uma pessoa; quem executa é o subscritor do evento, que corre como o utilizador de integração. É assim que os registos ficam com o CreatedBy da integração e não de quem agendou.</description>
+    <eventType>HighVolume</eventType>
+    <label>Corrida da NOS</label>
+    <pluralLabel>Corridas da NOS</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

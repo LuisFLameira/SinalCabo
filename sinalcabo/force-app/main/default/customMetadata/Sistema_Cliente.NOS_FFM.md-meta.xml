@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>NOS Field Force Management</label>
+    <protected>false</protected>
+    <values>
+        <field>Activo__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Alcance_Varrimento_Dias__c</field>
+        <value xsi:type="xsd:double">45.0</value>
+    </values>
+    <values>
+        <field>Detalhes_Por_Transaccao__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Fuso_Horario__c</field>
+        <value xsi:type="xsd:string">Europe/Lisbon</value>
+    </values>
+    <values>
+        <field>Janela_Abertas_Horas__c</field>
+        <value xsi:type="xsd:double">48.0</value>
+    </values>
+    <values>
+        <field>Janela_Fechadas_Horas__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+    <values>
+        <field>NIF_Conta_Cliente__c</field>
+        <value xsi:type="xsd:string">502604751</value>
+    </values>
+    <values>
+        <field>Named_Credential__c</field>
+        <value xsi:type="xsd:string">SC_NOS_FFM_API</value>
+    </values>
+    <values>
+        <field>Nome_Conta_Cliente__c</field>
+        <value xsi:type="xsd:string">NOS</value>
+    </values>
+    <values>
+        <field>Nome__c</field>
+        <value xsi:type="xsd:string">NOS Field Force Management</value>
+    </values>
+    <values>
+        <field>Passo_Varrimento_Dias__c</field>
+        <value xsi:type="xsd:double">7.0</value>
+    </values>
+    <values>
+        <field>Retencao_Payload_Dias__c</field>
+        <value xsi:type="xsd:double">30.0</value>
+    </values>
+    <values>
+        <field>Timeout_ms__c</field>
+        <value xsi:type="xsd:double">120000.0</value>
+    </values>
+</CustomMetadata>

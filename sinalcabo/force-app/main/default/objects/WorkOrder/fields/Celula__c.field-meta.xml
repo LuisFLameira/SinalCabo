@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Celula__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Célula de rede onde a intervenção acontece. É proposta pela integração a partir do texto da NOS e confirmada pelo despacho.</description>
+    <inlineHelpText>Usa a acção Classificar para mudar a célula. Ao confirmar, a tecnologia e o território são actualizados a partir da célula.</inlineHelpText>
+    <label>Célula</label>
+    <referenceTo>Celula__c</referenceTo>
+    <relationshipLabel>Ordens de trabalho</relationshipLabel>
+    <relationshipName>Ordens_Trabalho</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lote_Compacto</fullName>
+    <fields>Name</fields>
+    <fields>Estado__c</fields>
+    <fields>Tipo_Corrida__c</fields>
+    <fields>Janela_Inicio__c</fields>
+    <fields>Janela_Fim__c</fields>
+    <fields>Registos_Lidos__c</fields>
+    <fields>Rejeitados__c</fields>
+    <fields>Resultado__c</fields>
+    <label>Lote de integração</label>
+</CompactLayout>

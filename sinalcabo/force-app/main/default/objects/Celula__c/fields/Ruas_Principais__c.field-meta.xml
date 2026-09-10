@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ruas_Principais__c</fullName>
+    <description>As ruas mais frequentes da célula em texto curto, para aparecerem na aplicação móvel.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Resumo das ruas conhecidas. Existe porque a aplicação móvel não mostra campos de texto longo.</inlineHelpText>
+    <label>Ruas principais</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

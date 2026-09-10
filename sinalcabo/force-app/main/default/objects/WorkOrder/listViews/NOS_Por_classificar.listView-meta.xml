@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NOS_Por_classificar</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>Subject</columns>
+    <columns>WorkType</columns>
+    <columns>Celula__c</columns>
+    <columns>Tecnologia__c</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Estado_Cliente__c</columns>
+    <columns>Data_Atribuicao_Cliente__c</columns>
+    <columns>Grupo_Cliente__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Classificacao_Confirmada__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>IsClosed</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>NOS · Por classificar</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

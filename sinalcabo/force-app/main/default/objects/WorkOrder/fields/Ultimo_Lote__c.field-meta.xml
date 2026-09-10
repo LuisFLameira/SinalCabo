@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ultimo_Lote__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Lote que escreveu esta ordem pela última vez. Serve para ir da ordem à corrida que a trouxe.</description>
+    <inlineHelpText>Abre o lote para ver a janela lida, os contadores e as ocorrências.</inlineHelpText>
+    <label>Último lote de integração</label>
+    <referenceTo>Lote_Integracao__c</referenceTo>
+    <relationshipLabel>Ordens de trabalho</relationshipLabel>
+    <relationshipName>Ordens_Trabalho</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

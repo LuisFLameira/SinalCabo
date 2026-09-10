@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Area_km2__c</fullName>
+    <description>Área do polígono da célula em quilómetros quadrados.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Calculada a partir do polígono do mapa de rede. Ajuda a perceber a dispersão da célula.</inlineHelpText>
+    <label>Área (km2)</label>
+    <precision>13</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recurso_Por_Mapear__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado quando a NOS indicou um técnico que não corresponde a nenhum recurso de serviço nosso.</description>
+    <inlineHelpText>Resolve-se a gravar o código da NOS no recurso de serviço do técnico. Depois disso a ordem seguinte já liga sozinha.</inlineHelpText>
+    <label>Técnico por mapear</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

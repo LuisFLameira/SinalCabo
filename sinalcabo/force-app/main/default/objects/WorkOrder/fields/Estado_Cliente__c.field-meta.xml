@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_Cliente__c</fullName>
+    <description>Estado da tarefa do lado da NOS, lido da API. É informação do operador e nunca altera o estado da ordem na SinalCabo.</description>
+    <inlineHelpText>Só a NOS escreve aqui. Se a NOS fechar e a ordem ainda estiver aberta do nosso lado, a ordem aparece na vista de fechadas sem fecho.</inlineHelpText>
+    <label>Estado no NetGuard</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ASSIGNED_TO_COMPANY</fullName>
+                <default>false</default>
+                <label>Atribuída à empresa</label>
+            </value>
+            <value>
+                <fullName>ASSIGNED_TO_USER</fullName>
+                <default>false</default>
+                <label>Atribuída ao técnico</label>
+            </value>
+            <value>
+                <fullName>WORK_IN_PROGRESS</fullName>
+                <default>false</default>
+                <label>Em execução</label>
+            </value>
+            <value>
+                <fullName>PENDING</fullName>
+                <default>false</default>
+                <label>Pendente</label>
+            </value>
+            <value>
+                <fullName>RESOLVED</fullName>
+                <default>false</default>
+                <label>Resolvida</label>
+            </value>
+            <value>
+                <fullName>CLOSED</fullName>
+                <default>false</default>
+                <label>Fechada</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

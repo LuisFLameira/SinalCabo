@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Divergencia_Territorio__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado quando o território da célula proposta não é o território do grupo que a NOS indicou.</description>
+    <inlineHelpText>Confirma no terreno qual está certo e resolve pela acção Classificar. A divergência desaparece ao confirmar.</inlineHelpText>
+    <label>Divergência de território</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Janela_Fechadas_Horas__c</fullName>
+    <description>Quantas horas para trás a corrida das ordens fechadas pede de cada vez.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Não passar de 72 horas: acima disso a NOS devolve uma lista vazia em vez de erro.</inlineHelpText>
+    <label>Janela de fechadas (horas)</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

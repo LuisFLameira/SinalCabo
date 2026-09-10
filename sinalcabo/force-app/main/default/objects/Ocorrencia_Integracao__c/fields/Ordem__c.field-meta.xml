@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ordem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Ordem de trabalho a que a ocorrência diz respeito.</description>
+    <inlineHelpText>Vazio quando a linha foi rejeitada antes de haver ordem.</inlineHelpText>
+    <label>Ordem de trabalho</label>
+    <referenceTo>WorkOrder</referenceTo>
+    <relationshipLabel>Ocorrências de integração</relationshipLabel>
+    <relationshipName>Ocorrencias_Integracao</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

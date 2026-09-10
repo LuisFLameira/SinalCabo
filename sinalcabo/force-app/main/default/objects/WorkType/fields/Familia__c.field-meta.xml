@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familia__c</fullName>
+    <description>Família a que o tipo de trabalho pertence. Agrupa o catálogo para listas, relatórios e regras de facturação.</description>
+    <inlineHelpText>Uma família por tipo. É esta que aparece na ordem, no campo Família da ordem.</inlineHelpText>
+    <label>Família</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Avaria</fullName>
+                <default>false</default>
+                <label>Avaria</label>
+            </value>
+            <value>
+                <fullName>Manutenção</fullName>
+                <default>false</default>
+                <label>Manutenção</label>
+            </value>
+            <value>
+                <fullName>Obra</fullName>
+                <default>false</default>
+                <label>Obra</label>
+            </value>
+            <value>
+                <fullName>Policiamento</fullName>
+                <default>false</default>
+                <label>Policiamento</label>
+            </value>
+            <value>
+                <fullName>Cadastro</fullName>
+                <default>false</default>
+                <label>Cadastro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

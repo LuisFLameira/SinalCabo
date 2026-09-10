@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activos</fullName>
+    <columns>Name</columns>
+    <columns>ResourceType</columns>
+    <columns>IsActive</columns>
+    <columns>Codigo_Utilizador_Cliente__c</columns>
+    <columns>RelatedRecord</columns>
+    <columns>Location</columns>
+    <columns>LastModifiedDate</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IsActive</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Activos</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Zona_Cliente__c</fullName>
+    <description>Zona operacional a que a célula pertence do lado do operador, como aparece nos mapas e nas listagens.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Vem da carga dos mapas. Exemplos: Zona Centro 1, Zona Sul 1.</inlineHelpText>
+    <label>Zona (NOS)</label>
+    <length>40</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

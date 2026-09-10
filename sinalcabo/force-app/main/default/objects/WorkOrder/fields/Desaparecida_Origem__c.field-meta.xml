@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Desaparecida_Origem__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado quando a ordem deixou de existir na NOS, ou seja quando a consulta do detalhe já não a encontra.</description>
+    <inlineHelpText>Não apagues a ordem. Confirma com a NOS antes de a fechar do nosso lado.</inlineHelpText>
+    <label>Desaparecida na NOS</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

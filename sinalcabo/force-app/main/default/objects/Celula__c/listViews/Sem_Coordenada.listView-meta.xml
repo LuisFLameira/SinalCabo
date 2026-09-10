@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sem_Coordenada</fullName>
+    <columns>NAME</columns>
+    <columns>Territorio__c</columns>
+    <columns>Zona_Cliente__c</columns>
+    <columns>Localidade__c</columns>
+    <columns>Origem_Referencia__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Localizacao__Latitude__s</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Activa__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Sem coordenada</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proxima_Chegada_Esperada__c</fullName>
+    <description>Quando é esperada a próxima corrida deste tipo. Serve à vigilância para detectar silêncio da integração.</description>
+    <inlineHelpText>Se esta hora já passou e não entrou nenhum lote novo, a integração está parada.</inlineHelpText>
+    <label>Próxima chegada esperada</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejeicoes_E_Conflitos</fullName>
+    <columns>NAME</columns>
+    <columns>Tipo__c</columns>
+    <columns>Chave_Origem__c</columns>
+    <columns>Mensagem__c</columns>
+    <columns>Ordem__c</columns>
+    <columns>Lote__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Tipo__c</field>
+        <operation>equals</operation>
+        <value>Rejeição,Conflito</value>
+    </filters>
+    <label>Rejeições e conflitos</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

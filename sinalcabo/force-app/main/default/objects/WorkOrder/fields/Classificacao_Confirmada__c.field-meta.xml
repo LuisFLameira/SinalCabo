@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Classificacao_Confirmada__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado quando uma pessoa do despacho confirmou a célula, a tecnologia e o território.</description>
+    <inlineHelpText>Enquanto estiver desligado a ordem aparece na lista de ordens por classificar. A integração nunca reescreve uma célula confirmada.</inlineHelpText>
+    <label>Classificação confirmada</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

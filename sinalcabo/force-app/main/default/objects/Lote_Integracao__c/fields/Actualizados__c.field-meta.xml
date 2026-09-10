@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actualizados__c</fullName>
+    <description>Quantas ordens já existentes o lote actualizou.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Uma ordem que chega igual ao que já está gravado não conta aqui, porque não é escrita.</inlineHelpText>
+    <label>Ordens actualizadas</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

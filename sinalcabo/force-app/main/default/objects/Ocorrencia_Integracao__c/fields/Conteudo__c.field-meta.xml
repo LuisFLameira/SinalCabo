@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conteudo__c</fullName>
+    <description>Dados em bruto da linha que originou a ocorrência.</description>
+    <inlineHelpText>Serve para o apoio perceber o que a NOS enviou.</inlineHelpText>
+    <label>Conteúdo</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

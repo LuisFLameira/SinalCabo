@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Em_Erro</fullName>
+    <columns>NAME</columns>
+    <columns>Tipo_Corrida__c</columns>
+    <columns>Estado__c</columns>
+    <columns>Resultado__c</columns>
+    <columns>Erro__c</columns>
+    <columns>Janela_Inicio__c</columns>
+    <columns>Janela_Fim__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Estado__c</field>
+        <operation>equals</operation>
+        <value>Falhado,Concluído com erros</value>
+    </filters>
+    <label>Em erro</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

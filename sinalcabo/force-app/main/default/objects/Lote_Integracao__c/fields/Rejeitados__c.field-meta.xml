@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejeitados__c</fullName>
+    <description>Quantas linhas o lote não conseguiu gravar.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Cada rejeição gera uma ocorrência com o motivo. Se este número for maior que zero, abre a lista de ocorrências.</inlineHelpText>
+    <label>Registos rejeitados</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

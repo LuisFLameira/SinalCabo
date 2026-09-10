@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ultimo_Varrimento__c</fullName>
+    <description>Quando correu a última passagem larga pelas ordens dos últimos dias.</description>
+    <inlineHelpText>Se estiver muito atrasado, o varrimento de hora a hora não está a correr.</inlineHelpText>
+    <label>Último varrimento</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

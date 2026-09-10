@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referencia_Ordem_Cliente__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Referência completa da tarefa na plataforma da NOS, por exemplo TAS000002533674. É a chave que liga a ordem à origem e impede duplicados.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Nunca alteres este valor. É por ele que a integração reconhece a ordem em cada leitura.</inlineHelpText>
+    <label>Referência NOS</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

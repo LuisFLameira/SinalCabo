@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Corrida__c</fullName>
+    <description>Que passo do ciclo de leitura deu origem ao lote.</description>
+    <inlineHelpText>Abertas e Fechadas são as corridas de cinco em cinco minutos, Varrimento é a passagem larga de hora a hora, Detalhes lê ordem a ordem. Manual é uma corrida pedida por uma pessoa.</inlineHelpText>
+    <label>Tipo de corrida</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Abertas</fullName>
+                <default>false</default>
+                <label>Abertas</label>
+            </value>
+            <value>
+                <fullName>Fechadas</fullName>
+                <default>false</default>
+                <label>Fechadas</label>
+            </value>
+            <value>
+                <fullName>Varrimento</fullName>
+                <default>false</default>
+                <label>Varrimento</label>
+            </value>
+            <value>
+                <fullName>Detalhes</fullName>
+                <default>false</default>
+                <label>Detalhes</label>
+            </value>
+            <value>
+                <fullName>Manual</fullName>
+                <default>false</default>
+                <label>Manual</label>
+            </value>
+            <value>
+                <fullName>Reprocessamento</fullName>
+                <default>false</default>
+                <label>Reprocessamento</label>
+            </value>
+            <value>
+                <fullName>Carga histórica</fullName>
+                <default>false</default>
+                <label>Carga histórica</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

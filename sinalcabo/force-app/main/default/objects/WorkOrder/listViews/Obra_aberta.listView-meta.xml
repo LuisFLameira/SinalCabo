@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Obra_aberta</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>Subject</columns>
+    <columns>Status</columns>
+    <columns>Subestado__c</columns>
+    <columns>Estado_Cliente__c</columns>
+    <columns>Celula__c</columns>
+    <columns>Tecnologia__c</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Data_Atribuicao_Cliente__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Familia__c</field>
+        <operation>equals</operation>
+        <value>Obra</value>
+    </filters>
+    <filters>
+        <field>IsClosed</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Obra aberta</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

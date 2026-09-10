@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Por_agendar</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Ordem__c</columns>
+    <columns>Celula_Codigo__c</columns>
+    <columns>Resumo_Cliente__c</columns>
+    <columns>Status</columns>
+    <columns>SchedStartTime</columns>
+    <columns>SchedEndTime</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Estado_Cliente__c</columns>
+    <columns>EarliestStartTime</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status</field>
+        <operation>equals</operation>
+        <value>None</value>
+    </filters>
+    <label>Por agendar</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

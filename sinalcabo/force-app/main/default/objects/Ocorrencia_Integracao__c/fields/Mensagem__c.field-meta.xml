@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mensagem__c</fullName>
+    <description>Explicação curta da ocorrência, escrita para ser lida sem abrir o conteúdo.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Exemplo: tipo de pedido OTX-ZZ9 não existe no catálogo.</inlineHelpText>
+    <label>Mensagem</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

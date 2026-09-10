@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Localidade__c</fullName>
+    <description>Concelho onde fica a célula, tal como a NOS o regista nos territórios.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Concelho onde fica a célula, tal como a NOS o regista.</inlineHelpText>
+    <label>Concelho</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

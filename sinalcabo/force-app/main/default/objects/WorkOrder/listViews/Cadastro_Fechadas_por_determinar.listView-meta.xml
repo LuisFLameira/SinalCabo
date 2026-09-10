@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cadastro_Fechadas_por_determinar</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>WorkType</columns>
+    <columns>Familia__c</columns>
+    <columns>Estado_Aceitacao_Cliente__c</columns>
+    <columns>Resultado_Cadastro__c</columns>
+    <columns>Data_Fim_Cliente__c</columns>
+    <columns>Celula__c</columns>
+    <columns>Contrato_Cliente__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IsClosed</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Resultado_Cadastro__c</field>
+        <operation>equals</operation>
+        <value>Por determinar</value>
+    </filters>
+    <label>Cadastro · Fechadas por determinar</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

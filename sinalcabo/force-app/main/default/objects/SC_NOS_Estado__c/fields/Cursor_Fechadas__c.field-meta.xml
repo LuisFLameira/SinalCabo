@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cursor_Fechadas__c</fullName>
+    <description>Até onde a leitura das ordens fechadas já chegou. A corrida seguinte parte daqui.</description>
+    <inlineHelpText>Recuar esta data faz a integração reler o período, sem duplicar ordens.</inlineHelpText>
+    <label>Cursor das fechadas</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

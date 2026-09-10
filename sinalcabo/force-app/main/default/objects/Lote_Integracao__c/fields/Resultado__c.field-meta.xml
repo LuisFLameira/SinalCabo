@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resultado__c</fullName>
+    <description>Resultado técnico da chamada à API do operador.</description>
+    <inlineHelpText>Vazio significa que a NOS respondeu bem e não havia ordens na janela. Timeout significa que a resposta demorou mais do que o permitido.</inlineHelpText>
+    <label>Resultado</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sucesso</fullName>
+                <default>false</default>
+                <label>Sucesso</label>
+            </value>
+            <value>
+                <fullName>Vazio</fullName>
+                <default>false</default>
+                <label>Vazio</label>
+            </value>
+            <value>
+                <fullName>Timeout</fullName>
+                <default>false</default>
+                <label>Timeout</label>
+            </value>
+            <value>
+                <fullName>Erro</fullName>
+                <default>false</default>
+                <label>Erro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

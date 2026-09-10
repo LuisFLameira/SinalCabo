@@ -6,5 +6,6 @@
     <permissionSets>FSL_Dispatcher_Permissions</permissionSets>
     <permissionSets>FSL_Resource_License</permissionSets>
     <permissionSets>FSL_Resource_Permissions</permissionSets>
+    <permissionSets>SC_FS_Entrada_NOS_BackOffice</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

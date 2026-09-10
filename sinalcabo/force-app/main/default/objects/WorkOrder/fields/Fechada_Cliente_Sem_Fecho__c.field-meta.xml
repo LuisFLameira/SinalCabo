@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fechada_Cliente_Sem_Fecho__c</fullName>
+    <description>Ligado quando a NOS já deu a tarefa por fechada ou resolvida e a ordem continua aberta do nosso lado.</description>
+    <formula>AND(OR(ISPICKVAL(Estado_Cliente__c, &quot;CLOSED&quot;), ISPICKVAL(Estado_Cliente__c, &quot;RESOLVED&quot;)), NOT(IsClosed))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>É a lista de trabalho do back-office no fim do dia. Fecha a ordem ou explica porque continua aberta.</inlineHelpText>
+    <label>Fechada na NOS sem fecho no FS</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ocorrencia_Compacta</fullName>
+    <fields>Name</fields>
+    <fields>Tipo__c</fields>
+    <fields>Chave_Origem__c</fields>
+    <fields>Mensagem__c</fields>
+    <fields>Reprocessavel__c</fields>
+    <fields>Ordem__c</fields>
+    <label>Ocorrência</label>
+</CompactLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado__c</fullName>
+    <description>Estado do lote. Nasce Em curso, fecha em Concluído, Concluído com erros ou Falhado.</description>
+    <inlineHelpText>Falhado quer dizer que a leitura não chegou ao fim. Concluído com erros quer dizer que leu, mas houve registos rejeitados.</inlineHelpText>
+    <label>Estado</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Em curso</fullName>
+                <default>true</default>
+                <label>Em curso</label>
+            </value>
+            <value>
+                <fullName>Concluído</fullName>
+                <default>false</default>
+                <label>Concluído</label>
+            </value>
+            <value>
+                <fullName>Concluído com erros</fullName>
+                <default>false</default>
+                <label>Concluído com erros</label>
+            </value>
+            <value>
+                <fullName>Falhado</fullName>
+                <default>false</default>
+                <label>Falhado</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reprocessado_De__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Lote de origem, quando este lote nasceu de um reprocessamento da resposta guardada em vez de uma chamada nova à NOS.</description>
+    <inlineHelpText>Fica vazio nas corridas normais.</inlineHelpText>
+    <label>Reprocessado do lote</label>
+    <referenceTo>Lote_Integracao__c</referenceTo>
+    <relationshipLabel>Reprocessamentos</relationshipLabel>
+    <relationshipName>Reprocessamentos</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

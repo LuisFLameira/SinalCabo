@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facturacao_Por_facturar</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>WorkType</columns>
+    <columns>Familia__c</columns>
+    <columns>Dentro_Avenca__c</columns>
+    <columns>Estado_Facturacao__c</columns>
+    <columns>Status</columns>
+    <columns>Data_Fim_Cliente__c</columns>
+    <columns>Celula__c</columns>
+    <columns>ServiceTerritory</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IsClosed</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Dentro_Avenca__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Estado_Facturacao__c</field>
+        <operation>equals</operation>
+        <value>Por facturar</value>
+    </filters>
+    <label>Facturação · Por facturar</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

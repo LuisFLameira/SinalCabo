@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ruas_Conhecidas__c</fullName>
+    <description>Moradas já vistas em ordens desta célula, uma por linha. Não é a lista oficial de ruas do operador.</description>
+    <inlineHelpText>Serve para confirmar a célula quando o texto da NOS não traz o código. Podes acrescentar moradas à mão.</inlineHelpText>
+    <label>Ruas conhecidas</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>8</visibleLines>
+</CustomField>

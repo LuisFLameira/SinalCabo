@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fuso_Horario__c</fullName>
+    <description>Fuso em que as janelas de leitura são escritas nos parâmetros da API.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Europe/Lisbon. Foi provado no arranque que a NOS lê as janelas em hora local e não em UTC.</inlineHelpText>
+    <label>Fuso horário</label>
+    <length>60</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

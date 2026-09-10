@@ -1,0 +1,13 @@
+{
+ "result_message": "Error getting activity from ticketing system [T]. Please try again - Error getting activity TRIN.  :'fields.itsm_id=CRQ000001001020'  activity not found",
+ "execution_duration": 128,
+ "last_update": 1788465484364,
+ "session_id": "ac7886e2-50c8-432d-ac7d-887f3c33c149",
+ "correlation_id": "3d31467c-52db-4740-9e46-d2f001f3a62b",
+ "result_data": {
+  "format": 0
+ },
+ "result_code": 701,
+ "version": 11,
+ "timestamp": 1788465484236
+}

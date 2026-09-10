@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Codigo_Utilizador_Cliente_Origem__c</fullName>
+    <description>Código do utilizador a quem a NOS atribuiu a tarefa na plataforma dela, por exemplo LFSEITA ou U1024658.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>É o código do lado da NOS. Se não houver nenhum recurso nosso com este código, a ordem fica marcada com técnico por mapear.</inlineHelpText>
+    <label>Técnico indicado pela NOS</label>
+    <length>40</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

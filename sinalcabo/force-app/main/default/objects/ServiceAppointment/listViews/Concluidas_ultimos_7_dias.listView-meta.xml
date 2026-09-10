@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Concluidas_ultimos_7_dias</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Ordem__c</columns>
+    <columns>Celula_Codigo__c</columns>
+    <columns>Resumo_Cliente__c</columns>
+    <columns>Status</columns>
+    <columns>ActualStartTime</columns>
+    <columns>ActualEndTime</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Estado_Cliente__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status</field>
+        <operation>equals</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>ActualEndTime</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_DAYS:7</value>
+    </filters>
+    <label>Concluídas nos últimos 7 dias</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

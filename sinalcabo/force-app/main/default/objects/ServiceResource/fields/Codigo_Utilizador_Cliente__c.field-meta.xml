@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Codigo_Utilizador_Cliente__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Código com que a NOS identifica este técnico nas ordens que atribui ao parceiro. É a chave que liga o técnico da NOS ao recurso de serviço.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Código com que a NOS identifica este técnico nas ordens (campo AssignedUser da API), por exemplo U1024400. Sem este código a ordem fica marcada como recurso por mapear.</inlineHelpText>
+    <label>Código de utilizador (NOS)</label>
+    <length>40</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

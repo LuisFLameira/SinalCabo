@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Codigo__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Código da célula tal como aparece nos mapas de rede do operador, por exemplo ABD01. É a chave usada na carga dos mapas e na proposta automática de célula na ordem.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Escreve o código como vem do mapa de rede, sem espaços. Não pode haver duas células com o mesmo código.</inlineHelpText>
+    <label>Código</label>
+    <length>20</length>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

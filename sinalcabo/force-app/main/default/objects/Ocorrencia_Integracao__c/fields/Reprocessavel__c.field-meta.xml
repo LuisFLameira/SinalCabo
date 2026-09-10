@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reprocessavel__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indica se a ocorrência pode ser resolvida a repetir o processamento, sem pedir nada à NOS.</description>
+    <inlineHelpText>Ligado quando a causa é dado de referência em falta, como um tipo de pedido ou uma célula que ainda não existe.</inlineHelpText>
+    <label>Reprocessável</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

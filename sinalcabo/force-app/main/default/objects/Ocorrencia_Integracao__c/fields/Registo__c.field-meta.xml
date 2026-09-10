@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registo__c</fullName>
+    <description>Identificador ou nome do registo a que a ocorrência diz respeito, quando não é uma ordem de trabalho.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Fica vazio quando a ocorrência já aponta a uma ordem.</inlineHelpText>
+    <label>Registo afectado</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

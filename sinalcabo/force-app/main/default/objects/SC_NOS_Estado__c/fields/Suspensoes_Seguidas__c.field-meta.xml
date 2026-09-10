@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Suspensoes_Seguidas__c</fullName>
+    <description>Quantas suspensões consecutivas já houve. Cada uma dobra o tempo de espera, até ao tecto de duas horas.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Volta a zero na primeira corrida com sucesso.</inlineHelpText>
+    <label>Suspensões seguidas</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

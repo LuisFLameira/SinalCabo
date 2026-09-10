@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kill_Switch__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Quando está ligado, nenhuma corrida nova é enfileirada. É a forma imediata de parar a ligação ao operador.</description>
+    <inlineHelpText>Liga para parar tudo, por exemplo a pedido da NOS. As ordens já criadas não são afectadas.</inlineHelpText>
+    <label>Travão de emergência</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

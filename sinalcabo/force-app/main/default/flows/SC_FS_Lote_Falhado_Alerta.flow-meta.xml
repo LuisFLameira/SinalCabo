@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Enviar_email_ao_administrador</name>
+        <label>Enviar email ao administrador</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Notificar_o_dono_do_lote</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>joel.regufe@techremotehub.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>fAssunto</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>tplCorpoEmail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Notificar_o_dono_do_lote</name>
+        <label>Notificar o dono do lote</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Obter_o_tipo_de_notificacao.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <elementReference>fAssunto</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <elementReference>tplCorpoNotificacao</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>varDestinatarios</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Juntar_o_dono_aos_destinatarios</name>
+        <label>Juntar o dono aos destinatários</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>varDestinatarios</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Enviar_email_ao_administrador</targetReference>
+        </connector>
+    </assignments>
+    <description>Quando um lote de integração passa a Falhado, avisa por email o endereço de suporte do projecto e envia uma notificação ao dono do registo. Só dispara na transição para Falhado.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fAssunto</name>
+        <dataType>String</dataType>
+        <expression>&quot;SC FS · Lote de integração falhado: &quot; &amp; {!$Record.Name}</expression>
+    </formulas>
+    <formulas>
+        <name>fLigacao</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Api.Enterprise_Server_URL_580}, FIND(&quot;.com&quot;, {!$Api.Enterprise_Server_URL_580}) + 3) &amp; &quot;/&quot; &amp; {!$Record.Id}</expression>
+    </formulas>
+    <interviewLabel>SC FS Lote falhado alerta {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Lote falhado alerta</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Obter_o_tipo_de_notificacao</name>
+        <label>Obter o tipo de notificação</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Juntar_o_dono_aos_destinatarios</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SC_FS_Integracao_Falhou</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>DeveloperName</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Obter_o_tipo_de_notificacao</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Estado__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Falhado</stringValue>
+            </value>
+        </filters>
+        <object>Lote_Integracao__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>tplCorpoEmail</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>A corrida da integração com a NOS terminou em Falhado.
+
+Lote: {!$Record.Name}
+Interface: {!$Record.Interface__c}
+Tipo de corrida: {!$Record.Tipo_Corrida__c}
+Janela: de {!$Record.Janela_Inicio__c} a {!$Record.Janela_Fim__c}
+Resultado: {!$Record.Resultado__c}
+Registos lidos: {!$Record.Registos_Lidos__c}
+Rejeitados: {!$Record.Rejeitados__c}
+
+Erro:
+{!$Record.Erro__c}
+
+Registo do lote:
+{!fLigacao}
+
+Mensagem automática do Field Service da SinalCabo.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>tplCorpoNotificacao</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Corrida {!$Record.Tipo_Corrida__c} falhada na janela de {!$Record.Janela_Inicio__c} a {!$Record.Janela_Fim__c}. Resultado: {!$Record.Resultado__c}.</text>
+    </textTemplates>
+    <variables>
+        <name>varDestinatarios</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

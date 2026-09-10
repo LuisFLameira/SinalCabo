@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ordem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Ligação directa à ordem de trabalho. Existe porque o campo padrão que liga a marcação ao pai aceita vários tipos de registo e não pode ser usado em fórmulas.</description>
+    <inlineHelpText>Preenchido pela integração ao criar a marcação. Não o alteres à mão.</inlineHelpText>
+    <label>Ordem de trabalho</label>
+    <referenceTo>WorkOrder</referenceTo>
+    <relationshipLabel>Marcações (espelho)</relationshipLabel>
+    <relationshipName>Marcacoes_Espelho</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

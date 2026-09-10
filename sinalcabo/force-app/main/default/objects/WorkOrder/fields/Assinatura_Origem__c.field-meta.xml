@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assinatura_Origem__c</fullName>
+    <description>Resumo dos campos que a NOS envia. Se a assinatura não mudar entre leituras, a ordem não é reescrita.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Campo técnico. Não o alteres à mão, senão a integração volta a escrever a ordem sem necessidade.</inlineHelpText>
+    <label>Assinatura dos dados da NOS</label>
+    <length>64</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

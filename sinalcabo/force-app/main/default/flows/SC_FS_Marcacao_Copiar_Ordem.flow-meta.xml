@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Copiar_a_ordem</name>
+        <label>Copiar a ordem para o campo próprio</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Ordem__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ParentRecordId</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>O_pai_e_uma_ordem</name>
+        <label>O pai é uma ordem de trabalho</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Não é ordem</defaultConnectorLabel>
+        <rules>
+            <name>E_ordem_de_trabalho</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fPrefixo_do_pai</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0WO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copiar_a_ordem</targetReference>
+            </connector>
+            <label>É ordem de trabalho</label>
+        </rules>
+    </decisions>
+    <description>Preenche Ordem__c na marcação a partir do registo pai, quando o pai é uma ordem de trabalho. A plataforma cria a marcação sozinha quando a ordem nasce com tipo de trabalho e não preenche este campo; sem ele os cinco campos espelho da consola ficam vazios.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fPrefixo_do_pai</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Record.ParentRecordId} &amp; &quot;&quot;, 3)</expression>
+    </formulas>
+    <interviewLabel>SC FS Marcação copiar ordem {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Marcação copiar ordem</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>O_pai_e_uma_ordem</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Ordem__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

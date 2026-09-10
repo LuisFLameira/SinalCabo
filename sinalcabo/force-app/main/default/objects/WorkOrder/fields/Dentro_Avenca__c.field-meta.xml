@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dentro_Avenca__c</fullName>
+    <description>Ligado quando o tipo de trabalho está coberto pela avença e portanto não é facturado à parte.</description>
+    <formula>WorkType.Dentro_Avenca__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Vem do tipo de trabalho. Se estiver errado, corrige-se no catálogo de tipos, não na ordem.</inlineHelpText>
+    <label>Dentro da avença</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

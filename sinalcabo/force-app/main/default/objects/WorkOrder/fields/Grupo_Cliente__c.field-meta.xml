@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grupo_Cliente__c</fullName>
+    <description>Grupo do parceiro a que a NOS atribuiu a tarefa, por exemplo TS2-Sinalcabo ou TL2-Sinalcabo.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>É o que determina o território proposto. Se a célula apontar a outro território, a ordem fica com divergência.</inlineHelpText>
+    <label>Grupo na NOS</label>
+    <length>40</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

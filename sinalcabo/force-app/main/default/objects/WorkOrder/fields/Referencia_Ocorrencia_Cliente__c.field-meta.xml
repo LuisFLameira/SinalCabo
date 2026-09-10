@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referencia_Ocorrencia_Cliente__c</fullName>
+    <description>Referência do incidente que deu origem à tarefa na NOS, por exemplo INC000169413249. Várias ordens podem partilhar o mesmo pai.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Serve para agrupar ordens do mesmo incidente e para falar com a NOS sobre o caso.</inlineHelpText>
+    <label>Ocorrência NOS (ticket pai)</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

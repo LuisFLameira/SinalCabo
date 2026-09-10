@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomNotificationType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customNotifTypeName>SC_FS_Integracao_Falhou</customNotifTypeName>
+    <description>Aviso ao dono do lote quando uma corrida da integração com a NOS termina em Falhado.</description>
+    <desktop>true</desktop>
+    <masterLabel>SC FS · Integração falhou</masterLabel>
+    <mobile>true</mobile>
+    <slack>false</slack>
+</CustomNotificationType>

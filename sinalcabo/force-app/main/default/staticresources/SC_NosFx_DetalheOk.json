@@ -1,0 +1,57 @@
+{
+ "result_message": "OK",
+ "execution_duration": 1433,
+ "last_update": 1788465486951,
+ "session_id": "6056580a-6842-4f98-90c3-9de0bb09d5a3",
+ "correlation_id": "c9bdcaf0-b5be-4216-b66b-b39ebd25e067",
+ "result_data": {
+  "data": {
+   "Status": "PENDING",
+   "NetworkElements": [
+    {
+     "name": "CAI04-2C1"
+    },
+    {
+     "name": "CAI04-2C"
+    }
+   ],
+   "ServiceContract": "SPGLOBAL",
+   "Priority": "Low",
+   "RequesterDepartment": "L1 Support",
+   "AssignedUser": "U9770710",
+   "EndDate": "2026-08-07T16:54:27+01:00",
+   "StartDate": "2026-08-07T15:12:31+01:00",
+   "RequesterCompany": "NOS",
+   "ReferenceID": "INC000187487828",
+   "AssignedDate": "2026-08-07T15:12:26+01:00",
+   "RequesterOrganization": "Operations",
+   "AssignedCompany": "SINALCABO",
+   "Summary": "OTI-RA3 OTI-RA3 CAI04 - 2C1 - Rua Exemplo, 1 - Picos DCER - Degrad/Quebras",
+   "Interactions": [
+    {
+     "Type": "General Information",
+     "CreatedDate": "2026-08-07T16:21:38+01:00",
+     "Summary": "Inicio da Manutenção - Técnico Exemplo - Site/Cell/PD: CAI04",
+     "ID": "000000006595355",
+     "Notes": "Inicio da Manutenção - Técnico Exemplo - Site/Cell/PD: CAI04"
+    },
+    {
+     "Type": "General Information",
+     "CreatedDate": "2026-08-07T16:54:27+01:00",
+     "Summary": "Fim da Reparacao - Técnico Exemplo - Cadastro: PEND - Resolucao: Cvps na faixa de",
+     "ID": "000000006595400",
+     "Notes": "Fim da Reparacao - Técnico Exemplo - Cadastro: PEND - Resolucao: Cvps na faixa de rodagem necessrio agendar policiamento para aceder as mesmas #TAS000002537686#U9770710#SEM ACESSO#TECNICO EXEMPLO# - ID_SITE_VISIT: 467909",
+     "Source": "Phone"
+    }
+   ],
+   "ID": "TAS000002537686",
+   "Notes": "<div>CAI04 - 2C1 - Rua Exemplo, 1 - Picos DCER - Degrad/Quebras</div><div><br></div><div>Rec:</div><div>1-N7OF0S1 S000000000</div><div><br></div><div>KO</div><div>2C1 S000000000 000000000000 Rua Exemplo, 1 - Cascais</div><div>2C1 S000000000 000000000000 Rua Exemplo, 1 - Cascais</div><div>2C1 S000000000 000000000000 Rua Exemplo, 1 - Cascais</div><div>2C1 S000000000 000000000000 Rua Exemplo, 1 - Cascais</div><div>2C1 S000000000 000000000000 Rua Exemplo, 1 - Cascais</div><div><br></div><div>OK</div><div>2C1 S000000000 000000000000 Rua Exemplo, 1 - Cascais</div>",
+   "AssignedGroup": "TL2-Sinalcabo",
+   "RequestType": "OTI-RA3"
+  },
+  "format": 1
+ },
+ "result_code": 200,
+ "version": 11,
+ "timestamp": 1788465485518
+}

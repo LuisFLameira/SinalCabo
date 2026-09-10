@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territorio__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Território de serviço responsável pela célula. Serve para propor o território da ordem e para detectar divergências com o grupo que a NOS indica.</description>
+    <inlineHelpText>Escolhe o território que atende esta célula. Se a ordem chegar com um grupo de outro território, fica marcada com divergência.</inlineHelpText>
+    <label>Território</label>
+    <referenceTo>ServiceTerritory</referenceTo>
+    <relationshipLabel>Células</relationshipLabel>
+    <relationshipName>Celulas</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

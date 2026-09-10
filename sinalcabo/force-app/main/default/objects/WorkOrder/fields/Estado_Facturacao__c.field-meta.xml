@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_Facturacao__c</fullName>
+    <description>Terceiro estado da ordem, ao lado do estado da SinalCabo e do estado no NetGuard. Diz se a ordem já foi facturada ao operador.</description>
+    <inlineHelpText>Nasce Não aplicável nas ordens dentro da avença e Por facturar nas restantes. Passa a Incluído no auto quando entra num auto de medição.</inlineHelpText>
+    <label>Estado de facturação</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Não aplicável (avença)</fullName>
+                <default>false</default>
+                <label>Não aplicável (avença)</label>
+            </value>
+            <value>
+                <fullName>Por facturar</fullName>
+                <default>false</default>
+                <label>Por facturar</label>
+            </value>
+            <value>
+                <fullName>Incluído no auto</fullName>
+                <default>false</default>
+                <label>Incluído no auto</label>
+            </value>
+            <value>
+                <fullName>Facturado</fullName>
+                <default>false</default>
+                <label>Facturado</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

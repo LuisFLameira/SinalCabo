@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo__c</fullName>
+    <description>Natureza da ocorrência.</description>
+    <inlineHelpText>Alteração é uma mudança de estado registada, Rejeição é uma linha que não entrou, Conflito é uma diferença entre o que temos e o que a NOS diz, Aviso é algo que entrou mas merece ser visto.</inlineHelpText>
+    <label>Tipo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alteração</fullName>
+                <default>false</default>
+                <label>Alteração</label>
+            </value>
+            <value>
+                <fullName>Rejeição</fullName>
+                <default>false</default>
+                <label>Rejeição</label>
+            </value>
+            <value>
+                <fullName>Conflito</fullName>
+                <default>false</default>
+                <label>Conflito</label>
+            </value>
+            <value>
+                <fullName>Aviso</fullName>
+                <default>false</default>
+                <label>Aviso</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_Aceitacao_Cliente__c</fullName>
+    <description>Estado de aceitação da ordem no PNI, a plataforma onde a NOS valida o trabalho realizado. Valores por fixar com o cliente.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Preenchido pelo back-office enquanto não houver interface. Diz se a NOS já aceitou o trabalho.</inlineHelpText>
+    <label>Estado no PNI</label>
+    <length>40</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

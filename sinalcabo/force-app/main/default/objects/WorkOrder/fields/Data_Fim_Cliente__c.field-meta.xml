@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Fim_Cliente__c</fullName>
+    <description>Hora a que acabou a última intervenção registada na NOS. Pode mudar ao longo da vida da ordem se outro técnico voltar ao local.</description>
+    <inlineHelpText>Muda sempre que a NOS registar nova intervenção, por isso não serve como data de fecho definitiva.</inlineHelpText>
+    <label>Fim da última intervenção na NOS</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NOS_Recurso_por_mapear</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>Codigo_Utilizador_Cliente_Origem__c</columns>
+    <columns>Estado_Cliente__c</columns>
+    <columns>Data_Atribuicao_Cliente__c</columns>
+    <columns>Celula__c</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Subject</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Recurso_Por_Mapear__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>NOS · Recurso por mapear</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

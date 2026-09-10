@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Configuração da ligação a cada sistema do operador: por onde se chama, que janelas se leem, quanto tempo se espera e quanto tempo se guarda a resposta. Configuração estática, versionada. O estado que muda a cada corrida vive no custom setting Estado da integração.</description>
+    <label>Sistema do operador</label>
+    <pluralLabel>Sistemas do operador</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

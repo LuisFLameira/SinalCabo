@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subestado__c</fullName>
+    <description>Detalhe do estado da ordem do lado da SinalCabo. Os valores definitivos ficam por fechar com o cliente.</description>
+    <inlineHelpText>Nasce Por definir. A lista final entra quando o cliente fechar os motivos de pendência.</inlineHelpText>
+    <label>Subestado</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Por definir</fullName>
+                <default>true</default>
+                <label>Por definir</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

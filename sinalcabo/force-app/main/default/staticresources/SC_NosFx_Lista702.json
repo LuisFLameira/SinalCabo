@@ -1,0 +1,16 @@
+{
+ "result_message": "Query in CLOSED states must contain start date and query must not be superior to 72 hours",
+ "execution_duration": 12,
+ "last_update": 1788463909940,
+ "session_id": "7f88391e-5d93-4b25-8805-36f263e330b1",
+ "correlation_id": "d7633a09-a384-44d7-aa1b-be9f74b72f14",
+ "result_data": {
+  "full_count": 0,
+  "data": [],
+  "format": 2,
+  "count": 0
+ },
+ "result_code": 702,
+ "version": 11,
+ "timestamp": 1788463909928
+}

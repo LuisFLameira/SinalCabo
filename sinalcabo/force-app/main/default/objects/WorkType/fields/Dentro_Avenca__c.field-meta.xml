@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dentro_Avenca__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado quando o trabalho deste tipo está coberto pela avença e não é facturado à parte.</description>
+    <inlineHelpText>Vem da coluna Dentro da avença do catálogo de ordens do contrato. É o que decide o estado de facturação inicial das ordens.</inlineHelpText>
+    <label>Dentro da avença</label>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>text/plain</contentType>
+    <description>Corpo real do 500 do WSO2 com am:code 303001, endpoint SUSPENDED.</description>
+</StaticResource>

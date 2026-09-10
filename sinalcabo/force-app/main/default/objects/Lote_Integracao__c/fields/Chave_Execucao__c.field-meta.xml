@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chave_Execucao__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Identificador único da corrida, composto pela interface, tipo de corrida e limites da janela. Impede que duas corridas leiam a mesma janela.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Preenchido pela integração. Um erro de valor duplicado significa que outra corrida já leu esta janela.</inlineHelpText>
+    <label>Chave de execução</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NOS_Fechadas_sem_fecho_no_FS</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>Subject</columns>
+    <columns>Status</columns>
+    <columns>Estado_Cliente__c</columns>
+    <columns>Data_Fim_Cliente__c</columns>
+    <columns>Codigo_Utilizador_Cliente_Origem__c</columns>
+    <columns>Celula__c</columns>
+    <columns>ServiceTerritory</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Fechada_Cliente_Sem_Fecho__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>NOS · Fechadas no NetGuard sem fecho</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

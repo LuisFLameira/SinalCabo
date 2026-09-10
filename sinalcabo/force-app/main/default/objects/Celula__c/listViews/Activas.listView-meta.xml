@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activas</fullName>
+    <columns>NAME</columns>
+    <columns>Tecnologia__c</columns>
+    <columns>Territorio__c</columns>
+    <columns>Zona_Cliente__c</columns>
+    <columns>Localidade__c</columns>
+    <columns>Ruas_Principais__c</columns>
+    <columns>Data_Mapa__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Activa__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Activas</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

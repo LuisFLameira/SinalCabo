@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resultado_Cadastro__c</fullName>
+    <description>Diz se a intervenção deixou cadastro para actualizar na rede.</description>
+    <inlineHelpText>Por determinar até alguém confirmar. É este campo que alimenta a lista de fechadas por determinar.</inlineHelpText>
+    <label>Resultado do cadastro</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Com cadastro</fullName>
+                <default>false</default>
+                <label>Com cadastro</label>
+            </value>
+            <value>
+                <fullName>Sem cadastro</fullName>
+                <default>false</default>
+                <label>Sem cadastro</label>
+            </value>
+            <value>
+                <fullName>Por determinar</fullName>
+                <default>false</default>
+                <label>Por determinar</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

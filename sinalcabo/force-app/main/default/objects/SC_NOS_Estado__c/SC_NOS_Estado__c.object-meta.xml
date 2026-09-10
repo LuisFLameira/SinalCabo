@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Estado vivo da integração com o operador: travão de emergência, suspensão em curso, contadores de erro e cursores de leitura. É dado da org e muda a cada corrida, por isso não vive em custom metadata nem viaja em deploys.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Estado da integração NOS</label>
+    <visibility>Protected</visibility>
+</CustomObject>

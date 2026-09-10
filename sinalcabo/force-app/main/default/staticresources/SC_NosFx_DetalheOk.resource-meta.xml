@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>application/json</contentType>
+    <description>Detalhe real anonimizado da TAS000002537686: result_code 200, data como objecto, NetworkElements com CAI04-2C1 e duas Interactions.</description>
+</StaticResource>

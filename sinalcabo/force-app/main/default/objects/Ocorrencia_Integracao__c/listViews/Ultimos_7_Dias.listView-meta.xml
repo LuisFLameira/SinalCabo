@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ultimos_7_Dias</fullName>
+    <columns>NAME</columns>
+    <columns>Tipo__c</columns>
+    <columns>Chave_Origem__c</columns>
+    <columns>Mensagem__c</columns>
+    <columns>Ordem__c</columns>
+    <columns>Lote__c</columns>
+    <columns>Reprocessavel__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_DAYS:7</value>
+    </filters>
+    <label>Últimos 7 dias</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

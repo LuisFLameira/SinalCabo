@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Janela_Inicio__c</fullName>
+    <description>Momento a partir do qual o lote pediu ordens ao operador.</description>
+    <inlineHelpText>Hora de Portugal. A NOS filtra pela data em que a ordem foi atribuída ao parceiro.</inlineHelpText>
+    <label>Início da janela</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

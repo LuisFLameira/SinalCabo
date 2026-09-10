@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chave_Origem__c</fullName>
+    <description>Referência da tarefa na NOS a que a ocorrência diz respeito.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>É a mesma referência que aparece na ordem de trabalho.</inlineHelpText>
+    <label>Referência na origem</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
