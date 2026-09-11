@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Carimbar_o_direito_e_o_horario</name>
+        <label>Carimbar o direito de serviço e o horário</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.EntitlementId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Obter_o_encaminhamento.Entitlement_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BusinessHoursId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Obter_o_encaminhamento.Business_Hours_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Ha_encaminhamento</name>
+        <label>Há encaminhamento para este tipo de trabalho?</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <defaultConnectorLabel>Não</defaultConnectorLabel>
+        <rules>
+            <name>Sim_com_direito_de_servico</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obter_o_encaminhamento.Entitlement_Id__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Carimbar_o_direito_e_o_horario</targetReference>
+            </connector>
+            <label>Sim, com direito de serviço</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Ja_arrancou_o_prazo</name>
+        <label>Já arrancou algum prazo nesta ordem?</label>
+        <locationX>440</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Obter_o_encaminhamento</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Ainda não</defaultConnectorLabel>
+        <rules>
+            <name>Ja_ha_milestone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obter_um_milestone.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Já há milestone, não se mexe</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Precisa_de_direito_de_servico</name>
+        <label>Precisa de direito de serviço?</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Não</defaultConnectorLabel>
+        <rules>
+            <name>Sem_direito_de_servico</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.EntitlementId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obter_o_encaminhamento</targetReference>
+            </connector>
+            <label>Não tem nenhum</label>
+        </rules>
+        <rules>
+            <name>Tipo_de_trabalho_mudou</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fTipoDeTrabalhoMudou</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obter_um_milestone</targetReference>
+            </connector>
+            <label>O tipo de trabalho mudou</label>
+        </rules>
+    </decisions>
+    <description>Carimba na ordem o direito de serviço e o horário do par de prazos do seu tipo de trabalho, lidos da SC_FS_SLA_OT__mdt pelo Id do tipo de trabalho. Corre antes de gravar, por isso não gasta DML nenhum, e a plataforma arranca o processo na mesma gravação: o SlaStartDate sai da data de atribuição pela NOS sem ninguém o escrever. Só toca em ordens sem direito de serviço, ou cujo tipo de trabalho mudou antes de existir milestone: uma ordem com o prazo a contar nunca muda de régua.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fTipoDeTrabalhoMudou</name>
+        <dataType>Boolean</dataType>
+        <expression>ISCHANGED({!$Record.WorkTypeId})</expression>
+    </formulas>
+    <interviewLabel>SC FS Ordem SLA arranque {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Ordem SLA arranque</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Obter_o_encaminhamento</name>
+        <label>Obter o encaminhamento de SLA do tipo de trabalho</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Ha_encaminhamento</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Work_Type_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WorkTypeId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SC_FS_SLA_OT__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Obter_um_milestone</name>
+        <label>Obter um milestone já criado nesta ordem</label>
+        <locationX>440</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Ja_arrancou_o_prazo</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentEntityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EntityMilestone</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Precisa_de_direito_de_servico</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WorkTypeId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>WorkOrder</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

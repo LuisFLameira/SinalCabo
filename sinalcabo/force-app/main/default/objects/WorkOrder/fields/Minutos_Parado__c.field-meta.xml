@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minutos_Parado__c</fullName>
+    <description>Soma dos minutos de todas as paragens registadas na ordem. É o tempo que não conta para os prazos.</description>
+    <inlineHelpText>É calculado a partir das paragens da ordem. Para o corrigir, corrige-se a paragem e não este número.</inlineHelpText>
+    <label>Minutos parado</label>
+    <summarizedField>Paragem_Ordem__c.Minutos__c</summarizedField>
+    <summaryForeignKey>Paragem_Ordem__c.Ordem__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

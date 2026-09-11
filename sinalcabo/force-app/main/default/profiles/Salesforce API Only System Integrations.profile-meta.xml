@@ -159,6 +159,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SC_FS_Ordem_SLA_FlowsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SC_FlowFaultLogger</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2031,6 +2035,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Paragem_Ordem__c.Fim__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Paragem_Ordem__c.Inicio__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Paragem_Ordem__c.Minutos__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Paragem_Ordem__c.Motivo__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Paragem_Ordem__c.Responsavel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Regra_Aprovacao__c.Activa__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2237,6 +2266,36 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>SC_Erro_Automacao_Log__c.Resolvido__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SC_FS_SLA_OT__mdt.Business_Hours_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SC_FS_SLA_OT__mdt.Codigo_OT__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SC_FS_SLA_OT__mdt.Entitlement_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SC_FS_SLA_OT__mdt.Tem_TEC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SC_FS_SLA_OT__mdt.Tem_TE__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SC_FS_SLA_OT__mdt.Work_Type_Id__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2841,6 +2900,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Sistema_Cliente__mdt.Email_Despacho__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Sistema_Cliente__mdt.Fuso_Horario__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2966,12 +3030,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>WorkOrder.Data_Entrega_Cadastro__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Data_Fecho_Tecnico__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>WorkOrder.Data_Fim_Cliente__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>WorkOrder.Data_Inicio_Cliente__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Data_Limite_Acordada__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Data_Producao__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3136,6 +3220,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>WorkOrder.Minutos_Parado__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Motivo_Paragem__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>WorkOrder.Origem_Celula__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3201,6 +3295,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>WorkOrder.Responsavel_Paragem__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Responsavel_TEC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>WorkOrder.Resultado_Cadastro__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3215,9 +3319,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Risco_Incumprimento__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>WorkOrder.RootWorkOrderId</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.SLA_Incumprido__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3351,6 +3465,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>WorkType.Patamar_Penalidade_Dias__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkType.Penalidade_Unitaria__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>WorkType.RecommendedCrewSize</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3367,6 +3491,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>WorkType.TE_Minutos__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkType.Unidade_Afericao_TEC_Minutos__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkType.Unidade_Afericao_TE_Minutos__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -3610,6 +3744,9 @@
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Paragem_Ordem__c-Paragem da ordem Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -3704,6 +3841,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>SC_Erro_Automacao_Log__c-SC Erro de Automação Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SC_FS_SLA_OT__mdt-SLA por OT Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SC_G1_Criterio__mdt-SC G1 Critério Layout</layout>
@@ -3911,6 +4051,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Ocorrencia_Integracao__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Paragem_Ordem__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

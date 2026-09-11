@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>WorkOrder</SObjectType>
+    <active>true</active>
+    <businessHours>Default</businessHours>
+    <description>Prova 1a: o arranque le-se do proprio SlaStartDate escrito pela API.</description>
+    <entryStartDateField>WorkOrder.SlaStartDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>WorkOrder.Status</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneName>TE %28intervenção%29</milestoneName>
+        <minutesToComplete>180</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tem_TE__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado quando o catálogo dá prazo de execução a este código. Desligado nos códigos conforme acordado e nos de policiamento.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Tem prazo de execução</label>
+    <type>Checkbox</type>
+</CustomField>

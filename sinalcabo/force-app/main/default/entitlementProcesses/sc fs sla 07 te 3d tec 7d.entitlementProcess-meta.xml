@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>WorkOrder</SObjectType>
+    <active>true</active>
+    <businessHours>Default</businessHours>
+    <description>Prazos do catálogo da NOS de 28/08/2026, em tempo contínuo: TE 4320 min, TEC 10080 min. Códigos: OTM-LR1. Não editar: um processo em uso é intocável, clona-se.</description>
+    <entryStartDateField>WorkOrder.Data_Atribuicao_Cliente__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>WorkOrder.Data_Entrega_Cadastro__c</field>
+        <operation>notEqual</operation>
+        <value></value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneName>TE %28intervenção%29</milestoneName>
+        <minutesToComplete>4320</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Incumprido</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Risco</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>WorkOrder.Data_Fecho_Tecnico__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>TEC %28cadastro%29</milestoneName>
+        <minutesToComplete>10080</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Incumprido</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Risco</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-42</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

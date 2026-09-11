@@ -406,7 +406,7 @@
                     <name>uiBehavior</name>
                     <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Status</fieldItem>
+                <fieldItem>Record.SlaStartDate</fieldItem>
                 <identifier>Campo26</identifier>
             </fieldInstance>
         </itemInstances>
@@ -416,7 +416,7 @@
                     <name>uiBehavior</name>
                     <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Estado_Cliente__c</fieldItem>
+                <fieldItem>Record.Data_Fecho_Tecnico__c</fieldItem>
                 <identifier>Campo27</identifier>
             </fieldInstance>
         </itemInstances>
@@ -424,9 +424,9 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Estado_Facturacao__c</fieldItem>
+                <fieldItem>Record.Data_Entrega_Cadastro__c</fieldItem>
                 <identifier>Campo28</identifier>
             </fieldInstance>
         </itemInstances>
@@ -436,8 +436,160 @@
                     <name>uiBehavior</name>
                     <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Estado_Aceitacao_Cliente__c</fieldItem>
+                <fieldItem>Record.Data_Producao__c</fieldItem>
                 <identifier>Campo29</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Data_Limite_Acordada__c</fieldItem>
+                <identifier>Campo30</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Responsavel_TEC__c</fieldItem>
+                <identifier>Campo31</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-sla-c1</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MilestoneStatus</fieldItem>
+                <identifier>Campo32</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Minutos_Parado__c</fieldItem>
+                <identifier>Campo33</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Risco_Incumprimento__c</fieldItem>
+                <identifier>Campo34</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.SLA_Incumprido__c</fieldItem>
+                <identifier>Campo35</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Motivo_Paragem__c</fieldItem>
+                <identifier>Campo36</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Responsavel_Paragem__c</fieldItem>
+                <identifier>Campo37</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-sla-c2</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-sla-c1</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>Coluna8</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-sla-c2</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>Coluna9</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-sla-cols</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Status</fieldItem>
+                <identifier>Campo38</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Estado_Cliente__c</fieldItem>
+                <identifier>Campo39</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Estado_Facturacao__c</fieldItem>
+                <identifier>Campo40</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Estado_Aceitacao_Cliente__c</fieldItem>
+                <identifier>Campo41</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-cad-c1</name>
@@ -451,7 +603,7 @@
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Resultado_Cadastro__c</fieldItem>
-                <identifier>Campo30</identifier>
+                <identifier>Campo42</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -461,7 +613,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Familia__c</fieldItem>
-                <identifier>Campo31</identifier>
+                <identifier>Campo43</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -471,7 +623,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Dentro_Avenca__c</fieldItem>
-                <identifier>Campo32</identifier>
+                <identifier>Campo44</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -481,7 +633,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Fechada_Cliente_Sem_Fecho__c</fieldItem>
-                <identifier>Campo33</identifier>
+                <identifier>Campo45</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-cad-c2</name>
@@ -495,7 +647,7 @@
                     <value>Facet-cad-c1</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>Coluna8</identifier>
+                <identifier>Coluna10</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -505,7 +657,7 @@
                     <value>Facet-cad-c2</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>Coluna9</identifier>
+                <identifier>Coluna11</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-cad-cols</name>
@@ -519,7 +671,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Ultimo_Lote__c</fieldItem>
-                <identifier>Campo34</identifier>
+                <identifier>Campo46</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -529,7 +681,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Recurso_Por_Mapear__c</fieldItem>
-                <identifier>Campo35</identifier>
+                <identifier>Campo47</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -539,7 +691,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Origem_Celula__c</fieldItem>
-                <identifier>Campo36</identifier>
+                <identifier>Campo48</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -549,7 +701,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Desaparecida_Origem__c</fieldItem>
-                <identifier>Campo37</identifier>
+                <identifier>Campo49</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-int-c1</name>
@@ -563,7 +715,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Data_Ultima_Leitura__c</fieldItem>
-                <identifier>Campo38</identifier>
+                <identifier>Campo50</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -573,7 +725,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Assinatura_Origem__c</fieldItem>
-                <identifier>Campo39</identifier>
+                <identifier>Campo51</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -583,7 +735,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.CreatedDate</fieldItem>
-                <identifier>Campo40</identifier>
+                <identifier>Campo52</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -593,7 +745,7 @@
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.LastModifiedById</fieldItem>
-                <identifier>Campo41</identifier>
+                <identifier>Campo53</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-int-c2</name>
@@ -607,7 +759,7 @@
                     <value>Facet-int-c1</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>Coluna10</identifier>
+                <identifier>Coluna12</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -617,7 +769,7 @@
                     <value>Facet-int-c2</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>Coluna11</identifier>
+                <identifier>Coluna13</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-int-cols</name>
@@ -670,6 +822,46 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
+                    <value>Facet-sla-cols</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Prazos (SLA)</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>Seccao5</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>WorkOrder.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>EntityMilestones</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>6</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>ListaRel1</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
                     <value>Facet-cad-cols</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -677,7 +869,7 @@
                     <value>Cadastro e facturação</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
-                <identifier>Seccao5</identifier>
+                <identifier>Seccao6</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-tab-detalhes</name>
@@ -695,7 +887,7 @@
                     <value>Integração</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
-                <identifier>Seccao6</identifier>
+                <identifier>Seccao7</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -721,7 +913,33 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>ListaRel1</identifier>
+                <identifier>ListaRel2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>WorkOrder.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>Paragens__r</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>ListaRel3</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -747,7 +965,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>ListaRel2</identifier>
+                <identifier>ListaRel4</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-tab-integracao</name>
@@ -837,7 +1055,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>ListaRel3</identifier>
+                <identifier>ListaRel5</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -863,7 +1081,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>ListaRel4</identifier>
+                <identifier>ListaRel6</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -889,7 +1107,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>ListaRel5</identifier>
+                <identifier>ListaRel7</identifier>
             </componentInstance>
         </itemInstances>
         <name>sidebar</name>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>WorkOrder</SObjectType>
+    <active>true</active>
+    <businessHours>Dias úteis REXT</businessHours>
+    <description>Prazos do catálogo da NOS de 28/08/2026, em dias úteis: TE 4320 min, TEC sem prazo fixo. Códigos: OTP-SVY. Não editar: um processo em uso é intocável, clona-se.</description>
+    <entryStartDateField>WorkOrder.Data_Atribuicao_Cliente__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>WorkOrder.Data_Fecho_Tecnico__c</field>
+        <operation>notEqual</operation>
+        <value></value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>Dias úteis REXT</businessHours>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneName>TE %28intervenção%29</milestoneName>
+        <minutesToComplete>4320</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Risco</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Incumprido</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

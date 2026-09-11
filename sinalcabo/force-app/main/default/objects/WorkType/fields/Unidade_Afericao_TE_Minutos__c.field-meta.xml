@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unidade_Afericao_TE_Minutos__c</fullName>
+    <description>Tamanho da unidade em que o atraso do prazo de execução é medido e cobrado, em minutos, tal como está no catálogo da NOS.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Do catálogo da NOS: 30 minutos, 60 minutos ou 1 dia (1440). Nos prazos em dias úteis o dia útil vale também 1440, e a diferença está no horário do processo.</inlineHelpText>
+    <label>Unidade de aferição do TE (minutos)</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Responsavel_TEC__c</fullName>
+    <description>Quem tem o cadastro em mão: ninguém antes do fecho do técnico, o técnico enquanto não houver produção, o back-office depois disso.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Data_Fecho_Tecnico__c), &quot;&quot;, IF(ISBLANK(Data_Producao__c), &quot;Técnico&quot;, &quot;Back-office&quot;))</formula>
+    <inlineHelpText>É calculado. Muda sozinho quando a data de produção do cadastro for preenchida.</inlineHelpText>
+    <label>Responsável do cadastro</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

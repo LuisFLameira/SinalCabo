@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Limite_Acordada__c</fullName>
+    <description>Prazo combinado caso a caso com o operador, nas ordens cujo catálogo diz conforme acordado e que por isso não têm prazo fixo.</description>
+    <inlineHelpText>Só se preenche nos códigos sem prazo de catálogo. Se só houver dia combinado, escreve o fim desse dia.</inlineHelpText>
+    <label>Data limite acordada</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>DateTime</type>
+</CustomField>

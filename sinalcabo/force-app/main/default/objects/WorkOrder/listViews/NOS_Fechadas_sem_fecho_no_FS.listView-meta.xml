@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>NOS_Fechadas_sem_fecho_no_FS</fullName>
+    <columns>Name</columns>
     <columns>Sinal_Classificacao__c</columns>
     <columns>Referencia_Ordem_Cliente__c</columns>
     <columns>Subject</columns>

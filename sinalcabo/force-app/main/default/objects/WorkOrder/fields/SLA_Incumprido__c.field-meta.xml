@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLA_Incumprido__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado pela plataforma quando um prazo passa o alvo sem estar concluído.</description>
+    <inlineHelpText>Uma ordem com esta caixa ligada é candidata a penalidade. Confirma as paragens registadas antes de aceitar o valor.</inlineHelpText>
+    <label>SLA incumprido</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

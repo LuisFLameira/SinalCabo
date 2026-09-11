@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Despacho__c</fullName>
+    <description>Endereço, ou endereços separados por vírgula, que recebem o aviso de SLA em risco das ordens deste operador. Vazio faz o aviso ir para o dono da ordem, que é quem despacha.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Deixa vazio enquanto o despacho não tiver um endereço próprio: o aviso vai para o dono da ordem. É aqui que entra a lista de distribuição do despacho no arranque em produção.</inlineHelpText>
+    <label>Email do despacho</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

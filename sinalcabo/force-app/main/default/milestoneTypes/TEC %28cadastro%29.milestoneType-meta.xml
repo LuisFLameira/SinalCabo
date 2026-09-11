@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MilestoneType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Tempo de entrega do cadastro: do fecho do técnico até o cadastro estar entregue. Alvo lido do campo TEC (minutos) do tipo de trabalho.</description>
+    <recurrenceType>none</recurrenceType>
+</MilestoneType>

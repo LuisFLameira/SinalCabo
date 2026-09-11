@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Datar_o_fim_da_paragem</name>
+        <label>Datar o fim da paragem e contar os minutos</label>
+        <locationX>440</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>Obter_a_paragem_aberta.Fim__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Obter_a_paragem_aberta.Minutos__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fMinutosDaParagem</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fechar_a_paragem</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Ha_paragem_aberta</name>
+        <label>Há paragem aberta para fechar?</label>
+        <locationX>440</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Retomar_a_ordem</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Não há registo, só se retoma</defaultConnectorLabel>
+        <rules>
+            <name>Ha_paragem</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obter_a_paragem_aberta.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Datar_o_fim_da_paragem</targetReference>
+            </connector>
+            <label>Há</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>O_prazo_deve_estar_suspenso</name>
+        <label>O prazo deve estar suspenso?</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Nada a fazer</defaultConnectorLabel>
+        <rules>
+            <name>Comecar_a_paragem</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fDeveEstarParada</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsStopped</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Registar_a_paragem</targetReference>
+            </connector>
+            <label>Deve parar e ainda não parou</label>
+        </rules>
+        <rules>
+            <name>Terminar_a_paragem</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fDeveEstarParada</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsStopped</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obter_a_paragem_aberta</targetReference>
+            </connector>
+            <label>Já não deve parar e está parada</label>
+        </rules>
+    </decisions>
+    <description>Suspende e retoma o relógio dos prazos, e deixa registo de cada paragem. Suspende quando o estado no NetGuard passa a Pendente com um motivo de terceiros, ligando o IsStopped e abrindo uma Paragem da ordem; retoma quando o motivo deixa de suspender ou o estado sai de Pendente, fechando a paragem com os minutos. A soma dos minutos aparece na ordem por roll-up. A tabela padrão de pausas da plataforma não guarda nada (medido no spike), e sem registo não há prova para contestar uma penalidade. Os motivos que suspendem estão na fórmula fDeveEstarParada: quem mudar o conjunto de valores global tem de a rever.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fDeveEstarParada</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+  TEXT({!$Record.Estado_Cliente__c}) = &quot;PENDING&quot;,
+  OR(
+    TEXT({!$Record.Motivo_Paragem__c}) = &quot;Material da NOS&quot;,
+    TEXT({!$Record.Motivo_Paragem__c}) = &quot;Autoridade&quot;,
+    TEXT({!$Record.Motivo_Paragem__c}) = &quot;Licenciamento&quot;,
+    TEXT({!$Record.Motivo_Paragem__c}) = &quot;Acesso ao local&quot;
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fMinutosDaParagem</name>
+        <dataType>Number</dataType>
+        <expression>ROUND(({!$Flow.CurrentDateTime} - {!Obter_a_paragem_aberta.Inicio__c}) * 1440, 0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>SC FS Ordem paragem {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Ordem paragem</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Registar_a_paragem</name>
+        <label>Registar a paragem</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Suspender_a_ordem</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Inicio__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Motivo__c</field>
+            <value>
+                <elementReference>$Record.Motivo_Paragem__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Ordem__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Responsavel__c</field>
+            <value>
+                <elementReference>$Record.Responsavel_Paragem__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Paragem_Ordem__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Obter_a_paragem_aberta</name>
+        <label>Obter a paragem aberta da ordem</label>
+        <locationX>440</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Ha_paragem_aberta</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Ordem__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Fim__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Paragem_Ordem__c</object>
+        <sortField>Inicio__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Fechar_a_paragem</name>
+        <label>Fechar a paragem</label>
+        <locationX>440</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Retomar_a_ordem</targetReference>
+        </connector>
+        <inputReference>Obter_a_paragem_aberta</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Retomar_a_ordem</name>
+        <label>Retomar o relógio da ordem</label>
+        <locationX>440</locationX>
+        <locationY>674</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>IsStopped</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>WorkOrder</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Suspender_a_ordem</name>
+        <label>Suspender o relógio da ordem</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>IsStopped</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>WorkOrder</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>O_prazo_deve_estar_suspenso</targetReference>
+        </connector>
+        <filterFormula>OR(
+  ISCHANGED({!$Record.Estado_Cliente__c}),
+  ISCHANGED({!$Record.Motivo_Paragem__c})
+)</filterFormula>
+        <object>WorkOrder</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

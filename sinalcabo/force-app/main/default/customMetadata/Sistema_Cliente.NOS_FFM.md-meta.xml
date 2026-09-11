@@ -15,6 +15,10 @@
         <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
+        <field>Email_Despacho__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Fuso_Horario__c</field>
         <value xsi:type="xsd:string">Europe/Lisbon</value>
     </values>

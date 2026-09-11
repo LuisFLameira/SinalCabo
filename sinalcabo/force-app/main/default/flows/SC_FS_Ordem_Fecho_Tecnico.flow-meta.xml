@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Carimbar_o_fecho_do_tecnico</name>
+        <label>Carimbar o fecho do técnico</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Data_Fecho_Tecnico__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fFechoTecnico</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Rede de segurança do fecho do técnico: quando a ordem passa a Concluída ou Fechada e ninguém escreveu a data de fecho do técnico, carimba-a com o fim da última intervenção na NOS, e com a hora do fecho quando a NOS não deu fim. Corre antes de gravar, sem DML. A data precisa vem da marcação, pelo flow SC_FS_Marcacao_Fecho_Tecnico; este apanha as ordens que nunca tiveram marcação, que hoje são a maioria, e as que nascem já fechadas na carga histórica.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fFechoTecnico</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+  ISBLANK({!$Record.Data_Fim_Cliente__c}),
+  {!$Flow.CurrentDateTime},
+  {!$Record.Data_Fim_Cliente__c}
+)</expression>
+    </formulas>
+    <interviewLabel>SC FS Ordem fecho do técnico {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Ordem fecho do técnico</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Carimbar_o_fecho_do_tecnico</targetReference>
+        </connector>
+        <filterFormula>AND(
+  OR(TEXT({!$Record.Status}) = &quot;Completed&quot;, TEXT({!$Record.Status}) = &quot;Closed&quot;),
+  ISBLANK({!$Record.Data_Fecho_Tecnico__c})
+)</filterFormula>
+        <object>WorkOrder</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

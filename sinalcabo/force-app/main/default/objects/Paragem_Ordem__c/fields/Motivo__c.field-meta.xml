@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Motivo__c</fullName>
+    <description>Motivo da paragem, copiado da ordem no momento em que ela parou. Fica gravado aqui porque o motivo da ordem muda na paragem seguinte.</description>
+    <label>Motivo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SC_FS_Motivo_Paragem</valueSetName>
+    </valueSet>
+</CustomField>

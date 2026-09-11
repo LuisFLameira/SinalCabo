@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomNotificationType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customNotifTypeName>SC_FS_SLA_Em_Risco</customNotifTypeName>
+    <description>Aviso ao dono da ordem quando falta um quarto do prazo para o alvo de um prazo do operador, seja o de intervenção ou o do cadastro.</description>
+    <desktop>true</desktop>
+    <masterLabel>SC FS · SLA em risco</masterLabel>
+    <mobile>true</mobile>
+    <slack>false</slack>
+</CustomNotificationType>

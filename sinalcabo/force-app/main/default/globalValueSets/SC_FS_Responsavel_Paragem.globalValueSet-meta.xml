@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>NOS</fullName>
+        <default>false</default>
+        <label>NOS</label>
+    </customValue>
+    <customValue>
+        <fullName>Entidade externa</fullName>
+        <default>false</default>
+        <label>Entidade externa</label>
+    </customValue>
+    <customValue>
+        <fullName>Cliente final</fullName>
+        <default>false</default>
+        <label>Cliente final</label>
+    </customValue>
+    <customValue>
+        <fullName>SinalCabo</fullName>
+        <default>false</default>
+        <label>SinalCabo</label>
+    </customValue>
+    <description>De quem é a espera que suspende o prazo de uma ordem. Vive num conjunto global porque é usada na ordem e na paragem. Entidade externa cobre autoridades, câmaras e licenciamentos.</description>
+    <masterLabel>SC FS Responsável pela paragem</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

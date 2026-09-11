@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Patamar_Penalidade_Dias__c</fullName>
+    <description>A partir de quantos dias de atraso a penalidade deixa de ser a unitária e passa a um euro por dia, tal como diz a nota do catálogo da NOS.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>São 60 dias em todo o catálogo: do 61.º dia em diante a penalidade é de 1 euro por dia.</inlineHelpText>
+    <label>Patamar da penalidade (dias)</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

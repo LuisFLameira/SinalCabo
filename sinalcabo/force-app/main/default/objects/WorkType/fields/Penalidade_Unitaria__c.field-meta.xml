@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Penalidade_Unitaria__c</fullName>
+    <description>Valor em euros que o operador desconta por cada unidade de aferição de atraso, tal como está no catálogo da NOS.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Do catálogo da NOS: 5 euros na Tabela 1 e 10 euros na Tabela 9. Vazio nos códigos que o catálogo não penaliza.</inlineHelpText>
+    <label>Penalidade unitária</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

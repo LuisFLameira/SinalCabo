@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLA_Em_risco</fullName>
+    <columns>Sinal_Classificacao__c</columns>
+    <columns>Referencia_Ordem_Cliente__c</columns>
+    <columns>WorkType</columns>
+    <columns>Estado_Cliente__c</columns>
+    <columns>Data_Atribuicao_Cliente__c</columns>
+    <columns>Data_Fecho_Tecnico__c</columns>
+    <columns>Data_Entrega_Cadastro__c</columns>
+    <columns>Data_Limite_Acordada__c</columns>
+    <columns>Minutos_Parado__c</columns>
+    <columns>Motivo_Paragem__c</columns>
+    <columns>ServiceTerritory</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Risco_Incumprimento__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>SLA_Incumprido__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>SLA · Em risco</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

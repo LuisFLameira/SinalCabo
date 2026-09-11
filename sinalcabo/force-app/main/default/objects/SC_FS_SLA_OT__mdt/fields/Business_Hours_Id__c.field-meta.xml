@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Hours_Id__c</fullName>
+    <description>Identificador do horário em que os prazos deste código contam: o horário de dias úteis ou o horário contínuo.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Identificador de 18 caracteres. Tem de ser o mesmo horário que está no processo do Entitlement.</inlineHelpText>
+    <label>Id do horário</label>
+    <length>18</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Encaminhamento de SLA por código de OT: que direito de serviço e que horário a ordem recebe quando entra com aquele tipo de trabalho. Uma linha por código do catálogo da NOS. As linhas levam identificadores de registos e por isso não vivem no force-app: são dados de cada org.</description>
+    <label>SLA por OT</label>
+    <pluralLabel>SLA por OT</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

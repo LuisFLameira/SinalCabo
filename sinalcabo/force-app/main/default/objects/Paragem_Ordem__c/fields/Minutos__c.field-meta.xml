@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minutos__c</fullName>
+    <description>Duração da paragem em minutos, contada do início ao fim. É o que se soma no tempo parado da ordem.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Calculado pelo flow ao fechar a paragem. Se a paragem estiver errada, corrige o início ou o fim e este número não se acerta sozinho.</inlineHelpText>
+    <label>Minutos</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

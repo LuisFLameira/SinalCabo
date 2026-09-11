@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Producao__c</fullName>
+    <description>Momento em que o desenho ou registo do cadastro ficou produzido, antes de ser entregue ao operador. Separa o trabalho do técnico do trabalho do back-office.</description>
+    <inlineHelpText>É o passo entre o fecho do técnico e a entrega ao operador. Enquanto estiver vazio, o cadastro está do lado do técnico.</inlineHelpText>
+    <label>Cadastro produzido em</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

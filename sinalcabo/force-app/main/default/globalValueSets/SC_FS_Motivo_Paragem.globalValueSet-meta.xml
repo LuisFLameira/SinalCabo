@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Material da NOS</fullName>
+        <default>false</default>
+        <label>Material da NOS</label>
+    </customValue>
+    <customValue>
+        <fullName>Autoridade</fullName>
+        <default>false</default>
+        <label>Autoridade</label>
+    </customValue>
+    <customValue>
+        <fullName>Licenciamento</fullName>
+        <default>false</default>
+        <label>Licenciamento</label>
+    </customValue>
+    <customValue>
+        <fullName>Acesso ao local</fullName>
+        <default>false</default>
+        <label>Acesso ao local</label>
+    </customValue>
+    <customValue>
+        <fullName>Meios da SinalCabo</fullName>
+        <default>false</default>
+        <label>Meios da SinalCabo</label>
+    </customValue>
+    <description>Motivos por que o prazo de uma ordem pode ficar suspenso. Os quatro primeiros são de terceiros e suspendem o prazo; os meios da SinalCabo não suspendem. Lista provisória, à espera de validação do operador. Vive num conjunto global porque é usada na ordem e na paragem: mudar aqui muda nos dois. Quem lhe acrescentar valores tem de rever a decisão do flow SC_FS_Ordem_Paragem, que enumera os motivos que suspendem.</description>
+    <masterLabel>SC FS Motivo da paragem</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

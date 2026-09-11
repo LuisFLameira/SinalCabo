@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Risco_Incumprimento__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ligado pela plataforma quando falta um quarto do prazo para o alvo do prazo em curso.</description>
+    <inlineHelpText>É o aviso a 75% do prazo. Serve as listas de risco e a notificação ao dono da ordem. Ninguém o liga à mão.</inlineHelpText>
+    <label>Risco de incumprimento</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

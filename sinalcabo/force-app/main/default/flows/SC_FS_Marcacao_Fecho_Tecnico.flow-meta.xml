@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>A_ordem_ainda_nao_tem_fecho</name>
+        <label>A ordem ainda não tem fecho do técnico?</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Já tem, não se toca</defaultConnectorLabel>
+        <rules>
+            <name>Sem_data_de_fecho</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obter_a_ordem.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obter_a_ordem.Data_Fecho_Tecnico__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Escrever_o_fecho_na_ordem</targetReference>
+            </connector>
+            <label>Ainda não tem</label>
+        </rules>
+    </decisions>
+    <description>Quando o técnico conclui a marcação, escreve na ordem a data de fecho do técnico com o fim real da marcação. É a fonte precisa do prazo de intervenção: fecha o TE e arranca o TEC. Nunca reescreve uma data já preenchida, por isso pode correr quantas vezes quiser.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fFechoTecnico</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+  ISBLANK({!$Record.ActualEndTime}),
+  {!$Flow.CurrentDateTime},
+  {!$Record.ActualEndTime}
+)</expression>
+    </formulas>
+    <interviewLabel>SC FS Marcação fecho do técnico {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Marcação fecho do técnico</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Obter_a_ordem</name>
+        <label>Obter a ordem da marcação</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>A_ordem_ainda_nao_tem_fecho</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Ordem__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>WorkOrder</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Escrever_o_fecho_na_ordem</name>
+        <label>Escrever o fecho do técnico na ordem</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Ordem__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Data_Fecho_Tecnico__c</field>
+            <value>
+                <elementReference>fFechoTecnico</elementReference>
+            </value>
+        </inputAssignments>
+        <object>WorkOrder</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Obter_a_ordem</targetReference>
+        </connector>
+        <filterFormula>AND(
+  TEXT({!$Record.Status}) = &quot;Completed&quot;,
+  NOT(ISBLANK({!$Record.Ordem__c}))
+)</filterFormula>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

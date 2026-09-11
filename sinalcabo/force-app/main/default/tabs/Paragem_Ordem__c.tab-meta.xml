@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Paragens de prazo das ordens de trabalho. Consulta das suspensões registadas, com motivo, responsável e minutos.</description>
+    <motif>Custom53: Bell</motif>
+</CustomTab>

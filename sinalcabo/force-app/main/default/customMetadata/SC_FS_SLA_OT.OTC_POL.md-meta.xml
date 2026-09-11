@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>OTC-POL</label>
+    <protected>false</protected>
+    <values>
+        <field>Business_Hours_Id__c</field>
+        <value xsi:type="xsd:string">01mds000000SW6bAAG</value>
+    </values>
+    <values>
+        <field>Codigo_OT__c</field>
+        <value xsi:type="xsd:string">OTC-POL</value>
+    </values>
+    <values>
+        <field>Entitlement_Id__c</field>
+        <value xsi:type="xsd:string">550ds00000B2LIYAA3</value>
+    </values>
+    <values>
+        <field>Tem_TEC__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Tem_TE__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Work_Type_Id__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

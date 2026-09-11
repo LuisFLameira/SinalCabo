@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unidade_Afericao_TEC_Minutos__c</fullName>
+    <description>Tamanho da unidade em que o atraso do prazo do cadastro é medido e cobrado, em minutos, tal como está no catálogo da NOS.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Do catálogo da NOS é sempre 1 dia (1440), de calendário na Tabela 1 e útil na Tabela 9.</inlineHelpText>
+    <label>Unidade de aferição do TEC (minutos)</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

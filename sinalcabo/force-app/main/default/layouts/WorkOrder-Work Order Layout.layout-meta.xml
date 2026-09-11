@@ -164,6 +164,24 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
+        <fields>Name</fields>
+        <fields>StartDate</fields>
+        <fields>TargetDate</fields>
+        <fields>TimeRemainingInMins</fields>
+        <fields>CompletionDate</fields>
+        <fields>StoppedTimeInMins</fields>
+        <relatedList>RelatedEntityMilestoneList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Inicio__c</fields>
+        <fields>Fim__c</fields>
+        <fields>Motivo__c</fields>
+        <fields>Responsavel__c</fields>
+        <fields>Minutos__c</fields>
+        <relatedList>Paragem_Ordem__c.Ordem__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Tipo__c</fields>
         <fields>Mensagem__c</fields>

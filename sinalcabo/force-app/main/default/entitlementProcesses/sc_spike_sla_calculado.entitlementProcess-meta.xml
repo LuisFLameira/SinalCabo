@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>WorkOrder</SObjectType>
+    <active>true</active>
+    <businessHours>Default</businessHours>
+    <description>Spike do modelo de SLA: prova se um entitlement process de ordem de trabalho aceita o alvo do milestone calculado por classe Apex. Não é o processo de produção.</description>
+    <entryStartDateField>WorkOrder.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>WorkOrder.Status</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneName>TE %28intervenção%29</milestoneName>
+        <minutesCustomClass>SC_SlaCalculadorPrazo</minutesCustomClass>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>WorkOrder.Status</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>TEC %28cadastro%29</milestoneName>
+        <minutesCustomClass>SC_SlaCalculadorPrazo</minutesCustomClass>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

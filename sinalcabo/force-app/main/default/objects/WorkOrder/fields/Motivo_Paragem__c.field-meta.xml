@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Motivo_Paragem__c</fullName>
+    <description>Motivo pelo qual o relógio do prazo está suspenso. Os quatro primeiros motivos são de terceiros e suspendem o prazo; os meios da SinalCabo não suspendem.</description>
+    <inlineHelpText>Escolhe o motivo antes de pôr a ordem em Pendente. Sem motivo de terceiros o relógio continua a contar.</inlineHelpText>
+    <label>Motivo da paragem</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>SC_FS_Motivo_Paragem</valueSetName>
+    </valueSet>
+</CustomField>

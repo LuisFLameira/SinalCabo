@@ -170,5 +170,13 @@
         <members>*</members>
         <name>RecordType</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>EntitlementProcess</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>MilestoneType</name>
+    </types>
     <version>64.0</version>
 </Package>
