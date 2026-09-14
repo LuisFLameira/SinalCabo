@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Ficheiro do PNI</label>
+    <protected>false</protected>
+    <values>
+        <field>Activo__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Alcance_Varrimento_Dias__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Data_Corte__c</field>
+        <value xsi:type="xsd:date">2026-01-01</value>
+    </values>
+    <values>
+        <field>Detalhes_Por_Transaccao__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Email_Despacho__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Fuso_Horario__c</field>
+        <value xsi:type="xsd:string">Europe/Lisbon</value>
+    </values>
+    <values>
+        <field>Janela_Abertas_Horas__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Janela_Fechadas_Horas__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>NIF_Conta_Cliente__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Named_Credential__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Nome_Conta_Cliente__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Nome__c</field>
+        <value xsi:type="xsd:string">Ficheiro do PNI</value>
+    </values>
+    <values>
+        <field>Passo_Varrimento_Dias__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Pedaco_Bytes__c</field>
+        <value xsi:type="xsd:double">524288.0</value>
+    </values>
+    <values>
+        <field>Retencao_Payload_Dias__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Timeout_ms__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

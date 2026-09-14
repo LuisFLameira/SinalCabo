@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Corte__c</fullName>
+    <description>Só entram linhas alteradas nesta data ou depois dela. Serve para não trazer anos de histórico fechado numa importação de ficheiro.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Deixar vazio traz tudo o que o ficheiro tiver. Na importação do PNI está em 1 de Janeiro de 2026.</inlineHelpText>
+    <label>Data de corte</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

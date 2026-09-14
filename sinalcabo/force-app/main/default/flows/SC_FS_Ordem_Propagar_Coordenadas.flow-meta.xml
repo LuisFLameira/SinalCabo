@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Quando a coordenada da ordem muda, por a célula ter sido corrigida na acção Classificar, escreve a mesma coordenada nas marcações da ordem que ainda não estão concluídas nem canceladas. Sem isto a marcação fica com a coordenada do momento em que a plataforma a criou, e o mapa do despacho mostra o sítio errado. Não toca em marcações já concluídas, para não reescrever histórico.</description>
+    <environments>Default</environments>
+    <interviewLabel>SC FS Ordem propagar coordenadas {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SC FS Ordem propagar coordenadas</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Escrever_a_coordenada_nas_marcacoes</name>
+        <label>Escrever a coordenada nas marcações em aberto</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <filterLogic>1 AND 2 AND 3 AND 4</filterLogic>
+        <filters>
+            <field>Ordem__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Cannot Complete</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Canceled</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Latitude</field>
+            <value>
+                <elementReference>$Record.Latitude</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Longitude</field>
+            <value>
+                <elementReference>$Record.Longitude</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Escrever_a_coordenada_nas_marcacoes</targetReference>
+        </connector>
+        <filterFormula>AND(
+  OR(
+    ISCHANGED({!$Record.Latitude}),
+    ISCHANGED({!$Record.Longitude})
+  ),
+  NOT(ISBLANK({!$Record.Latitude})),
+  NOT(ISBLANK({!$Record.Longitude}))
+)</filterFormula>
+        <object>WorkOrder</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

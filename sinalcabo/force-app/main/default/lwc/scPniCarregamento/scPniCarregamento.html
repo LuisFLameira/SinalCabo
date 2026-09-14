@@ -1,0 +1,157 @@
+<template>
+    <lightning-card>
+        <h1 slot="title" class="cabecalho">
+            Importar o ficheiro do PNI
+            <span class="sinal">{cabecalho}</span>
+        </h1>
+
+        <div class="corpo">
+
+            <!-- Erro: painel dentro do componente, nunca um aviso que desaparece -->
+            <template if:true={erro}>
+                <div class="painel erro" role="alert">
+                    <p class="titulo">Não foi possível continuar</p>
+                    <p>{erro}</p>
+                </div>
+            </template>
+
+            <!-- 1. Escolher o ficheiro -->
+            <template if:true={naEscolha}>
+                <p class="intro">
+                    Carregue o ficheiro que a NOS envia com o retrato do PNI. Antes de
+                    gravar seja o que for, o ficheiro é lido de uma ponta à outra e
+                    mostramos-lhe o que vai acontecer.
+                </p>
+                <div class="campo">
+                    <lightning-input
+                        type="file"
+                        label="Ficheiro do PNI"
+                        accept=".csv,.txt"
+                        onchange={escolherFicheiro}>
+                    </lightning-input>
+                </div>
+                <div class="campo">
+                    <lightning-combobox
+                        label="Codificação do ficheiro"
+                        value={codificacao}
+                        options={opcoesCodificacao}
+                        onchange={trocarCodificacao}
+                        field-level-help="O Access exporta em Windows-1252 quando não se
+                            escolhe outra coisa. Se os acentos aparecerem trocados no
+                            resumo, volte atrás e troque aqui.">
+                    </lightning-combobox>
+                </div>
+                <div class="botoes">
+                    <lightning-button
+                        variant="brand"
+                        label="Verificar o ficheiro"
+                        disabled={semFicheiro}
+                        onclick={verificar}>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <!-- 2 e 4. À espera -->
+            <template if:true={aTrabalhar}>
+                <div class="painel espera">
+                    <lightning-spinner alternative-text="A processar" size="small">
+                    </lightning-spinner>
+                    <p class="titulo">{oQueEstaAFazer}</p>
+                    <lightning-progress-bar value={progresso} size="large">
+                    </lightning-progress-bar>
+                    <p class="detalhe">{textoProgresso}</p>
+                </div>
+            </template>
+
+            <!-- 3. Rever antes de confirmar -->
+            <template if:true={naRevisao}>
+                <p class="intro">
+                    O ficheiro foi lido do princípio ao fim e nenhuma ordem foi
+                    alterada. É isto que acontece se confirmar.
+                </p>
+                <div class="numeros">
+                    <div class="numero">
+                        <span class="valor">{ensaio.criados}</span>
+                        <span class="etiqueta">ordens novas</span>
+                    </div>
+                    <div class="numero">
+                        <span class="valor">{ensaio.actualizados}</span>
+                        <span class="etiqueta">ordens actualizadas</span>
+                    </div>
+                    <div class="numero">
+                        <span class="valor">{ensaio.inalterados}</span>
+                        <span class="etiqueta">sem nada para mudar</span>
+                    </div>
+                    <div class="numero">
+                        <span class="valor">{ensaio.rejeitados}</span>
+                        <span class="etiqueta">linhas de fora</span>
+                    </div>
+                </div>
+                <p class="nota">
+                    Fora da janela de datas ficam {ensaio.forasDeJanela} linhas, que são
+                    anteriores à data de corte configurada. Em {ensaio.divergentes}
+                    ordens o estado do ficheiro é diferente do que lá está hoje, e o
+                    ficheiro vai ganhar.
+                </p>
+                <p class="nota">
+                    Não mexe em marcações, em técnicos nem em datas de trabalho. Só no
+                    estado do PNI e na data em que ele mudou.
+                </p>
+
+                <template if:true={demasiadasDeFora}>
+                    <div class="painel aviso">
+                        <p class="titulo">Muitas linhas ficam de fora</p>
+                        <p>{resumoFora}</p>
+                    </div>
+                </template>
+
+                <div class="botoes">
+                    <lightning-button
+                        variant="brand"
+                        label="Confirmar a importação"
+                        onclick={importar}>
+                    </lightning-button>
+                    <lightning-button
+                        label="Anterior"
+                        onclick={voltar}>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <!-- 5. Resultado -->
+            <template if:true={noFim}>
+                <div class="numeros">
+                    <div class="numero">
+                        <span class="valor">{resultado.criados}</span>
+                        <span class="etiqueta">ordens criadas</span>
+                    </div>
+                    <div class="numero">
+                        <span class="valor">{resultado.actualizados}</span>
+                        <span class="etiqueta">ordens actualizadas</span>
+                    </div>
+                    <div class="numero">
+                        <span class="valor">{resultado.rejeitados}</span>
+                        <span class="etiqueta">linhas de fora</span>
+                    </div>
+                </div>
+                <p class="nota">
+                    As linhas que ficaram de fora não têm o estado do PNI até serem
+                    corrigidas. Abra o lote para as ver uma a uma e reprocessar as que
+                    já estiverem em condições.
+                </p>
+                <div class="botoes">
+                    <lightning-button
+                        variant="brand"
+                        label="Ver o lote e as linhas de fora"
+                        onclick={abrirLote}>
+                    </lightning-button>
+                    <lightning-button
+                        label="Importar outro ficheiro"
+                        onclick={recomecar}>
+                    </lightning-button>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

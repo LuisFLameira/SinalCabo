@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pedaco_Bytes__c</fullName>
+    <description>Tamanho de cada pedaço em que o ficheiro é cortado antes de ser enviado para processamento. Existe porque um ficheiro inteiro não cabe na memória de uma transacção.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>524288, ou seja meio megabyte, que dá cerca de mil linhas. Baixar se aparecerem erros de memória.</inlineHelpText>
+    <label>Tamanho do pedaço (bytes)</label>
+    <precision>9</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

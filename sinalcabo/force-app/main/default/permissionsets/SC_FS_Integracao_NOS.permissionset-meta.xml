@@ -270,6 +270,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ServiceAppointment.Coordenada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ServiceAppointment.Estado_Cliente__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -320,6 +325,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>WorkOrder.Assinatura_PNI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>WorkOrder.Celula__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -341,6 +351,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>WorkOrder.Contrato_Cliente__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Coordenada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Data_Alteracao_PNI__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -446,6 +466,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>WorkOrder.Origem_Celula__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Origem_Registo__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Deixa carregar o ficheiro do PNI e correr a importação das ordens. Sem esta permissão o ecrã de carregamento recusa, mesmo a quem tenha acesso à aplicação.</description>
+    <isLicensed>false</isLicensed>
+    <label>Importar o ficheiro do PNI</label>
+</CustomPermission>

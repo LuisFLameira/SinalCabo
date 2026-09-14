@@ -1,0 +1,82 @@
+/* Segue o assistente do CRM: teal da marca, erro a vermelho, painéis dentro do
+   componente e nunca avisos que desaparecem sozinhos. */
+.cabecalho {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.sinal {
+    display: inline-block;
+    margin-left: 0.75rem;
+    font-weight: 400;
+    color: #007878;
+}
+.corpo {
+    padding: 0 1rem 1rem 1rem;
+}
+.intro,
+.nota {
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.5;
+}
+.nota {
+    color: #5a5a5a;
+    font-size: 0.85rem;
+}
+.campo {
+    max-width: 26rem;
+    margin-bottom: 1rem;
+}
+.botoes {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 0.5rem;
+}
+.painel {
+    border-left: 4px solid #007878;
+    background: #f4fbfb;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+    border-radius: 0.25rem;
+}
+.painel .titulo {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.painel.erro {
+    border-left-color: #e53935;
+    background: #fdf1f1;
+}
+.painel.aviso {
+    border-left-color: #e0a800;
+    background: #fffaf0;
+}
+.painel.espera {
+    position: relative;
+    min-height: 5rem;
+}
+.painel.espera .detalhe {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #5a5a5a;
+}
+.numeros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+.numero {
+    display: flex;
+    flex-direction: column;
+    min-width: 8rem;
+}
+.numero .valor {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #007878;
+    line-height: 1.1;
+}
+.numero .etiqueta {
+    font-size: 0.8rem;
+    color: #5a5a5a;
+}

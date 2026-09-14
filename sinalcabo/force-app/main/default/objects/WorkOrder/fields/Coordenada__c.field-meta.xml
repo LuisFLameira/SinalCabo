@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coordenada__c</fullName>
+    <description>Latitude e longitude da ordem em texto, para poderem ser mostradas na página. A plataforma não deixa colocar a latitude e a longitude sozinhas numa página Lightning, porque são partes do campo composto de morada.</description>
+    <externalId>false</externalId>
+    <formula>IF(OR(ISBLANK(Latitude), ISBLANK(Longitude)), &quot;&quot;, TEXT(Latitude) &amp; &quot;, &quot; &amp; TEXT(Longitude))</formula>
+    <inlineHelpText>Vem da célula confirmada. Se trocar a célula, esta coordenada muda e é propagada às marcações em aberto.</inlineHelpText>
+    <label>Coordenada</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

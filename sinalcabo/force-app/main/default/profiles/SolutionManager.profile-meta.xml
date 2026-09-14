@@ -339,6 +339,46 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SC_PniCarregamentoController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniCarregamentoControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniConfig</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniCsv</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniCsvTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniLinha</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniReprocessador</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniReprocessadorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniUpsertService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniUpsertServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SC_PreverAprovacao</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2519,6 +2559,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ServiceAppointment.Coordenada__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ServiceAppointment.Description</field>
         <readable>true</readable>
@@ -2895,6 +2940,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Sistema_Cliente__mdt.Data_Corte__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Sistema_Cliente__mdt.Detalhes_Por_Transaccao__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2945,6 +2995,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Sistema_Cliente__mdt.Pedaco_Bytes__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Sistema_Cliente__mdt.Retencao_Payload_Dias__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2981,6 +3036,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>WorkOrder.Assinatura_Origem__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Assinatura_PNI__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3021,6 +3081,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>WorkOrder.Contrato_Cliente__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Coordenada__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Data_Alteracao_PNI__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3231,6 +3301,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>WorkOrder.Origem_Celula__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Origem_Registo__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4153,6 +4228,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>SC_Erro_Automacao_Log__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>SC_FS_Importar_PNI</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

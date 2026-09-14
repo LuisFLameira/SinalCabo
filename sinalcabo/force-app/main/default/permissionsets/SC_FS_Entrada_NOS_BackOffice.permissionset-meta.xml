@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>SC_PniCarregamentoController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SC_PniReprocessador</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>SC_FS_Importar_PNI</name>
+    </customPermissions>
     <description>Back office da entrada de ordens do operador: mantém as células, lê os lotes e as ocorrências da integração e trata o estado de facturação e o cadastro das ordens.</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -218,6 +230,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ServiceAppointment.Coordenada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ServiceAppointment.Estado_Cliente__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -263,6 +280,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>WorkOrder.Assinatura_PNI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>WorkOrder.Celula__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -284,6 +306,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>WorkOrder.Contrato_Cliente__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkOrder.Coordenada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Data_Alteracao_PNI__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -384,6 +416,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>WorkOrder.Origem_Celula__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Origem_Registo__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -562,6 +599,10 @@
     </tabSettings>
     <tabSettings>
         <tab>Paragem_Ordem__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>SC_FS_Importar_PNI</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <userPermissions>

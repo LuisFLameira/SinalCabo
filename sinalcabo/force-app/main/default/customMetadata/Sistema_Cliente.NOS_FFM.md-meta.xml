@@ -11,6 +11,10 @@
         <value xsi:type="xsd:double">45.0</value>
     </values>
     <values>
+        <field>Data_Corte__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Detalhes_Por_Transaccao__c</field>
         <value xsi:type="xsd:double">3.0</value>
     </values>
@@ -49,6 +53,10 @@
     <values>
         <field>Passo_Varrimento_Dias__c</field>
         <value xsi:type="xsd:double">7.0</value>
+    </values>
+    <values>
+        <field>Pedaco_Bytes__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Retencao_Payload_Dias__c</field>

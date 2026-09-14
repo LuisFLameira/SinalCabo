@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Interface__c</fullName>
-    <description>Nome da interface que produziu o lote. Hoje só existe a leitura da API de ordens do operador.</description>
+    <description>Nome da interface que produziu o lote. Hoje existem duas, a leitura da API de ordens do operador e o carregamento do ficheiro do PNI.</description>
     <externalId>false</externalId>
-    <inlineHelpText>Exemplo: NOS Field Force Management.</inlineHelpText>
+    <inlineHelpText>Exemplos: NOS Field Force Management, Ficheiro do PNI.</inlineHelpText>
     <label>Interface</label>
     <length>40</length>
     <required>false</required>

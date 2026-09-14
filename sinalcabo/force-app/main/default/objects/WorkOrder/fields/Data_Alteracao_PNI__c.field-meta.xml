@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Alteracao_PNI__c</fullName>
+    <description>Data da última alteração da ordem no PNI, tal como vem no ficheiro. É por ela que a importação filtra o que traz e desempata o que é mais recente.</description>
+    <inlineHelpText>O PNI só guarda a data e nunca a hora, por isso duas alterações do mesmo dia são indistinguíveis.</inlineHelpText>
+    <label>Alterada no PNI em</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Carregar o ficheiro que a NOS envia com o retrato do PNI, ver o que vai acontecer antes de gravar, e no fim ver quantas ordens nasceram, quantas mudaram e quantas linhas ficaram de fora.</description>
+    <label>Importar o PNI</label>
+    <lwcComponent>scPniCarregamento</lwcComponent>
+    <motif>Custom21: Computer</motif>
+</CustomTab>

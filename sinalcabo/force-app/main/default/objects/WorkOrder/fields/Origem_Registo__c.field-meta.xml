@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Origem_Registo__c</fullName>
+    <description>Diz quem escreveu a ordem pela última vez. O ficheiro do PNI manda sobre a ligação à NOS, e é por este campo que se sabe qual das duas origens está à vista.</description>
+    <inlineHelpText>Uma ordem com origem no ficheiro do PNI ainda não foi confirmada pela ligação à NOS. Não é erro, é só uma ordem que a ligação ainda não trouxe.</inlineHelpText>
+    <label>Origem do registo</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ligação à NOS</fullName>
+                <default>true</default>
+                <label>Ligação à NOS</label>
+            </value>
+            <value>
+                <fullName>Ficheiro do PNI</fullName>
+                <default>false</default>
+                <label>Ficheiro do PNI</label>
+            </value>
+            <value>
+                <fullName>Escrito à mão</fullName>
+                <default>false</default>
+                <label>Escrito à mão</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
