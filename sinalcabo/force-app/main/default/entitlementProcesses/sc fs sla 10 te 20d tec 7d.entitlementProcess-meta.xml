@@ -17,19 +17,19 @@
         <minutesToComplete>28800</minutesToComplete>
         <timeTriggers>
             <actions>
-                <name>SC_FS_SLA_Marcar_Incumprido</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <timeLength>0</timeLength>
-            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
-        </timeTriggers>
-        <timeTriggers>
-            <actions>
                 <name>SC_FS_SLA_Marcar_Risco</name>
                 <type>FieldUpdate</type>
             </actions>
             <timeLength>-120</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>SC_FS_SLA_Marcar_Incumprido</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
         </timeTriggers>
         <useCriteriaStartTime>false</useCriteriaStartTime>
     </milestones>
