@@ -42,29 +42,85 @@
             <assignToReference>varWorkOrderId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_ServiceAppointment.ParentRecordId</elementReference>
+                <elementReference>ParentId</elementReference>
             </value>
         </assignmentItems>
         <connector>
             <targetReference>Decision_WorkOrderFound</targetReference>
         </connector>
     </assignments>
-    <dynamicChoiceSets>
-        <name>Choice_EstadoCliente</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>Estado_Cliente__c</picklistField>
-        <picklistObject>WorkOrder</picklistObject>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <name>Choice_ResultadoCadastro</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>Resultado_Cadastro__c</picklistField>
-        <picklistObject>WorkOrder</picklistObject>
-    </dynamicChoiceSets>
+    <choices>
+        <name>Choice_EstadoCliente_AssignedToCompany</name>
+        <choiceText>Atribuída à empresa</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>ASSIGNED_TO_COMPANY</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_EstadoCliente_AssignedToUser</name>
+        <choiceText>Atribuída ao técnico</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>ASSIGNED_TO_USER</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_EstadoCliente_WorkInProgress</name>
+        <choiceText>Em execução</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>WORK_IN_PROGRESS</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_EstadoCliente_Pending</name>
+        <choiceText>Pendente</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>PENDING</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_EstadoCliente_Resolved</name>
+        <choiceText>Resolvida</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>RESOLVED</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_EstadoCliente_Closed</name>
+        <choiceText>Fechada</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>CLOSED</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_ResultadoCadastro_ComCadastro</name>
+        <choiceText>Com cadastro</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Com cadastro</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_ResultadoCadastro_SemCadastro</name>
+        <choiceText>Sem cadastro</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Sem cadastro</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Choice_ResultadoCadastro_PorDeterminar</name>
+        <choiceText>Por determinar</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Por determinar</stringValue>
+        </value>
+    </choices>
     <decisions>
         <name>Decision_AlreadyCompleted</name>
         <label>Already completed?</label>
@@ -281,7 +337,12 @@
         </connector>
         <fields>
             <name>field_EstadoCliente</name>
-            <choiceReferences>Choice_EstadoCliente</choiceReferences>
+            <choiceReferences>Choice_EstadoCliente_AssignedToCompany</choiceReferences>
+            <choiceReferences>Choice_EstadoCliente_AssignedToUser</choiceReferences>
+            <choiceReferences>Choice_EstadoCliente_WorkInProgress</choiceReferences>
+            <choiceReferences>Choice_EstadoCliente_Pending</choiceReferences>
+            <choiceReferences>Choice_EstadoCliente_Resolved</choiceReferences>
+            <choiceReferences>Choice_EstadoCliente_Closed</choiceReferences>
             <dataType>String</dataType>
             <defaultValue>
                 <elementReference>Get_WorkOrder.Estado_Cliente__c</elementReference>
@@ -304,7 +365,9 @@
         </fields>
         <fields>
             <name>field_ResultadoCadastro</name>
-            <choiceReferences>Choice_ResultadoCadastro</choiceReferences>
+            <choiceReferences>Choice_ResultadoCadastro_ComCadastro</choiceReferences>
+            <choiceReferences>Choice_ResultadoCadastro_SemCadastro</choiceReferences>
+            <choiceReferences>Choice_ResultadoCadastro_PorDeterminar</choiceReferences>
             <dataType>String</dataType>
             <defaultValue>
                 <elementReference>Get_WorkOrder.Resultado_Cadastro__c</elementReference>
