@@ -42,7 +42,7 @@
             <assignToReference>varProcessingPlan</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Scrap</stringValue>
+                <stringValue>Discard</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -162,12 +162,6 @@
             <targetReference>Create_ReturnOrderLineItem</targetReference>
         </connector>
         <inputAssignments>
-            <field>AccountId</field>
-            <value>
-                <elementReference>Get_WorkOrder.AccountId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Status</field>
             <value>
                 <stringValue>Draft</stringValue>
@@ -243,7 +237,7 @@
         </connector>
         <fields>
             <name>disp_Confirmar</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Retorno de material registado.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Product: {!field_Product2Id}&lt;/p&gt;&lt;p&gt;Quantity: {!field_ReturnOrderQuantity}&lt;/p&gt;&lt;p&gt;Classificação: {!field_Classificacao}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Confirmar retorno de material&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Product: {!field_Product2Id}&lt;/p&gt;&lt;p&gt;Quantity: {!field_ReturnOrderQuantity}&lt;/p&gt;&lt;p&gt;Classificação: {!field_Classificacao}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -343,13 +337,6 @@
     </variables>
     <variables>
         <name>UserId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

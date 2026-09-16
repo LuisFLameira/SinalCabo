@@ -42,7 +42,7 @@
             <assignToReference>varWorkOrderId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>ParentId</elementReference>
+                <elementReference>recServiceAppointment.ParentRecordId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -110,14 +110,14 @@
             <name>AlreadyInProgress</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_ServiceAppointment.Status</leftValueReference>
+                <leftValueReference>recServiceAppointment.Status</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>In Progress</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_ServiceAppointment.ActualStartTime</leftValueReference>
+                <leftValueReference>recServiceAppointment.ActualStartTime</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -132,7 +132,7 @@
             <name>IsCompleted</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_ServiceAppointment.Status</leftValueReference>
+                <leftValueReference>recServiceAppointment.Status</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Completed</stringValue>
@@ -210,7 +210,13 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ServiceAppointment</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputReference>recServiceAppointment</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ParentRecordId</queriedFields>
+        <queriedFields>AppointmentNumber</queriedFields>
+        <queriedFields>Status</queriedFields>
+        <queriedFields>ActualStartTime</queriedFields>
+        <storeOutputAutomatically>false</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_WorkOrder</name>
@@ -231,7 +237,12 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>WorkOrder</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputReference>recWorkOrder</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>WorkOrderNumber</queriedFields>
+        <queriedFields>Estado_Cliente__c</queriedFields>
+        <queriedFields>Estado_Aceitacao_Cliente__c</queriedFields>
+        <storeOutputAutomatically>false</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_WorkOrder_Fields</name>
@@ -246,7 +257,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_WorkOrder.Id</elementReference>
+                <elementReference>recWorkOrder.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -276,7 +287,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_ServiceAppointment.Id</elementReference>
+                <elementReference>recServiceAppointment.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -303,7 +314,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>disp_AlreadyStarted</name>
-            <fieldText>&lt;p&gt;Esta OT já foi iniciada.&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!Get_ServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Actual Start: {!Get_ServiceAppointment.ActualStartTime}&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!Get_WorkOrder.Estado_Cliente__c}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!Get_WorkOrder.Estado_Aceitacao_Cliente__c}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Esta OT já foi iniciada.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Actual Start: {!recServiceAppointment.ActualStartTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!recWorkOrder.Estado_Cliente__c}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!recWorkOrder.Estado_Aceitacao_Cliente__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -319,7 +330,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>disp_Completed</name>
-            <fieldText>&lt;p&gt;Não é possível iniciar esta OT porque o Service Appointment já está concluído.&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!Get_ServiceAppointment.Status}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Não é possível iniciar esta OT porque o Service Appointment já está concluído.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -346,7 +357,7 @@
             <choiceReferences>Choice_EstadoCliente_Closed</choiceReferences>
             <dataType>String</dataType>
             <defaultValue>
-                <elementReference>Get_WorkOrder.Estado_Cliente__c</elementReference>
+                <elementReference>recWorkOrder.Estado_Cliente__c</elementReference>
             </defaultValue>
             <fieldText>Estado no NetGuard</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -357,7 +368,7 @@
             <name>field_EstadoAceitacaoCliente</name>
             <dataType>String</dataType>
             <defaultValue>
-                <elementReference>Get_WorkOrder.Estado_Aceitacao_Cliente__c</elementReference>
+                <elementReference>recWorkOrder.Estado_Aceitacao_Cliente__c</elementReference>
             </defaultValue>
             <fieldText>Estado no PNI</fieldText>
             <fieldType>InputField</fieldType>
@@ -366,7 +377,7 @@
         </fields>
         <fields>
             <name>disp_Confirmar</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Iniciar OT&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!Get_ServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Novo Status: In Progress&lt;/p&gt;&lt;p&gt;Actual Start: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Iniciar OT&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Novo Status: In Progress&lt;/p&gt;&lt;p&gt;Actual Start: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -398,7 +409,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>disp_Success</name>
-            <fieldText>&lt;p&gt;OT iniciada com sucesso.&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Actual Start: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Novo Status: {!Get_ServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;OT iniciada com sucesso.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Actual Start: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Novo Status: In Progress&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -412,6 +423,22 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>recServiceAppointment</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ServiceAppointment</objectType>
+    </variables>
+    <variables>
+        <name>recWorkOrder</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
     <variables>
         <name>Id</name>
         <dataType>String</dataType>
@@ -428,13 +455,6 @@
     </variables>
     <variables>
         <name>UserId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

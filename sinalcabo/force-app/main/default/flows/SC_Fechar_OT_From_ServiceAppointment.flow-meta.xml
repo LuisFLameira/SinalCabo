@@ -26,7 +26,7 @@
             <assignToReference>varServiceAppointmentId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>recordId</elementReference>
+                <elementReference>Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -42,7 +42,7 @@
             <assignToReference>varWorkOrderId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>ParentId</elementReference>
+                <elementReference>recServiceAppointment.ParentRecordId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -134,14 +134,14 @@
             <name>CompletedAlready</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_ServiceAppointment.Status</leftValueReference>
+                <leftValueReference>recServiceAppointment.Status</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Completed</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_ServiceAppointment.ActualEndTime</leftValueReference>
+                <leftValueReference>recServiceAppointment.ActualEndTime</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -219,7 +219,13 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ServiceAppointment</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputReference>recServiceAppointment</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ParentRecordId</queriedFields>
+        <queriedFields>AppointmentNumber</queriedFields>
+        <queriedFields>Status</queriedFields>
+        <queriedFields>ActualEndTime</queriedFields>
+        <storeOutputAutomatically>false</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_WorkOrder</name>
@@ -240,7 +246,13 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>WorkOrder</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputReference>recWorkOrder</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>WorkOrderNumber</queriedFields>
+        <queriedFields>Estado_Cliente__c</queriedFields>
+        <queriedFields>Estado_Aceitacao_Cliente__c</queriedFields>
+        <queriedFields>Resultado_Cadastro__c</queriedFields>
+        <storeOutputAutomatically>false</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_WorkOrder_Fields</name>
@@ -255,7 +267,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_WorkOrder.Id</elementReference>
+                <elementReference>recWorkOrder.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -291,7 +303,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_ServiceAppointment.Id</elementReference>
+                <elementReference>recServiceAppointment.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -318,7 +330,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>disp_AlreadyCompleted</name>
-            <fieldText>&lt;p&gt;Esta OT já está concluída.&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!Get_ServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Actual End: {!Get_ServiceAppointment.ActualEndTime}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Esta OT já está concluída.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Actual End: {!recServiceAppointment.ActualEndTime}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -345,7 +357,7 @@
             <choiceReferences>Choice_EstadoCliente_Closed</choiceReferences>
             <dataType>String</dataType>
             <defaultValue>
-                <elementReference>Get_WorkOrder.Estado_Cliente__c</elementReference>
+                <elementReference>recWorkOrder.Estado_Cliente__c</elementReference>
             </defaultValue>
             <fieldText>Estado no NetGuard</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -356,7 +368,7 @@
             <name>field_EstadoAceitacaoCliente</name>
             <dataType>String</dataType>
             <defaultValue>
-                <elementReference>Get_WorkOrder.Estado_Aceitacao_Cliente__c</elementReference>
+                <elementReference>recWorkOrder.Estado_Aceitacao_Cliente__c</elementReference>
             </defaultValue>
             <fieldText>Estado no PNI</fieldText>
             <fieldType>InputField</fieldType>
@@ -370,7 +382,7 @@
             <choiceReferences>Choice_ResultadoCadastro_PorDeterminar</choiceReferences>
             <dataType>String</dataType>
             <defaultValue>
-                <elementReference>Get_WorkOrder.Resultado_Cadastro__c</elementReference>
+                <elementReference>recWorkOrder.Resultado_Cadastro__c</elementReference>
             </defaultValue>
             <fieldText>Resultado do cadastro</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -379,7 +391,7 @@
         </fields>
         <fields>
             <name>disp_Confirmar</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Fechar OT&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!Get_ServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Novo Status: Completed&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Fechar OT&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Novo Status: Completed&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -411,7 +423,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>disp_Success</name>
-            <fieldText>&lt;p&gt;OT/visita concluída com sucesso.&lt;/p&gt;&lt;p&gt;Service Appointment: {!Get_ServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!Get_WorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;OT/visita concluída com sucesso.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -425,6 +437,22 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>recServiceAppointment</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ServiceAppointment</objectType>
+    </variables>
+    <variables>
+        <name>recWorkOrder</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
     <variables>
         <name>Id</name>
         <dataType>String</dataType>
@@ -441,13 +469,6 @@
     </variables>
     <variables>
         <name>UserId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
