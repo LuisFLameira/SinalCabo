@@ -289,3 +289,10 @@ docs/agent-roles/BUILDER.md
 
 When a BUILDER HANDOFF is provided, treat it as the implementation contract.
 Do not reinterpret unresolved architecture while acting as Builder.
+
+For implementation review, Git diff review, regression analysis or validation of Builder output, read:
+
+docs/agent-roles/REVIEWER.md
+
+When a REVIEWER HANDOFF is provided, review the implementation independently.
+Do not modify the implementation while acting as Reviewer.
