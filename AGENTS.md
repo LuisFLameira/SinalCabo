@@ -282,3 +282,10 @@ For architecture, design, ambiguity or cross-domain technical decisions, read:
 docs/agent-roles/ARCHITECT.md
 
 When acting as Architect, follow that role before producing implementation guidance.
+
+For implementation tasks, read:
+
+docs/agent-roles/BUILDER.md
+
+When a BUILDER HANDOFF is provided, treat it as the implementation contract.
+Do not reinterpret unresolved architecture while acting as Builder.
