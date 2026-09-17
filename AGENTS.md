@@ -304,3 +304,23 @@ docs/agent-roles/QA.md
 
 QA validates implementation independently and must not fix defects while acting
 as QA.
+
+## Adaptive Task Routing
+
+For every non-trivial task, read:
+
+docs/agent-roles/ROUTING.md
+
+Select the lightest safe workflow based on ambiguity, risk and required validation.
+
+Do not require the user to manually orchestrate Architect, Builder, Reviewer and QA.
+
+When routing selects a role, read and follow the corresponding role file:
+
+- Architect: docs/agent-roles/ARCHITECT.md
+- Builder: docs/agent-roles/BUILDER.md
+- Reviewer: docs/agent-roles/REVIEWER.md
+- QA: docs/agent-roles/QA.md
+
+If implementation is blocked by an unresolved human decision, stop rather than
+inventing the decision.
