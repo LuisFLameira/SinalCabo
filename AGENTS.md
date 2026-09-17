@@ -274,3 +274,11 @@ If the requirement is ambiguous and materially affects architecture, ask before 
 For small, unambiguous changes, proceed directly but still validate.
 
 Do not introduce unnecessary abstraction or custom code.
+
+## Agent Roles
+
+For architecture, design, ambiguity or cross-domain technical decisions, read:
+
+docs/agent-roles/ARCHITECT.md
+
+When acting as Architect, follow that role before producing implementation guidance.
