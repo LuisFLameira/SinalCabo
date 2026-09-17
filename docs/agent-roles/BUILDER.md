@@ -227,6 +227,59 @@ Never force-push.
 
 ---
 
+## Automated Test Ownership
+
+The Builder owns the automated tests required by the implementation.
+
+Testing is part of the implementation, not a separate QA responsibility.
+
+### Apex
+
+When Apex is created or materially changed:
+
+- create or update the corresponding Apex test classes;
+- test positive and negative behaviour;
+- test bulk scenarios when relevant;
+- test error and exception paths;
+- test idempotency and retry behaviour when relevant;
+- use callout mocks for integrations;
+- avoid SeeAllData=true unless explicitly justified;
+- create deterministic test data;
+- assert business behaviour, not only code coverage.
+
+Do not consider an Apex implementation complete merely because it compiles
+or contributes to Salesforce's minimum org-wide coverage requirement.
+
+The Builder must identify any behaviour that cannot reasonably be covered by
+automated Apex tests.
+
+### Other Components
+
+Where the repository already supports appropriate automated testing for the
+changed component, create or update those tests as part of the implementation.
+
+Examples may include:
+- existing LWC unit-test conventions;
+- integration mocks;
+- validation scripts;
+- metadata validation.
+
+Do not invent a new testing framework merely to satisfy this rule.
+
+### Existing Tests
+
+When changing existing behaviour:
+
+- inspect relevant existing tests;
+- preserve valid regression coverage;
+- update tests when approved behaviour changes;
+- do not weaken assertions merely to make tests pass.
+
+A failing valid regression test is a signal to investigate, not something to
+silence automatically.
+
+---
+
 ## Validation
 
 Validation must match the type of change.
@@ -274,6 +327,9 @@ Anything changed or validated in the org.
 ### Validation Performed
 Commands and tests executed.
 
+### Automated Tests Added / Updated
+List all automated tests created or changed and what behaviour they cover.
+
 ### Remaining Risks
 Anything not proven.
 
@@ -291,5 +347,8 @@ A concise brief for an independent reviewer containing:
 - files/components changed;
 - important design constraints;
 - validation already performed;
+- automated tests added or updated;
+- test scenarios covered;
+- scenarios not covered automatically and why;
 - known risks;
 - areas requiring particular review attention.
