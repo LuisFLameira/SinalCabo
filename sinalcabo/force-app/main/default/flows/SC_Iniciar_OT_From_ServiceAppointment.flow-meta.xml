@@ -272,6 +272,12 @@
                 <elementReference>field_EstadoAceitacaoCliente</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
         <object>WorkOrder</object>
     </recordUpdates>
     <recordUpdates>

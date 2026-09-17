@@ -288,6 +288,12 @@
                 <elementReference>field_ResultadoCadastro</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
         <object>WorkOrder</object>
     </recordUpdates>
     <recordUpdates>
