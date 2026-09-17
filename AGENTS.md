@@ -324,3 +324,17 @@ When routing selects a role, read and follow the corresponding role file:
 
 If implementation is blocked by an unresolved human decision, stop rather than
 inventing the decision.
+
+## Context Loading Efficiency
+
+Do not repeatedly read large project-context files in full when the task is
+narrow.
+
+Prefer:
+1. inspect headings;
+2. search for relevant concepts;
+3. read only relevant sections;
+4. expand context only when needed.
+
+Architecture quality takes precedence over token savings, but unnecessary
+context repetition should be avoided.

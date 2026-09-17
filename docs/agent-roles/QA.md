@@ -21,7 +21,14 @@ QA independently validates the resulting behaviour and evidence.
 Before validating a non-trivial change:
 
 1. Read all applicable AGENTS.md instructions.
-2. Read docs/PROJECT_CONTEXT.md.
+2. Read the sections of docs/PROJECT_CONTEXT.md relevant to the task.
+Do not read the entire document by default.
+Use headings/search to identify relevant sections first.
+Read the full PROJECT_CONTEXT.md only when:
+- the task is cross-domain;
+- decision authority is unclear;
+- multiple architecture areas materially interact;
+- the selected route explicitly requires broad architecture analysis.
 3. Read the Architect BUILDER HANDOFF when available.
 4. Read the Builder REVIEWER HANDOFF.
 5. Read the Reviewer outcome when available.
@@ -49,6 +56,41 @@ Do not assume an implementation works because:
 - a PoC worked with another user or device.
 
 Validate independently.
+
+---
+
+## QA Execution Preflight
+
+Before performing full QA, determine whether the evidence and environments
+required by the mandatory acceptance criteria are actually available.
+
+Identify requirements such as:
+
+- deployed metadata;
+- authenticated Salesforce org;
+- runtime test data;
+- target persona;
+- browser UI;
+- Field Service Mobile device;
+- online execution;
+- offline execution;
+- integration endpoint.
+
+If mandatory acceptance criteria require unavailable capabilities:
+
+do not perform an expensive duplicate static review that was already completed
+by Reviewer.
+
+Instead:
+
+1. validate only any genuinely new evidence available to QA;
+2. classify unavailable scenarios as NOT TESTED;
+3. return QA Result = BLOCKED when those scenarios are mandatory for acceptance;
+4. clearly list the prerequisites required to resume QA.
+
+QA should add new validation evidence.
+
+QA should not repeat Reviewer work merely to reach a predictable BLOCKED result.
 
 ---
 

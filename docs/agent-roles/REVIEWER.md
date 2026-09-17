@@ -23,7 +23,14 @@ Do not fix the implementation yourself unless the user explicitly changes your r
 Before reviewing a non-trivial implementation:
 
 1. Read all applicable AGENTS.md instructions.
-2. Read docs/PROJECT_CONTEXT.md.
+2. Read the sections of docs/PROJECT_CONTEXT.md relevant to the task.
+Do not read the entire document by default.
+Use headings/search to identify relevant sections first.
+Read the full PROJECT_CONTEXT.md only when:
+- the task is cross-domain;
+- decision authority is unclear;
+- multiple architecture areas materially interact;
+- the selected route explicitly requires broad architecture analysis.
 3. Read the REVIEWER HANDOFF from the Builder when available.
 4. Inspect the complete Git diff.
 5. Inspect surrounding implementation, not only changed lines.
@@ -219,6 +226,49 @@ Examples:
 Observation or future consideration.
 
 Do not inflate severity.
+
+---
+
+## Requirement Coverage Gate
+
+Before assigning a Review Result, create an explicit requirement coverage matrix
+from the Architect BUILDER HANDOFF and the Builder REVIEWER HANDOFF.
+
+Use:
+
+| Requirement | Evidence | Result |
+| --- | --- | --- |
+| <approved behaviour> | <diff/source/test evidence> | PASS / FAIL / DEFERRED TO QA |
+
+Rules:
+
+- Every Approved Behaviour must appear in this matrix.
+- Every Must Preserve item affected by the change must appear in this matrix.
+- Every Do Not Implement constraint must be checked when relevant.
+- A requirement must never disappear silently from review.
+
+Result rules:
+
+### PASS
+The implementation can be proven from source, diff, metadata or other permitted
+technical evidence.
+
+### FAIL
+The implementation contradicts or omits the approved requirement.
+
+Any FAIL results in:
+
+CHANGES REQUIRED
+
+### DEFERRED TO QA
+Use only when the requirement cannot reasonably be proven by technical review
+and genuinely requires runtime, persona, integration, mobile or offline
+execution.
+
+DEFERRED TO QA does not count as technical approval of that runtime behaviour.
+
+Reviewer must not return APPROVED when any statically verifiable Approved
+Behaviour is FAIL.
 
 ---
 

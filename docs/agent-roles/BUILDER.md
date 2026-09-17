@@ -18,7 +18,14 @@ When a BUILDER HANDOFF exists, treat it as the implementation contract.
 Before implementing any non-trivial change:
 
 1. Read the applicable AGENTS.md instructions.
-2. Read docs/PROJECT_CONTEXT.md.
+2. Read the sections of docs/PROJECT_CONTEXT.md relevant to the task.
+Do not read the entire document by default.
+Use headings/search to identify relevant sections first.
+Read the full PROJECT_CONTEXT.md only when:
+- the task is cross-domain;
+- decision authority is unclear;
+- multiple architecture areas materially interact;
+- the selected route explicitly requires broad architecture analysis.
 3. Read the BUILDER HANDOFF when one was provided.
 4. Inspect the current repository implementation.
 5. Inspect the authenticated Salesforce org when runtime or deployment state
@@ -65,6 +72,50 @@ STOP.
 Report the conflict and escalate back to Architect or the user.
 
 Do not reinterpret the architecture yourself.
+
+---
+
+## Implementation Contract Gate
+
+Before modifying files, convert the implementation contract into an internal
+checklist containing:
+
+- Objective
+- Approved Behaviour
+- Required Changes
+- Must Preserve
+- Do Not Implement
+- Human Approval Required
+
+For each item classify it as:
+
+- IMPLEMENT
+- PRESERVE
+- EXCLUDE
+- BLOCKED
+
+Before producing REVIEWER HANDOFF, verify the implementation against that
+checklist.
+
+Every Approved Behaviour and Must Preserve item must be explicitly accounted for.
+
+If the implementation accidentally removes or changes behaviour that the
+handoff says to preserve:
+
+STOP.
+
+Do not send the implementation to Reviewer until the contract is satisfied.
+
+Do not silently reinterpret words such as:
+- preserve;
+- maintain;
+- unchanged;
+- read-only;
+- remove;
+- do not implement.
+
+The Builder must verify requirements against the final diff, not only against
+its intended implementation.
 
 ---
 
@@ -373,6 +424,49 @@ If Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS,
 continue according to ROUTING.md.
 
 ## Automatic QA Delegation
+
+### QA Execution Gate
+
+A route containing QA means that QA is required before final acceptance.
+
+It does NOT mean QA must always be executed immediately.
+
+Before spawning the `qa` subagent, determine whether QA can produce new evidence.
+
+Spawn QA now when the required validation environment is available, for example:
+
+- deployed or otherwise executable implementation;
+- required Salesforce org access;
+- required test data;
+- relevant personas;
+- integration dependencies where applicable;
+- mobile/device access when required.
+
+If mandatory QA depends on capabilities that are currently unavailable:
+
+DO NOT spawn the QA subagent.
+
+Instead:
+
+1. preserve the QA HANDOFF;
+2. report:
+
+   QA DEFERRED
+
+3. list the prerequisites required to execute QA;
+4. mark the implementation as not yet ready for UAT where those tests are mandatory.
+
+Examples:
+
+QA DEFERRED
+Required:
+- validation/deployment to SinalCabo_DEV;
+- Contractor Mobile Worker;
+- Android Field Service Mobile device;
+- offline/reconnect test.
+
+Do not spend a QA subagent run merely to rediscover that these prerequisites
+are unavailable.
 
 After the reviewer subagent returns:
 

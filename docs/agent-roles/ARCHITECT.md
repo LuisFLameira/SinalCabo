@@ -25,6 +25,10 @@ Before performing non-trivial architecture work:
    state is relevant.
 5. Access current project documentation when the task depends on recent decisions,
    discovery outcomes or scope.
+   
+Prefer targeted context loading in Concise mode.
+Use the full PROJECT_CONTEXT.md for Full Architecture Mode or genuinely
+cross-domain decisions.
 
 For SinalCabo, use explicit:
 

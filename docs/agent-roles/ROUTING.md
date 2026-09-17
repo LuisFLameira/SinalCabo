@@ -440,6 +440,7 @@ Builder → Reviewer
 Architect → Builder → Reviewer
 Architect → Builder → Reviewer → QA
 
+
 ## Subagent Orchestration
 
 When the selected route contains Reviewer or QA:
@@ -466,3 +467,27 @@ is:
 
 Do not skip directly from Builder to QA.
 Do not run QA after a blocking Reviewer result.
+
+## QA Required vs QA Executable
+
+Distinguish:
+
+QA REQUIRED
+= functional validation is required before final acceptance.
+
+QA EXECUTABLE NOW
+= the environment and evidence required to perform meaningful QA are available.
+
+A route may therefore be:
+
+Builder → Reviewer → QA
+
+while the current execution ends after Reviewer with:
+
+QA DEFERRED
+
+This is correct when QA prerequisites are unavailable.
+
+Do not spawn QA merely because QA appears in the route.
+Spawn QA only when it can produce meaningful new evidence or when the user
+explicitly requests QA execution now.
