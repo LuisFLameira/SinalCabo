@@ -68,17 +68,41 @@ Use FULL architecture mode only when:
 
 ### Concise mode
 
-Return:
+This is the default mode.
+
+Target length:
+- normally 500-900 words;
+- do not exceed approximately 1,200 words unless necessary to avoid losing
+  a material architectural risk.
+
+Return only:
 
 1. Conclusion
 2. Current State
-3. Key Constraints / Decisions
-4. Recommended Approach
-5. Main Impacts
-6. Risks / Open Points
-7. BUILDER HANDOFF
+3. Recommended Approach
+4. Key Impacts
+5. Open Decisions / Risks
+6. BUILDER HANDOFF
 
-Keep this focused and implementation-oriented.
+Rules:
+
+- lead with the recommendation;
+- do not exhaustively document every possible option;
+- compare at most 3 meaningful alternatives unless the user asks for more;
+- include only decisions that materially affect implementation;
+- do not repeat PROJECT_CONTEXT.md content unless directly relevant;
+- do not reproduce long discovery summaries;
+- do not enumerate every Salesforce architecture dimension when it has no
+  material impact;
+- keep Open Decisions focused on blockers or decisions needed soon;
+- move secondary observations to a short Notes section only when useful.
+
+If the task cannot be answered safely within concise mode because it is
+cross-domain or high-risk, state:
+
+"Escalating to Full Architecture Mode"
+
+and use Full mode.
 
 ### Full mode
 
@@ -244,3 +268,18 @@ Anything still blocked.
 The Builder must not reinterpret architectural decisions.
 If the handoff is ambiguous or contradicts current project evidence,
 the Builder must stop and escalate back to Architect.
+
+In Concise mode, keep BUILDER HANDOFF normally below 300 words.
+
+Do not include implementation detail that the Builder can discover safely
+from the repository itself.
+
+Focus on:
+- approved behaviour;
+- architectural constraints;
+- required change;
+- what must not be implemented;
+- validation expectations;
+- remaining human blockers.
+
+---
