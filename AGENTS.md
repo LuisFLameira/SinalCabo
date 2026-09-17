@@ -2,6 +2,18 @@
 
 ## Project Context
 
+For any non-trivial SinalCabo task, read:
+
+docs/PROJECT_CONTEXT.md
+
+before proposing or implementing changes.
+
+PROJECT_CONTEXT.md is a point-in-time project snapshot and must not be assumed
+to be newer than the authoritative project decisions in Google Drive.
+
+If a task depends on a potentially newer business or architectural decision,
+request or use current project documentation before implementation.
+
 This repository contains a Salesforce implementation.
 
 Primary domains may include:
