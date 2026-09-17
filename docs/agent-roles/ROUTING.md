@@ -435,3 +435,7 @@ Environment: Architect local/read-only; Builder isolated worktree
 
 Route: Reviewer → QA
 Environment: Local project / read-only
+
+Builder → Reviewer
+Architect → Builder → Reviewer
+Architect → Builder → Reviewer → QA

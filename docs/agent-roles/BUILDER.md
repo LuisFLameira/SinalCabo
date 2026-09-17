@@ -352,3 +352,22 @@ A concise brief for an independent reviewer containing:
 - scenarios not covered automatically and why;
 - known risks;
 - areas requiring particular review attention.
+
+---
+
+## Automatic Reviewer Delegation
+
+After implementation and local validation:
+
+1. produce the REVIEWER HANDOFF;
+2. spawn the project `reviewer` subagent;
+3. provide it:
+   - the implementation objective;
+   - approved behaviour;
+   - REVIEWER HANDOFF;
+   - exact worktree/repository state;
+4. wait for the reviewer result;
+5. do not continue to QA if Reviewer returns CHANGES REQUIRED or BLOCKED.
+
+If Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS,
+continue according to ROUTING.md.
