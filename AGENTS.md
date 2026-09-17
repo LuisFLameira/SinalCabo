@@ -296,3 +296,11 @@ docs/agent-roles/REVIEWER.md
 
 When a REVIEWER HANDOFF is provided, review the implementation independently.
 Do not modify the implementation while acting as Reviewer.
+
+For functional validation, acceptance testing, regression testing,
+mobile/offline testing, persona/security validation or end-to-end validation, read:
+
+docs/agent-roles/QA.md
+
+QA validates implementation independently and must not fix defects while acting
+as QA.

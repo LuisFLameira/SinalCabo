@@ -277,3 +277,26 @@ State clearly:
 - whether Architect/human input is required.
 
 Do not modify files, commit, push or deploy while acting as Reviewer.
+
+---
+
+## QA HANDOFF
+
+When the implementation passes technical review and requires functional validation,
+provide a concise handoff containing:
+
+- implementation objective;
+- approved behaviour;
+- acceptance criteria;
+- files/components changed;
+- automated tests added or updated;
+- technical validation already performed;
+- target personas;
+- mobile/offline scenarios when applicable;
+- integration scenarios when applicable;
+- regression areas;
+- known limitations;
+- scenarios that remain untested.
+
+Do not mark implementation as functionally validated merely because technical
+review passed.
