@@ -439,3 +439,30 @@ Environment: Local project / read-only
 Builder → Reviewer
 Architect → Builder → Reviewer
 Architect → Builder → Reviewer → QA
+
+## Subagent Orchestration
+
+When the selected route contains Reviewer or QA:
+
+- the main thread remains the orchestrator;
+- Reviewer should be delegated to the project `reviewer` subagent;
+- QA should be delegated to the project `qa` subagent;
+- Reviewer and QA are independent, read-only roles;
+- the main thread waits for each result before continuing.
+
+Execution sequence for:
+
+Architect → Builder → Reviewer → QA
+
+is:
+
+1. Architect produces BUILDER HANDOFF.
+2. Builder implements.
+3. Main thread spawns reviewer.
+4. Reviewer returns REVIEW OUTCOME + QA HANDOFF.
+5. If review passes, main thread spawns QA.
+6. QA returns QA OUTCOME.
+7. Main thread presents the consolidated result to the user.
+
+Do not skip directly from Builder to QA.
+Do not run QA after a blocking Reviewer result.

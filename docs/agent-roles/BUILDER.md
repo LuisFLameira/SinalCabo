@@ -371,3 +371,50 @@ After implementation and local validation:
 
 If Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS,
 continue according to ROUTING.md.
+
+## Automatic QA Delegation
+
+After the reviewer subagent returns:
+
+### If Reviewer returns CHANGES REQUIRED or BLOCKED
+
+- do not spawn QA;
+- summarize the findings;
+- stop;
+- return the implementation to Builder or escalate according to the review outcome.
+
+### If Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS
+
+Check the selected route in ROUTING.md.
+
+If the selected route includes QA:
+
+1. read the QA HANDOFF returned by the reviewer;
+2. spawn the project custom subagent `qa`;
+3. provide the QA subagent with:
+   - the implementation objective;
+   - approved behaviour;
+   - acceptance criteria;
+   - QA HANDOFF;
+   - current worktree/repository state;
+   - validation already performed;
+4. wait for the QA result;
+5. do not modify implementation while QA is running.
+
+If QA returns:
+
+- PASS:
+  summarize implementation, review and QA evidence and stop for user approval.
+
+- PASS WITH MINOR DEFECTS:
+  summarize defects and stop for user decision.
+
+- FAIL:
+  identify whether the defect must return to Builder, Reviewer, Architect or
+  human decision according to the QA outcome.
+
+- BLOCKED:
+  clearly state what runtime access, deployment, test data, device or human
+  action is required.
+
+Do not claim end-to-end validation when QA reports scenarios as NOT TESTED.

@@ -300,3 +300,12 @@ provide a concise handoff containing:
 
 Do not mark implementation as functionally validated merely because technical
 review passed.
+
+## QA Delegation Boundary
+
+When running as the `reviewer` subagent:
+
+- do not spawn QA directly;
+- produce the QA HANDOFF;
+- return it to the parent/orchestrating agent;
+- the parent agent decides whether QA is required according to ROUTING.md.
