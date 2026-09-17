@@ -341,6 +341,70 @@ Do not create a worktree merely for ceremony.
 
 ---
 
+# Execution Environment Routing
+
+The task route and the Git execution environment must be evaluated separately.
+
+## Local Project
+
+Use the local project for:
+
+- read-only investigation;
+- Architect work;
+- Reviewer work;
+- QA analysis that does not require implementation;
+- small, explicit, low-risk Builder changes;
+- user-supervised changes where immediate visibility in the main working tree is desired.
+
+## Isolated Worktree
+
+Prefer an isolated worktree for:
+
+- non-trivial Builder implementation;
+- autonomous implementation;
+- changes affecting multiple components;
+- Apex, Flow or LWC changes with meaningful regression risk;
+- integration changes;
+- security changes;
+- lifecycle changes;
+- inventory processing;
+- mobile/offline implementation;
+- experimental changes;
+- parallel agent work;
+- Architect → Builder → Reviewer workflows.
+
+## Environment Escalation
+
+If a task starts in the local project but routing determines that an isolated
+worktree is appropriate:
+
+STOP before modifying files.
+
+State:
+
+"Execution environment escalation: isolated worktree recommended."
+
+Explain briefly why.
+
+Do not create implementation changes in the local project merely because the
+thread was started there.
+
+The user can then start the Builder task in an isolated worktree using the
+approved BUILDER HANDOFF.
+
+## Environment De-escalation
+
+Do not require a worktree for:
+
+- read-only work;
+- documentation-only analysis;
+- trivial local changes;
+- small explicit modifications with negligible regression risk.
+
+Avoid worktrees when they add ceremony without meaningful isolation benefit.
+
+---
+
 # Routing Output
 
 At the start of a non-trivial task state only:
@@ -358,3 +422,16 @@ If the route changes because new information is discovered, state:
 Route escalated: <new route>
 
 and explain the reason briefly.
+
+When implementation is involved, also state the execution environment when material.
+
+Examples:
+
+Route: Builder
+Environment: Local project
+
+Route: Architect → Builder → Reviewer
+Environment: Architect local/read-only; Builder isolated worktree
+
+Route: Reviewer → QA
+Environment: Local project / read-only
