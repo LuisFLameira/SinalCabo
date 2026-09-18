@@ -981,3 +981,43 @@ Use the lightest route that resolves the unresolved question.
 Do not invoke a broader role when a narrower specialist can resolve the issue.
 
 ---
+
+## Parallel Delegation
+
+Use parallel subagents only when tasks are materially independent.
+
+Good candidates:
+
+- independent read-only investigations;
+- repository exploration;
+- org/configuration investigation;
+- documentation research;
+- API/contract analysis;
+- independent review dimensions;
+- test and regression analysis.
+
+Prefer sequential execution when one role depends on evidence or decisions
+produced by another.
+
+Do not parallelize:
+
+- Architect and Builder for the same decision;
+- Builder and Reviewer for the same implementation;
+- Reviewer and QA before technical review passes;
+- agents modifying the same implementation files;
+- Analyst and Integration Specialist when integration design depends on the
+  Analyst result.
+
+The parent thread must:
+
+1. define a clear scope for each parallel subagent;
+2. wait for all required results;
+3. reconcile contradictions;
+4. avoid repeating work already completed by a subagent.
+
+Parallelism is an optimization for wall-clock time, not token usage.
+
+Prefer at most 2 parallel subagents by default.
+Use additional concurrency only when the task genuinely benefits from it.
+
+---
