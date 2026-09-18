@@ -50,54 +50,6 @@
         </connector>
     </assignments>
     <choices>
-        <name>Choice_EstadoCliente_AssignedToCompany</name>
-        <choiceText>Atribuída à empresa</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>ASSIGNED_TO_COMPANY</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>Choice_EstadoCliente_AssignedToUser</name>
-        <choiceText>Atribuída ao técnico</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>ASSIGNED_TO_USER</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>Choice_EstadoCliente_WorkInProgress</name>
-        <choiceText>Em execução</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>WORK_IN_PROGRESS</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>Choice_EstadoCliente_Pending</name>
-        <choiceText>Pendente</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>PENDING</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>Choice_EstadoCliente_Resolved</name>
-        <choiceText>Resolvida</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>RESOLVED</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>Choice_EstadoCliente_Closed</name>
-        <choiceText>Fechada</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>CLOSED</stringValue>
-        </value>
-    </choices>
-    <choices>
         <name>Choice_ResultadoCadastro_ComCadastro</name>
         <choiceText>Com cadastro</choiceText>
         <dataType>String</dataType>
@@ -260,7 +212,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Update_ServiceAppointment_Close</targetReference>
+            <targetReference>Screen_Success</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -270,18 +222,6 @@
                 <elementReference>recWorkOrder.Id</elementReference>
             </value>
         </filters>
-        <inputAssignments>
-            <field>Estado_Cliente__c</field>
-            <value>
-                <elementReference>field_EstadoCliente</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Estado_Aceitacao_Cliente__c</field>
-            <value>
-                <elementReference>field_EstadoAceitacaoCliente</elementReference>
-            </value>
-        </inputAssignments>
         <inputAssignments>
             <field>Resultado_Cadastro__c</field>
             <value>
@@ -302,7 +242,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Screen_Success</targetReference>
+            <targetReference>Update_WorkOrder_Fields</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -351,35 +291,17 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Update_WorkOrder_Fields</targetReference>
+            <targetReference>Update_ServiceAppointment_Close</targetReference>
         </connector>
         <fields>
             <name>field_EstadoCliente</name>
-            <choiceReferences>Choice_EstadoCliente_AssignedToCompany</choiceReferences>
-            <choiceReferences>Choice_EstadoCliente_AssignedToUser</choiceReferences>
-            <choiceReferences>Choice_EstadoCliente_WorkInProgress</choiceReferences>
-            <choiceReferences>Choice_EstadoCliente_Pending</choiceReferences>
-            <choiceReferences>Choice_EstadoCliente_Resolved</choiceReferences>
-            <choiceReferences>Choice_EstadoCliente_Closed</choiceReferences>
-            <dataType>String</dataType>
-            <defaultValue>
-                <elementReference>recWorkOrder.Estado_Cliente__c</elementReference>
-            </defaultValue>
-            <fieldText>Estado no NetGuard</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <fieldText>&lt;p&gt;Estado no NetGuard: {!recWorkOrder.Estado_Cliente__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <name>field_EstadoAceitacaoCliente</name>
-            <dataType>String</dataType>
-            <defaultValue>
-                <elementReference>recWorkOrder.Estado_Aceitacao_Cliente__c</elementReference>
-            </defaultValue>
-            <fieldText>Estado no PNI</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <fieldText>&lt;p&gt;Estado no PNI: {!recWorkOrder.Estado_Aceitacao_Cliente__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <name>field_ResultadoCadastro</name>
@@ -387,17 +309,14 @@
             <choiceReferences>Choice_ResultadoCadastro_SemCadastro</choiceReferences>
             <choiceReferences>Choice_ResultadoCadastro_PorDeterminar</choiceReferences>
             <dataType>String</dataType>
-            <defaultValue>
-                <elementReference>recWorkOrder.Resultado_Cadastro__c</elementReference>
-            </defaultValue>
             <fieldText>Resultado do cadastro</fieldText>
             <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>disp_Confirmar</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Fechar OT&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Novo Status: Completed&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Fechar OT&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Status atual: {!recServiceAppointment.Status}&lt;/p&gt;&lt;p&gt;Novo Status: Completed&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -429,7 +348,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>disp_Success</name>
-            <fieldText>&lt;p&gt;OT/visita concluída com sucesso.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!field_EstadoCliente}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!field_EstadoAceitacaoCliente}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;OT/visita concluída com sucesso.&lt;/p&gt;&lt;p&gt;Service Appointment: {!recServiceAppointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;Actual End: {!varActionDateTime}&lt;/p&gt;&lt;p&gt;Work Order: {!recWorkOrder.WorkOrderNumber}&lt;/p&gt;&lt;p&gt;Estado no NetGuard: {!recWorkOrder.Estado_Cliente__c}&lt;/p&gt;&lt;p&gt;Estado no PNI: {!recWorkOrder.Estado_Aceitacao_Cliente__c}&lt;/p&gt;&lt;p&gt;Resultado do cadastro: {!field_ResultadoCadastro}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
