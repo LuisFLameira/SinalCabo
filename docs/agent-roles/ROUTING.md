@@ -496,3 +496,17 @@ Builder → Reviewer → QA
 
 describes the required lifecycle before acceptance.
 It does not mean every stage must execute in the current turn.
+
+## Promotion to Local
+
+For isolated-worktree implementations, the final execution lifecycle is:
+
+Builder
+→ Reviewer
+→ QA when applicable
+→ User approval
+→ Promotion to Local
+
+Promotion is always a separate explicit action.
+
+Do not interpret Reviewer approval as user approval to modify the main checkout.

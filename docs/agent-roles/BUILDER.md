@@ -473,3 +473,30 @@ Then list the exact prerequisites required to resume QA.
 
 The parent agent may perform trivial zero-cost structural checks itself,
 but must not launch QA merely to produce a predictable BLOCKED result.
+
+---
+
+## Promotion Gate
+
+Changes implemented in an isolated worktree must never be moved to the main
+local project automatically.
+
+After Reviewer approval:
+
+- if QA is required and executable, wait for QA;
+- if QA is required but deferred, report that clearly;
+- present the final diff and validation status to the user;
+- wait for explicit user approval before promoting changes.
+
+Valid user approvals include instructions such as:
+
+- "Promote to local"
+- "Apply these changes to FSLDEV"
+- "Commit these approved changes"
+
+Do not commit, merge, cherry-pick, push or hand changes back to Local without
+explicit approval.
+
+If the implementation is not approved:
+- keep the worktree isolated;
+- do not modify the main local project.
