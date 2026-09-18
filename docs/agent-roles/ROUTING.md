@@ -59,7 +59,145 @@ sufficiently defined.
 
 ---
 
-# Route 2 — Direct Builder
+# Route 2 — Integration Specialist
+
+Use when the primary need is to determine or review an integration pattern,
+API contract, authentication model or integration reliability design.
+
+Typical triggers:
+
+- choose between synchronous, asynchronous, event-driven or batch integration;
+- choose between standard Salesforce APIs, custom API, Platform Events, CDC,
+  Pub/Sub, Bulk API or middleware;
+- determine inbound vs outbound integration design;
+- review an OpenAPI or API contract;
+- determine authentication / authorization approach;
+- assess OAuth, JWT, client credentials or certificate-based approaches;
+- assess Named Credentials / External Credentials;
+- define retry, idempotency or duplicate handling;
+- define reconciliation;
+- define integration observability;
+- assess middleware necessity;
+- review integration-related limits or constraints;
+- review an existing integration design before implementation.
+
+Workflow:
+
+Integration Specialist
+
+Possible outcomes:
+
+- INTEGRATION ASSESSMENT COMPLETE
+- ANALYST HANDOFF
+- ARCHITECT HANDOFF
+- BUILDER HANDOFF
+- HUMAN DECISION REQUIRED
+
+The Integration Specialist does not implement.
+
+Use Analyst first when behaviour or external-system capability must be discovered
+or proven before an integration recommendation can be made.
+
+Use Architect after Integration Specialist when the recommendation affects
+broader system ownership, lifecycle, enterprise architecture or cross-domain
+design.
+
+Use Builder only when the integration pattern and implementation contract are
+sufficiently defined.
+
+## Integration Specialist Composite Routes
+
+### Analyst → Integration Specialist
+
+Use when facts or standard behaviour must first be established before choosing
+an integration pattern.
+
+Examples:
+
+- external API capability is uncertain;
+- current Salesforce integration behaviour must be inspected;
+- a PoC is required before recommending REST vs event-driven integration;
+- external-system behaviour must be proven.
+
+Analyst gathers evidence.
+Integration Specialist uses that evidence to recommend the integration design.
+
+---
+
+### Integration Specialist → Architect
+
+Use when the integration assessment exposes broader architecture decisions such
+as:
+
+- authoritative system ownership;
+- lifecycle ownership;
+- enterprise middleware strategy;
+- cross-domain data model;
+- major security model;
+- multi-system orchestration ownership.
+
+The Integration Specialist provides the integration-domain evidence and
+recommendation.
+
+Architect owns the broader architecture decision.
+
+---
+
+### Integration Specialist → Builder → Reviewer
+
+Use when:
+
+- the integration pattern is sufficiently defined;
+- no broader architecture decision remains;
+- implementation is technically meaningful.
+
+Examples:
+
+- approved outbound REST callout;
+- approved API mapping change;
+- approved idempotency implementation;
+- approved Named Credential usage;
+- approved integration error-handling change.
+
+Integration Specialist
+→ BUILDER HANDOFF
+→ Builder
+→ REVIEWER HANDOFF
+→ Reviewer
+
+---
+
+### Integration Specialist → Builder → Reviewer → QA
+
+Use when the integration pattern is defined but runtime behaviour must also be
+demonstrated.
+
+Examples:
+
+- external-system callout;
+- retry / idempotency behaviour;
+- authentication flow;
+- end-to-end inbound API;
+- event-driven processing;
+- reconciliation;
+- integration failure recovery.
+
+QA may be DEFERRED according to the QA Spawn Gate.
+
+---
+
+### Integration Specialist → Architect → Builder → Reviewer → QA
+
+Use when:
+
+1. integration-domain analysis is required;
+2. the result affects broader architecture;
+3. implementation follows;
+4. runtime/end-to-end validation is required.
+
+---
+
+# Route 3 — Direct Builder
 
 Use for small, explicit, low-risk implementation tasks.
 
@@ -93,7 +231,7 @@ Architect is not required.
 
 ---
 
-# Route 3 — Builder → Reviewer
+# Route 4 — Builder → Reviewer
 
 Use for implementation that is defined but technically meaningful.
 
@@ -102,13 +240,13 @@ Typical triggers:
 - Apex changes;
 - Flow logic changes;
 - LWC changes;
-- integration logic;
+- approved integration logic;
+- approved retry/idempotency implementation;
 - shared utility code;
 - permissions/security;
 - inventory processing;
 - scheduling behaviour;
 - transaction boundaries;
-- retry/idempotency;
 - multiple metadata components;
 - meaningful regression risk.
 
@@ -127,7 +265,7 @@ behaviour must be demonstrated.
 
 ---
 
-# Route 4 — Builder → Reviewer → QA
+# Route 5 — Builder → Reviewer → QA
 
 Use when the implementation behaviour is already explicitly approved but
 independent runtime validation is required.
@@ -161,7 +299,7 @@ QA may be DEFERRED according to the QA Spawn Gate.
 
 ---
 
-# Route 5 — Architect → Builder → Reviewer
+# Route 6 — Architect → Builder → Reviewer
 
 Use when implementation requires a technical design decision before coding.
 
@@ -169,7 +307,7 @@ Typical triggers:
 
 - data-model choice;
 - Work Order / WOLI / Service Appointment modelling;
-- integration contract design;
+- integration contract design with broader architectural impact;
 - scheduling architecture;
 - security model;
 - inventory ownership model;
@@ -177,6 +315,16 @@ Typical triggers:
 - cross-domain changes;
 - multiple viable technical approaches;
 - non-trivial trade-offs.
+
+Integration-domain uncertainty should normally be resolved by Integration
+Specialist first.
+
+Use Architect directly only when the unresolved question materially affects:
+- enterprise architecture;
+- system-of-record ownership;
+- cross-domain lifecycle;
+- enterprise middleware strategy;
+- major security architecture.
 
 Workflow:
 
@@ -194,7 +342,7 @@ Do not continue to Builder until the required human decision is provided.
 
 ---
 
-# Route 6 — Architect → Builder → Reviewer → QA
+# Route 7 — Architect → Builder → Reviewer → QA
 
 Use for high-risk or behaviourally significant changes.
 
@@ -229,9 +377,45 @@ QA must independently execute the applicable acceptance scenarios.
 
 Technical review does not replace QA.
 
+These triggers do not automatically require Architect when the relevant
+behaviour and architecture are already explicitly approved.
+
+In that case prefer:
+
+Builder → Reviewer → QA
+
+For integration-specific uncertainty prefer Integration Specialist before
+Architect unless broader architecture is affected.
+
 ---
 
-# Route 7 — Human Decision Required
+# Route 8 — Reviewer → QA
+
+Use when implementation already exists and no Builder work is currently
+requested.
+
+Typical triggers:
+
+- review an existing implementation;
+- assess readiness for UAT;
+- independently validate changes already made;
+- run technical review followed by functional/runtime validation.
+
+Workflow:
+
+Reviewer
+→ QA HANDOFF
+→ QA when executable
+
+If Reviewer returns CHANGES REQUIRED or BLOCKED:
+do not run QA.
+
+If QA cannot currently execute:
+QA may be DEFERRED.
+
+---
+
+# Route 9 — Human Decision Required
 
 Use whenever implementation depends on unresolved:
 
@@ -247,11 +431,19 @@ Use whenever implementation depends on unresolved:
 
 Workflow:
 
-Architect
+Relevant role
 → Human decision
-→ appropriate implementation route
+→ appropriate next route
 
+The role that discovers the unresolved decision should provide:
+- the decision required;
+- available options;
+- evidence;
+- impact of each option.
+
+Do not invoke Architect merely to relay a business or external-system decision.
 Do not invent a decision to continue implementation.
+Use Architect when architectural interpretation is actually required.
 
 ---
 
@@ -275,6 +467,21 @@ A task must move to a stronger route when any of these appear:
 - user-visible regression risk.
 
 A task may move to a lighter route when analysis proves those risks do not apply.
+
+Integration-specific uncertainty should escalate to Integration Specialist
+before Architect when the unresolved question is primarily about:
+
+- integration pattern;
+- API capability;
+- authentication;
+- contract design;
+- reliability;
+- retry / idempotency;
+- observability;
+- reconciliation.
+
+Escalate to Architect when the unresolved question exceeds the integration
+domain.
 
 ---
 
@@ -348,13 +555,71 @@ unless the architecture and behaviour are already explicitly approved.
 
 ## Integrations
 
-Minor mapping correction with approved contract:
+### Existing approved integration — small implementation correction
+
+Examples:
+
+- mapping correction;
+- parser fix;
+- approved query change;
+- approved payload-field correction.
+
+Route:
 
 Builder → Reviewer
 
-New endpoint, contract, ownership, retry or reconciliation model:
+Do not invoke Integration Specialist merely because the code involves an
+integration.
 
-Architect → Builder → Reviewer → QA
+---
+
+### Integration design or contract question
+
+Examples:
+
+- REST vs Platform Event;
+- standard Salesforce API vs Apex REST;
+- authentication selection;
+- OpenAPI review;
+- retry / idempotency design;
+- reconciliation;
+- middleware assessment.
+
+Route:
+
+Integration Specialist
+
+---
+
+### Unknown external or Salesforce behaviour
+
+When evidence is required before the integration design can be chosen:
+
+Analyst → Integration Specialist
+
+---
+
+### Integration design with broader architecture impact
+
+Integration Specialist → Architect
+
+Examples:
+
+- system-of-record ownership;
+- enterprise middleware strategy;
+- business lifecycle ownership;
+- cross-domain orchestration;
+- major security architecture.
+
+---
+
+### Approved integration implementation
+
+Integration Specialist → Builder → Reviewer
+
+Add QA when runtime or end-to-end integration behaviour must be demonstrated:
+
+Integration Specialist → Builder → Reviewer → QA
 
 ---
 
@@ -380,12 +645,8 @@ Use the local project by default for:
 
 Prefer an isolated worktree for:
 
-- autonomous Builder work;
-- non-trivial implementation;
-- experiments;
-- parallel agents;
-- high-risk changes;
-- Architect → Builder → Reviewer workflows.
+- implementation experiments that modify repository files;
+- integration implementation changes;
 
 The routing decision and worktree decision are related but independent.
 
@@ -402,6 +663,8 @@ The task route and the Git execution environment must be evaluated separately.
 Use the local project for:
 
 - read-only investigation;
+- Analyst investigation and controlled Salesforce data PoCs;
+- Integration Specialist analysis;
 - Architect work;
 - Reviewer work;
 - QA analysis that does not require implementation;
@@ -488,6 +751,16 @@ Environment: Architect local/read-only; Builder isolated worktree
 Route: Reviewer → QA
 Environment: Local project / read-only
 
+Route: Integration Specialist
+
+Route: Analyst → Integration Specialist
+
+Route: Integration Specialist → Builder → Reviewer
+
+Route: Integration Specialist → Builder → Reviewer → QA
+
+Route: Integration Specialist → Architect → Builder → Reviewer → QA
+
 
 ## Subagent Orchestration
 
@@ -495,8 +768,12 @@ The main thread remains the orchestrator for delegated roles.
 
 Use project custom subagents for:
 - Analyst → `analyst`
+- Integration Specialist → `integration_specialist`
 - Reviewer → `reviewer`
 - QA → `qa`
+
+Architect and Builder remain parent-thread roles unless explicitly configured
+otherwise.
 
 - the main thread remains the orchestrator;
 - Reviewer should be delegated to the project `reviewer` subagent;
@@ -550,6 +827,42 @@ Do not make the parent thread repeat the Analyst investigation.
 The Analyst subagent may create or modify controlled test data in
 SinalCabo_DEV only according to CONTROLLED_TEST_DATA.md.
 
+### Integration Specialist Delegation
+
+When the selected route contains Integration Specialist:
+
+- the main thread remains the orchestrator;
+- delegate integration-domain analysis to the project
+  `integration_specialist` subagent;
+- provide:
+  - the integration requirement;
+  - systems involved when known;
+  - relevant evidence from Analyst when applicable;
+  - relevant specifications or OpenAPI files;
+  - approved project constraints;
+  - known architecture decisions;
+- wait for the INTEGRATION ASSESSMENT.
+
+After Integration Specialist returns:
+
+- INTEGRATION ASSESSMENT COMPLETE
+  → present the result and stop;
+
+- ANALYST HANDOFF
+  → delegate the required investigation to Analyst and return the evidence to
+    Integration Specialist if further assessment is still required;
+
+- ARCHITECT HANDOFF
+  → continue with Architect;
+
+- BUILDER HANDOFF
+  → continue with the appropriate Builder route;
+
+- HUMAN DECISION REQUIRED
+  → stop and request the required decision.
+
+Do not make the parent thread repeat the Integration Specialist assessment.
+
 ---
 
 ## QA Spawn Gate
@@ -598,7 +911,7 @@ mandatory prerequisites, including:
 - required device when physical mobile behaviour is mandatory.
 
 If mandatory runtime validation requires record mutation and neither explicit
-user authorization nor project-policy authorization exists::
+user authorization nor project-policy authorization exists:
 
 QA REQUIRED: YES
 QA EXECUTABLE NOW: NO
@@ -617,9 +930,9 @@ For isolated-worktree implementations:
 
 Builder
 → Reviewer
-→ QA now, when executable
-   OR
-→ QA DEFERRED
+→ either:
+  - QA now, when executable;
+  - QA DEFERRED
 → User approval for promotion
 → Promotion to Local
 
@@ -638,5 +951,33 @@ to make QA executable.
 
 Never interpret Reviewer approval as permission to modify the main checkout
 without explicit user approval.
+
+---
+
+## Routing Precedence
+
+When multiple routes appear applicable, resolve in this order:
+
+1. Missing factual evidence or unknown behaviour
+   → Analyst
+
+2. Integration-domain design uncertainty
+   → Integration Specialist
+
+3. Broader architecture or cross-domain decision
+   → Architect
+
+4. Approved implementation requirement
+   → Builder
+
+5. Existing implementation requiring independent technical validation
+   → Reviewer
+
+6. Approved implementation requiring runtime/functional evidence
+   → QA
+
+Use the lightest route that resolves the unresolved question.
+
+Do not invoke a broader role when a narrower specialist can resolve the issue.
 
 ---

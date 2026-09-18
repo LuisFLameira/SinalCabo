@@ -191,6 +191,25 @@ An org observation establishes behaviour in the current org/configuration.
 A single PoC does not automatically prove behaviour across unrelated
 configurations.
 
+## Execution Fidelity
+
+Always distinguish between:
+
+- executing the actual application behaviour;
+- directly reproducing the same record mutations;
+- inspecting metadata/configuration;
+- inferring behaviour from evidence.
+
+Do not describe simulated or reproduced DML as end-to-end execution of the
+actual Flow, Apex, LWC or mobile process.
+
+When reproducing application behaviour manually, state explicitly:
+
+REPRODUCED BEHAVIOUR
+
+and identify which parts were directly executed and which were inferred from
+metadata.
+
 ## Salesforce Documentation
 
 When behaviour may vary by release, licensing, managed package, mobile support,
