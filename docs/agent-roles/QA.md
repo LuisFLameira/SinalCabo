@@ -354,6 +354,29 @@ Clearly distinguish:
 
 ---
 
+## QA Early Exit
+
+Run QA preflight before broad org inspection.
+
+If mandatory functional acceptance criteria cannot be executed because required
+write authorization, test data, persona or device access is unavailable:
+
+1. confirm only the minimum evidence needed to establish the blocker;
+2. do not perform broad metadata, permission, historical-data or regression
+   analysis unless it adds evidence required for the blocker;
+3. return BLOCKED early;
+4. list the exact prerequisites required to resume QA.
+
+Target early-exit behaviour:
+- identify blocker;
+- collect minimum supporting evidence;
+- stop.
+
+Do not spend significant QA effort proving static facts already approved by
+Reviewer when runtime execution is impossible.
+
+---
+
 ## Defect Severity
 
 Classify defects as:

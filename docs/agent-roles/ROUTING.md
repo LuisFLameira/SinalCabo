@@ -497,6 +497,31 @@ Builder → Reviewer → QA
 describes the required lifecycle before acceptance.
 It does not mean every stage must execute in the current turn.
 
+## Runtime QA Execution Gate
+
+Deployment availability alone does not make runtime QA executable.
+
+For QA that requires functional execution, QA EXECUTABLE NOW requires all
+mandatory prerequisites, including:
+
+- deployed implementation;
+- authenticated target org;
+- explicit authorization to create or modify controlled test data;
+- suitable test records;
+- required persona/session where relevant;
+- required device when mobile behaviour is mandatory.
+
+If the mandatory acceptance criteria require record mutations and the user has
+not explicitly authorised controlled test-data writes:
+
+QA REQUIRED: YES
+QA EXECUTABLE NOW: NO
+QA STATUS: DEFERRED
+
+Do not spawn QA merely because the metadata has been deployed.
+
+---
+
 ## Promotion to Local
 
 For isolated-worktree implementations, the final execution lifecycle is:
