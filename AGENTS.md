@@ -305,6 +305,18 @@ docs/agent-roles/QA.md
 QA validates implementation independently and must not fix defects while acting
 as QA.
 
+Use the lightest role capable of answering the task:
+
+- ANALYST: investigate requirements, standard Salesforce behaviour and focused
+  PoCs.
+- ARCHITECT: resolve architecture and design decisions.
+- BUILDER: implement approved changes.
+- REVIEWER: independently review implementations.
+- QA: validate approved behaviour.
+
+For controlled sandbox test data, follow:
+docs/agent-roles/CONTROLLED_TEST_DATA.md
+
 ## Adaptive Task Routing
 
 For every non-trivial task, read:

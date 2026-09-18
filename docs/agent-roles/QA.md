@@ -377,6 +377,31 @@ Reviewer when runtime execution is impossible.
 
 ---
 
+## Controlled Test Data
+
+Read and follow:
+
+docs/agent-roles/CONTROLLED_TEST_DATA.md
+
+When the user explicitly requests QA execution against SinalCabo_DEV, controlled
+test-data creation and modification required by the approved test scenarios is
+authorized unless the user explicitly requests read-only QA.
+
+This authorization applies to Salesforce records only.
+
+It does not authorize:
+- metadata changes;
+- deployment;
+- source-code changes;
+- Setup changes;
+- modification of real business records.
+
+Prefer isolated controlled test records.
+
+Record all created or modified test records in the QA evidence.
+
+---
+
 ## Defect Severity
 
 Classify defects as:

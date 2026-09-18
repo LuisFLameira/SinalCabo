@@ -19,33 +19,43 @@ Do not produce a long routing explanation unless requested.
 
 ---
 
-# Route 1 — Read-only Investigation
+# Route 1 — Analyst
 
-Use when the user asks to:
+Use when the primary need is to investigate, understand, prove or disprove
+behaviour before architecture or implementation.
+
+Typical triggers:
 
 - understand existing behaviour;
 - troubleshoot;
-- inspect metadata;
 - inspect Salesforce data/configuration;
 - compare repository and org;
-- explain how something currently works.
+- determine whether Salesforce standard supports a requirement;
+- validate a technical hypothesis;
+- execute a focused PoC;
+- reproduce behaviour using controlled sandbox data.
 
-Default role:
+Workflow:
 
-READ-ONLY INVESTIGATOR
+Analyst
 
-Rules:
+Default mode is read-only investigation.
 
-- inspect first;
-- do not modify files or Salesforce;
-- identify whether the problem is data, configuration, permissions,
-  scheduling, optimization, mobile cache, offline priming, sync,
-  automation, code, integration or performance;
-- recommend next action after evidence is gathered.
+The Analyst may escalate to controlled PoC execution in SinalCabo_DEV according
+to CONTROLLED_TEST_DATA.md when the request authorizes testing, validation,
+reproduction or proof of behaviour.
 
-Escalate to Architect if the investigation exposes an architectural decision.
+Possible outcomes:
 
-Escalate to Builder only after the required change is sufficiently defined.
+- ANALYSIS COMPLETE
+- ARCHITECT HANDOFF
+- BUILDER HANDOFF
+- HUMAN DECISION REQUIRED
+
+Escalate to Architect when evidence exposes a design decision.
+
+Escalate to Builder only when behaviour and implementation direction are
+sufficiently defined.
 
 ---
 
@@ -117,7 +127,41 @@ behaviour must be demonstrated.
 
 ---
 
-# Route 4 — Architect → Builder → Reviewer
+# Route 4 — Builder → Reviewer → QA
+
+Use when the implementation behaviour is already explicitly approved but
+independent runtime validation is required.
+
+Typical triggers:
+
+- Field Service Mobile change with approved behaviour;
+- technician-facing Flow with approved lifecycle;
+- approved security/persona implementation;
+- approved inventory behaviour;
+- runtime-sensitive Flow/Apex/LWC change;
+- meaningful regression risk requiring functional validation;
+- implementation requiring persona, mobile, offline or end-to-end evidence.
+
+Workflow:
+
+Builder
+→ REVIEWER HANDOFF
+→ Reviewer
+→ QA HANDOFF
+→ QA when executable
+→ User acceptance
+
+Architect is not required when:
+
+- business behaviour is explicitly approved;
+- architecture is already established;
+- no unresolved design decision remains.
+
+QA may be DEFERRED according to the QA Spawn Gate.
+
+---
+
+# Route 5 — Architect → Builder → Reviewer
 
 Use when implementation requires a technical design decision before coding.
 
@@ -150,7 +194,7 @@ Do not continue to Builder until the required human decision is provided.
 
 ---
 
-# Route 5 — Architect → Builder → Reviewer → QA
+# Route 6 — Architect → Builder → Reviewer → QA
 
 Use for high-risk or behaviourally significant changes.
 
@@ -187,7 +231,7 @@ Technical review does not replace QA.
 
 ---
 
-# Route 6 — Human Decision Required
+# Route 7 — Human Decision Required
 
 Use whenever implementation depends on unresolved:
 
@@ -273,6 +317,14 @@ Use Architect first when the Flow implements an unresolved business lifecycle.
 
 FieldServiceMobile Flow changes normally require QA when technician behaviour
 or offline execution is affected.
+
+Use:
+Builder → Reviewer → QA
+when behaviour and architecture are already approved.
+
+Use:
+Architect → Builder → Reviewer → QA
+only when an unresolved lifecycle, architecture or design decision remains.
 
 ---
 
@@ -436,19 +488,24 @@ Environment: Architect local/read-only; Builder isolated worktree
 Route: Reviewer → QA
 Environment: Local project / read-only
 
-Builder → Reviewer
-Architect → Builder → Reviewer
-Architect → Builder → Reviewer → QA
-
 
 ## Subagent Orchestration
 
-When the selected route contains Reviewer or QA:
+The main thread remains the orchestrator for delegated roles.
+
+Use project custom subagents for:
+- Analyst → `analyst`
+- Reviewer → `reviewer`
+- QA → `qa`
 
 - the main thread remains the orchestrator;
 - Reviewer should be delegated to the project `reviewer` subagent;
 - QA should be delegated to the project `qa` subagent;
-- Reviewer and QA are independent, read-only roles;
+- Reviewer is independent and read-only;
+- QA is independent from Builder and Reviewer;
+- QA may create or modify controlled sandbox test data when authorized under
+  CONTROLLED_TEST_DATA.md;
+- QA must not modify implementation metadata or source code;
 - the main thread waits for each result before continuing.
 
 Execution sequence for:
@@ -467,6 +524,33 @@ is:
 
 Do not skip directly from Builder to QA.
 Do not run QA after a blocking Reviewer result.
+
+### Analyst Delegation
+
+When the selected route starts with Analyst:
+
+- the main thread remains the orchestrator;
+- delegate the investigation to the project `analyst` subagent;
+- provide:
+  - the user question or requirement;
+  - relevant known context;
+  - any explicit constraints;
+  - whether controlled PoC execution is implied by the request;
+- wait for the ANALYSIS RESULT.
+
+After Analyst returns:
+
+- ANALYSIS COMPLETE → present the result and stop;
+- ARCHITECT HANDOFF → continue with Architect;
+- BUILDER HANDOFF → continue with the appropriate Builder route;
+- HUMAN DECISION REQUIRED → stop and request the decision.
+
+Do not make the parent thread repeat the Analyst investigation.
+
+The Analyst subagent may create or modify controlled test data in
+SinalCabo_DEV only according to CONTROLLED_TEST_DATA.md.
+
+---
 
 ## QA Spawn Gate
 
@@ -504,15 +588,17 @@ Deployment availability alone does not make runtime QA executable.
 For QA that requires functional execution, QA EXECUTABLE NOW requires all
 mandatory prerequisites, including:
 
-- deployed implementation;
+- deployed implementation where deployment is required;
 - authenticated target org;
-- explicit authorization to create or modify controlled test data;
-- suitable test records;
+- authorization to create or modify controlled test data, either:
+  - provided explicitly by the user; or
+  - granted by CONTROLLED_TEST_DATA.md for the requested QA execution;
+- ability to create suitable test records;
 - required persona/session where relevant;
-- required device when mobile behaviour is mandatory.
+- required device when physical mobile behaviour is mandatory.
 
-If the mandatory acceptance criteria require record mutations and the user has
-not explicitly authorised controlled test-data writes:
+If mandatory runtime validation requires record mutation and neither explicit
+user authorization nor project-policy authorization exists::
 
 QA REQUIRED: YES
 QA EXECUTABLE NOW: NO
@@ -524,14 +610,33 @@ Do not spawn QA merely because the metadata has been deployed.
 
 ## Promotion to Local
 
-For isolated-worktree implementations, the final execution lifecycle is:
+Promotion to Local is a technical promotion step, not final functional
+acceptance.
+
+For isolated-worktree implementations:
 
 Builder
 → Reviewer
-→ QA when applicable
-→ User approval
+→ QA now, when executable
+   OR
+→ QA DEFERRED
+→ User approval for promotion
 → Promotion to Local
 
-Promotion is always a separate explicit action.
+After promotion, additional lifecycle stages may still be required:
 
-Do not interpret Reviewer approval as user approval to modify the main checkout.
+Promotion to Local
+→ deployment / runtime preparation
+→ deferred QA
+→ final user acceptance
+→ commit / merge / push
+
+Reviewer approval does not imply final user acceptance.
+
+QA DEFERRED does not prevent promotion when promotion or deployment is required
+to make QA executable.
+
+Never interpret Reviewer approval as permission to modify the main checkout
+without explicit user approval.
+
+---
