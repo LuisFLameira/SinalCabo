@@ -468,26 +468,31 @@ is:
 Do not skip directly from Builder to QA.
 Do not run QA after a blocking Reviewer result.
 
-## QA Required vs QA Executable
+## QA Spawn Gate
 
-Distinguish:
+Before spawning the `qa` subagent, the parent must answer:
 
-QA REQUIRED
-= functional validation is required before final acceptance.
+QA REQUIRED?
+QA EXECUTABLE NOW?
 
-QA EXECUTABLE NOW
-= the environment and evidence required to perform meaningful QA are available.
+Examples:
 
-A route may therefore be:
+FieldServiceMobile change with:
+- no deployment allowed;
+- no runtime org execution;
+- no physical mobile device;
+
+Result:
+
+QA REQUIRED: YES
+QA EXECUTABLE NOW: NO
+QA STATUS: DEFERRED
+
+Do not spawn the QA subagent.
+
+A route such as:
 
 Builder → Reviewer → QA
 
-while the current execution ends after Reviewer with:
-
-QA DEFERRED
-
-This is correct when QA prerequisites are unavailable.
-
-Do not spawn QA merely because QA appears in the route.
-Spawn QA only when it can produce meaningful new evidence or when the user
-explicitly requests QA execution now.
+describes the required lifecycle before acceptance.
+It does not mean every stage must execute in the current turn.

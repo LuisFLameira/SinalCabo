@@ -423,92 +423,53 @@ After implementation and local validation:
 If Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS,
 continue according to ROUTING.md.
 
+---
+
 ## Automatic QA Delegation
 
-### QA Execution Gate
+After Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS:
 
-A route containing QA means that QA is required before final acceptance.
+1. Determine whether QA is REQUIRED.
+2. Determine separately whether QA is EXECUTABLE NOW.
 
-It does NOT mean QA must always be executed immediately.
+### QA REQUIRED
 
-Before spawning the `qa` subagent, determine whether QA can produce new evidence.
+QA is required when the selected route contains QA.
 
-Spawn QA now when the required validation environment is available, for example:
+This means QA must eventually occur before final acceptance.
 
-- deployed or otherwise executable implementation;
-- required Salesforce org access;
-- required test data;
-- relevant personas;
-- integration dependencies where applicable;
-- mobile/device access when required.
+### QA EXECUTABLE NOW
 
-If mandatory QA depends on capabilities that are currently unavailable:
+Before spawning the `qa` subagent, the parent agent must evaluate whether
+the mandatory acceptance criteria can produce new runtime evidence in the
+current execution context.
 
-DO NOT spawn the QA subagent.
+If the user explicitly prohibits deployment, org writes or device/mobile
+execution, and mandatory QA criteria depend on those capabilities:
 
-Instead:
+QA MUST BE DEFERRED WITHOUT SPAWNING THE QA SUBAGENT.
 
-1. preserve the QA HANDOFF;
-2. report:
+Consider:
 
-   QA DEFERRED
+- Is deployment/runtime execution authorised?
+- Is the required Salesforce org accessible?
+- Is the implementation actually present in that org?
+- Are required personas/users available?
+- Is required test data available?
+- Is browser/runtime execution permitted?
+- Is a physical Field Service Mobile device available when required?
+- Can offline/reconnect/sync behaviour actually be exercised?
 
-3. list the prerequisites required to execute QA;
-4. mark the implementation as not yet ready for UAT where those tests are mandatory.
+If any mandatory acceptance criterion depends on capabilities explicitly
+unavailable in the current task, DO NOT spawn the QA subagent.
 
-Examples:
+Return instead:
 
-QA DEFERRED
-Required:
-- validation/deployment to SinalCabo_DEV;
-- Contractor Mobile Worker;
-- Android Field Service Mobile device;
-- offline/reconnect test.
+QA REQUIRED: YES
+QA EXECUTABLE NOW: NO
+QA STATUS: DEFERRED
 
-Do not spend a QA subagent run merely to rediscover that these prerequisites
-are unavailable.
+Then list the exact prerequisites required to resume QA.
 
-After the reviewer subagent returns:
-
-### If Reviewer returns CHANGES REQUIRED or BLOCKED
-
-- do not spawn QA;
-- summarize the findings;
-- stop;
-- return the implementation to Builder or escalate according to the review outcome.
-
-### If Reviewer returns APPROVED or APPROVED WITH MINOR FINDINGS
-
-Check the selected route in ROUTING.md.
-
-If the selected route includes QA:
-
-1. read the QA HANDOFF returned by the reviewer;
-2. spawn the project custom subagent `qa`;
-3. provide the QA subagent with:
-   - the implementation objective;
-   - approved behaviour;
-   - acceptance criteria;
-   - QA HANDOFF;
-   - current worktree/repository state;
-   - validation already performed;
-4. wait for the QA result;
-5. do not modify implementation while QA is running.
-
-If QA returns:
-
-- PASS:
-  summarize implementation, review and QA evidence and stop for user approval.
-
-- PASS WITH MINOR DEFECTS:
-  summarize defects and stop for user decision.
-
-- FAIL:
-  identify whether the defect must return to Builder, Reviewer, Architect or
-  human decision according to the QA outcome.
-
-- BLOCKED:
-  clearly state what runtime access, deployment, test data, device or human
-  action is required.
-
-Do not claim end-to-end validation when QA reports scenarios as NOT TESTED.
+The parent agent may perform trivial zero-cost structural checks itself,
+but must not launch QA merely to produce a predictable BLOCKED result.

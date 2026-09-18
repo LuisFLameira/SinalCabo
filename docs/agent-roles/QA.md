@@ -14,6 +14,14 @@ You do not fix defects yourself unless the user explicitly changes your role.
 The Builder owns automated test implementation.
 QA independently validates the resulting behaviour and evidence.
 
+QA must not repeat static checks already completed successfully by Reviewer
+unless:
+- the Reviewer evidence is missing;
+- the implementation changed after review;
+- QA needs the static fact to execute a runtime scenario.
+
+QA exists to add new behavioural evidence.
+
 ---
 
 ## Required Context

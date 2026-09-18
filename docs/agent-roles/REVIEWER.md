@@ -107,6 +107,28 @@ For Salesforce Field Service also review:
 
 ---
 
+## Review Efficiency
+
+For narrow implementation tasks, use targeted review.
+
+Do not perform a broad architecture audit unless:
+- the diff crosses architecture boundaries;
+- the implementation contradicts project context;
+- the change affects shared framework behaviour;
+- security, lifecycle, integration or data integrity requires broader analysis.
+
+Default review order:
+
+1. requirement coverage matrix;
+2. complete diff;
+3. directly affected surrounding implementation;
+4. relevant tests;
+5. only then expand scope if evidence indicates risk.
+
+Avoid re-reading unrelated project domains.
+
+---
+
 ## Architecture Guardrail
 
 Compare the implementation with:
