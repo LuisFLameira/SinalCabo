@@ -1,15 +1,23 @@
 # Controlled Sandbox Test Data Policy
 
-This policy applies to project agents that are explicitly allowed to create or
-modify controlled test data in Salesforce.
+This policy applies to agents that are explicitly allowed to create or modify
+controlled test data in the active Salesforce project.
 
-Target org:
+## Target Environment
 
-SinalCabo_DEV
+The target environment must be resolved from the active project's:
 
-This authorization applies only to sandbox test data.
-It does not authorize metadata changes, deployment, production access or
-modification of real project data.
+- AGENTS.md;
+- PROJECT_CONTEXT.md;
+- explicit project configuration;
+- or direct user instruction.
+
+Never assume a Salesforce org alias.
+
+Controlled test-data writes are allowed only in an explicitly authorized
+non-production environment.
+
+Production data mutation is never authorized by this policy.
 
 ## Purpose
 
@@ -35,7 +43,7 @@ If the user explicitly asks to:
 - validate;
 - reproduce;
 - perform a PoC;
-- investigate behaviour using SinalCabo_DEV;
+- investigate behaviour using the active project's authorized test environment;
 
 the Analyst is authorised to create or modify controlled test data required for
 that investigation.
@@ -44,11 +52,15 @@ If the user only asks for analysis or explanation, start read-only.
 Ask for authorization before creating test data if mutation is not clearly
 implied by the request.
 
+If the user explicitly asks to test, prove, validate, reproduce or perform a PoC
+in the active project's authorized test environment, the Analyst may create the
+minimum controlled test data required by the investigation.
+
 ### QA
 
-When the user explicitly asks to execute QA against SinalCabo_DEV, QA is
-authorised to create and modify controlled test data required by the approved
-test scenarios unless the user explicitly requests read-only QA.
+When the user explicitly requests QA execution against the active project's
+authorized test environment, QA may create or modify controlled test data
+required by the approved scenarios unless project instructions prohibit it.
 
 ## Allowed
 

@@ -1,352 +1,225 @@
-# AGENTS.md
+# SinalCabo Project Instructions
 
-## Project Context
+These instructions apply only to the SinalCabo project.
 
-For any non-trivial SinalCabo task, read:
+Global working principles, role routing and reusable Salesforce engineering
+standards are defined in:
 
-docs/PROJECT_CONTEXT.md
+~/.codex/AGENTS.md
 
-before proposing or implementing changes.
+---
 
-PROJECT_CONTEXT.md is a point-in-time project snapshot and must not be assumed
-to be newer than the authoritative project decisions in Google Drive.
+## 1. Project Bootstrap
 
-If a task depends on a potentially newer business or architectural decision,
-request or use current project documentation before implementation.
+For non-trivial SinalCabo work, read:
 
-This repository contains a Salesforce implementation.
+- docs/PROJECT_CONTEXT.md
+- applicable repository evidence
+- project-specific documents referenced by PROJECT_CONTEXT.md
 
-Primary domains may include:
-- Salesforce Field Service
-- Service Cloud
-- Apex
-- Lightning Web Components
-- Flow
-- Salesforce metadata
+Do not import assumptions from other projects.
+
+---
+
+## 2. Salesforce Environment
+
+Primary development environment:
+
+SinalCabo_DEV
+
+For Salesforce CLI operations use:
+
+--target-org SinalCabo_DEV
+
+Do not use another org unless explicitly instructed.
+
+Production writes are not authorized by this file.
+
+---
+
+## 3. Project Domain
+
+This project uses Salesforce Field Service.
+
+Relevant domains include, where applicable:
+
+- Work Orders
+- Work Order Line Items
+- Service Appointments
+- Work Types
+- Work Plans
+- Work Steps
+- Service Territories
+- Service Resources
+- skills
+- crews
+- scheduling
+- optimization
+- mobile
+- offline
+- inventory
+- Assets
+- Locations
+- products and material consumption
 - integrations
-- security
-- DevOps
 
-Always inspect the existing implementation before proposing or applying changes.
-
-Do not assume Salesforce objects, fields, statuses, APIs, metadata types or Field Service capabilities exist unless confirmed in:
-1. the repository;
-2. the authenticated Salesforce org;
-3. official Salesforce documentation.
+Apply Field Service-specific global guidance from ~/.codex/AGENTS.md and the
+relevant global playbook.
 
 ---
 
-## Salesforce CLI
+## 4. Mobile and Offline
 
-Use Salesforce CLI for org interaction.
+Technician-facing functionality must be evaluated offline-first.
 
-Always use an explicit target org.
+When applicable, consider:
 
-Examples:
-
-sf project retrieve start --target-org <alias>
-sf project deploy start --target-org <alias>
-sf apex run test --target-org <alias>
-
-Never assume the default org is the intended target.
-
-Before changing an org:
-1. identify the target org;
-2. inspect existing metadata;
-3. explain the intended change;
-4. make the smallest necessary modification;
-5. validate;
-6. review the resulting diff.
-
----
-
-## Environment Safety
-
-### GREEN
-Developer or disposable sandbox.
-
-Allowed:
-- retrieve metadata;
-- create test data;
-- execute SOQL;
-- run tests;
-- validate metadata;
-- deploy approved development changes.
-
-### AMBER
-Shared test, QA, UAT or integration environment.
-
-Before writes:
-- explain what will change;
-- avoid destructive operations;
-- avoid uncontrolled test data;
-- preserve existing configuration.
-
-### RED
-Production.
-
-Never without explicit user approval:
-- deploy metadata;
-- modify records;
-- delete records;
-- run data-fixing Anonymous Apex;
-- change permissions;
-- create test data;
-- perform destructive operations.
-
-Prefer read-only investigation.
-
----
-
-## Salesforce Development
-
-Prefer, when appropriate:
-
-1. standard Salesforce configuration;
-2. Flow;
-3. invocable Apex;
-4. Apex;
-5. LWC;
-6. external integration.
-
-Do not force declarative solutions when they create worse architecture.
-
-For Apex review:
-- bulkification;
-- governor limits;
-- CRUD/FLS;
-- sharing;
-- transaction boundaries;
-- recursion;
-- idempotency;
-- concurrency;
-- retries;
-- logging;
-- testability.
-
-For Flow review:
-- entry criteria;
-- bulk behaviour;
-- recursion;
-- fault paths;
-- transaction behaviour;
-- mobile compatibility;
-- offline behaviour.
-
-For SOQL:
-- avoid queries in loops;
-- consider selectivity and volume;
-- never hardcode RecordType IDs;
-- inspect assumptions about Record Types.
-
----
-
-## Salesforce Field Service
-
-Always distinguish:
-
-- Work Order = work to execute
-- Work Order Line Item = detailed work
-- Service Appointment = schedulable visit
-- Assigned Resource = assignment
-- Service Resource = worker, crew or other resource
-
-For scheduling distinguish:
-- eligibility;
-- feasibility;
-- optimization.
-
-Treat:
-- Work Rules primarily as constraints;
-- Service Objectives primarily as weighted goals.
-
-For mobile functionality use an offline-first approach.
-
-Always consider:
 - offline priming;
-- cache;
-- sync;
+- cached related data;
+- mobile permissions;
+- draft behaviour;
+- synchronization;
 - conflicts;
 - retries;
-- related data availability;
-- mobile Flow limitations;
-- offline LWC limitations;
-- permissions;
-- sharing.
+- record availability;
+- mobile Flow support;
+- LWC compatibility;
+- actual Field Service Mobile behaviour.
 
 Do not assume desktop behaviour equals Field Service Mobile behaviour.
 
----
-
-## Metadata
-
-Before modifying metadata:
-- inspect existing metadata;
-- preserve naming conventions;
-- preserve unrelated settings;
-- avoid rewriting whole XML files unnecessarily.
-
-For Flow metadata:
-- do not guess XML structures;
-- prefer metadata retrieved from Salesforce as the source of truth;
-- validate processType-specific restrictions;
-- explicitly verify FieldServiceMobile limitations.
-
-When custom fields are created:
-- provide a useful Description;
-- provide Help Text where appropriate.
+Do not claim mobile/offline validation unless the real execution path was
+tested.
 
 ---
 
-## Testing
+## 5. Work Order and Service Appointment
 
-After implementation:
+Treat Work Order and Service Appointment as distinct lifecycle entities.
 
-1. run git status;
-2. inspect git diff;
-3. validate metadata;
-4. run relevant Apex tests;
-5. test positive and negative scenarios;
-6. test mobile/offline scenarios when relevant;
-7. confirm no unrelated metadata changed.
+Do not assume:
 
-Do not claim something works unless it was actually validated.
+- completing a Service Appointment completes the Work Order;
+- completing a Work Order completes all Service Appointments;
+- status transitions propagate automatically;
 
-Always distinguish:
-- validated;
-- inferred;
-- not tested.
+unless confirmed by standard Salesforce behaviour, configuration or project
+automation.
+
+Inspect actual automation before making lifecycle conclusions.
 
 ---
 
-## Git
+## 6. Integration Context
 
-Before changes:
+The project includes external-system integration.
 
-git status
+Use docs/PROJECT_CONTEXT.md and current project evidence to determine:
 
-After changes:
+- systems involved;
+- system-of-record ownership;
+- API direction;
+- triggers;
+- payloads;
+- retry behaviour;
+- reconciliation;
+- operational ownership.
 
-git diff
+Do not assume external-system behaviour not confirmed by project evidence.
 
-Do not overwrite unrelated local changes.
-
-Do not commit unless explicitly requested.
-
-Never push unless explicitly requested.
-
-Never force-push.
-
----
-
-## Research Priority
-
-For Salesforce behaviour prefer:
-
-1. authenticated target org;
-2. existing repository;
-3. Salesforce Help;
-4. Salesforce Developer documentation;
-5. Salesforce Object Reference;
-6. Salesforce Release Notes;
-7. Salesforce Architects;
-8. Salesforce Known Issues.
-
-Do not use random public repositories as the primary source for Salesforce metadata syntax when Salesforce-generated metadata can be retrieved.
+Use the global Integration Specialist when integration-domain uncertainty is
+the primary issue.
 
 ---
 
-## Working Method
+## 7. Controlled Test Data
 
-For non-trivial changes:
+Controlled test data may be created only according to:
 
-1. inspect;
-2. explain findings;
-3. propose a plan;
-4. identify risks;
-5. implement;
-6. validate;
-7. review the diff;
-8. summarize exactly what changed.
+~/.codex/playbooks/CONTROLLED_TEST_DATA.md
 
-If the requirement is ambiguous and materially affects architecture, ask before implementing.
+and any stricter SinalCabo-specific restrictions documented in
+docs/PROJECT_CONTEXT.md or other explicit project instructions.
 
-For small, unambiguous changes, proceed directly but still validate.
+Use only SinalCabo_DEV unless explicitly instructed otherwise.
 
-Do not introduce unnecessary abstraction or custom code.
+Create the minimum data required for the investigation.
 
-## Agent Roles
+Clean up temporary test records when appropriate.
 
-For architecture, design, ambiguity or cross-domain technical decisions, read:
+---
 
-docs/agent-roles/ARCHITECT.md
+## 8. Project Evidence
 
-When acting as Architect, follow that role before producing implementation guidance.
+For project-specific conclusions, prefer current authoritative evidence.
 
-For implementation tasks, read:
+Use, where relevant:
 
-docs/agent-roles/BUILDER.md
+1. confirmed project decisions;
+2. Decision Log;
+3. PROJECT_CONTEXT.md;
+4. latest validated project documentation;
+5. current Salesforce metadata/data/runtime evidence;
+6. meeting outcomes;
+7. working documents;
+8. assumptions.
 
-When a BUILDER HANDOFF is provided, treat it as the implementation contract.
-Do not reinterpret unresolved architecture while acting as Builder.
+Distinguish clearly:
 
-For implementation review, Git diff review, regression analysis or validation of Builder output, read:
+- Confirmed Decision
+- Project Fact
+- Repository Fact
+- Runtime Evidence
+- Assumption
+- Open Point
+- Superseded
 
-docs/agent-roles/REVIEWER.md
+Do not convert working hypotheses into confirmed project decisions.
 
-When a REVIEWER HANDOFF is provided, review the implementation independently.
-Do not modify the implementation while acting as Reviewer.
+---
 
-For functional validation, acceptance testing, regression testing,
-mobile/offline testing, persona/security validation or end-to-end validation, read:
+## 9. Safe Change Behaviour
 
-docs/agent-roles/QA.md
+Before implementation:
 
-QA validates implementation independently and must not fix defects while acting
-as QA.
+- confirm the target component;
+- inspect current metadata;
+- confirm dependencies;
+- confirm expected behaviour;
+- understand mobile/offline impact where applicable.
 
-Use the lightest role capable of answering the task:
+For meaningful implementation changes, prefer an isolated worktree.
 
-- ANALYST: investigate requirements, standard Salesforce behaviour and focused
-  PoCs.
-- ARCHITECT: resolve architecture and design decisions.
-- BUILDER: implement approved changes.
-- REVIEWER: independently review implementations.
-- QA: validate approved behaviour.
+Do not modify unrelated components.
 
-For controlled sandbox test data, follow:
-docs/agent-roles/CONTROLLED_TEST_DATA.md
+Do not deploy broader metadata than required.
 
-## Adaptive Task Routing
+---
 
-For every non-trivial task, read:
+## 10. Project-Specific Escalation
 
-docs/agent-roles/ROUTING.md
+Use global routing from:
 
-Select the lightest safe workflow based on ambiguity, risk and required validation.
+~/.codex/playbooks/ROUTING.md
 
-Do not require the user to manually orchestrate Architect, Builder, Reviewer and QA.
+Examples for this project:
 
-When routing selects a role, read and follow the corresponding role file:
+Unknown Field Service behaviour
+→ Analyst
 
-- Architect: docs/agent-roles/ARCHITECT.md
-- Builder: docs/agent-roles/BUILDER.md
-- Reviewer: docs/agent-roles/REVIEWER.md
-- QA: docs/agent-roles/QA.md
+Uncertain external-system integration pattern
+→ Integration Specialist
 
-If implementation is blocked by an unresolved human decision, stop rather than
-inventing the decision.
+Unresolved architectural decision
+→ Architect
 
-## Context Loading Efficiency
+Approved implementation
+→ Builder
 
-Do not repeatedly read large project-context files in full when the task is
-narrow.
+Independent technical review
+→ Reviewer
 
-Prefer:
-1. inspect headings;
-2. search for relevant concepts;
-3. read only relevant sections;
-4. expand context only when needed.
+Executable functional/mobile validation
+→ QA
 
-Architecture quality takes precedence over token savings, but unnecessary
-context repetition should be avoided.
+Do not spawn additional roles unless they add materially different evidence.
